@@ -49,7 +49,7 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.5')
+        .version('2.0.6')
         .option('-m, --mode <type>', 'Vector de ataque: "local" o "clone"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
         .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Parásito)')
@@ -67,7 +67,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.5`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.6`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -199,16 +199,24 @@ async function run(): Promise<void> {
         
         spinner.start('Restaurando dependencias y configuraciones...');
         try {
+            // Restaurar package.json para recuperar scripts y versiones exactas
+            const pkgBakPath = path.join(TARGET_DIR, 'package.json.aumic-bak');
+            if (fs.existsSync(pkgBakPath)) {
+                fs.copyFileSync(pkgBakPath, path.join(TARGET_DIR, 'package.json'));
+                fs.removeSync(pkgBakPath);
+            }
+
             ['tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs', 'tailwind.config.mjs'].forEach(conf => {
                 const bakPath = path.join(TARGET_DIR, `${conf}.aumic-bak`);
                 if (fs.existsSync(bakPath)) {
                     fs.renameSync(bakPath, path.join(TARGET_DIR, conf));
                 }
             });
-            execSync('npm install tailwindcss postcss', { cwd: TARGET_DIR, stdio: 'ignore' });
-            spinner.succeed('Tailwind CSS ha sido reinstalado y los backups de config fueron restaurados.');
+            // Al usar install genérico, npm leerá el package.json restaurado que contiene la versión exacta
+            execSync('npm install', { cwd: TARGET_DIR, stdio: 'ignore' });
+            spinner.succeed('Entorno restaurado: Tailwind y dependencias rehidratadas exactamente como estaban.');
         } catch (e) {
-            spinner.warn('Tailwind reinstalado, pero hubo un problema restaurando los configs.');
+            spinner.warn('Hubo un problema reinstalando dependencias desde el package.json restaurado.');
         }
         
         console.log(pc.green(pc.bold(`\n[✔] PROYECTO RESTAURADO CON ÉXITO A SU ESTADO ORIGINAL.\n`)));
@@ -393,6 +401,12 @@ async function run(): Promise<void> {
     if (answers.mode === 'local' && answers.eradicate !== false) {
         spinner.start(pc.red('Fase 5: Erradicando dependencias de Tailwind...'));
         try {
+            // Backup total de package.json para poder restaurar exactamente las mismas versiones y scripts
+            const pkgPath = path.join(TARGET_DIR, 'package.json');
+            if (fs.existsSync(pkgPath)) {
+                fs.copyFileSync(pkgPath, `${pkgPath}.aumic-bak`);
+            }
+
             ['tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs', 'tailwind.config.mjs'].forEach(conf => {
                 const confPath = path.join(TARGET_DIR, conf);
                 if (fs.existsSync(confPath)) {
@@ -400,13 +414,13 @@ async function run(): Promise<void> {
                 }
             });
             execSync('npm uninstall tailwindcss postcss @tailwindcss/postcss', { cwd: TARGET_DIR, stdio: 'ignore' });
-            spinner.succeed(pc.green('Tailwind ha sido purgado completamente. (Configuraciones respaldadas en .aumic-bak)'));
+            spinner.succeed(pc.green('Tailwind ha sido purgado completamente. (Configuraciones y package.json respaldados en .aumic-bak)'));
         } catch (e) {
             spinner.warn('Fallo menor en desinstalación (probablemente ya no existía en el package.json).');
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.5)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.6)\n`)));
 }
 
 run().catch(console.error);
