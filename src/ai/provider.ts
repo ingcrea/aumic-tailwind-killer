@@ -2,6 +2,7 @@ export type AIProvider = 'gemini' | 'openai' | 'claude' | 'deepseek' | 'xai' | '
 
 export interface SemanticsRequest {
     utilities: string[];
+    customRules?: string;
 }
 
 export interface SemanticResponse {
@@ -42,7 +43,12 @@ export class AIEngine {
     }
 
     public async generateSemanticNames(request: SemanticsRequest): Promise<SemanticResponse> {
-        const systemPrompt = "Eres un Arquitecto CSS AUM-IC. Te daré un array JSON de cadenas de utilidades de Tailwind. Devuelve un objeto JSON donde la clave es la cadena exacta de Tailwind, y el valor es un nombre de clase semántico BEM corto que empiece con 'aumic-' (ej: 'aumic-btn--primary', 'aumic-card__header'). Responde ÚNICAMENTE con el objeto JSON válido, sin bloques de código markdown ni texto adicional.";
+        let systemPrompt = "Eres un Arquitecto CSS AUM-IC. Te daré un array JSON de cadenas de utilidades de Tailwind. Devuelve un objeto JSON donde la clave es la cadena exacta de Tailwind, y el valor es un nombre de clase semántico BEM corto que empiece con 'aumic-' (ej: 'aumic-btn--primary', 'aumic-card__header'). Responde ÚNICAMENTE con el objeto JSON válido, sin bloques de código markdown ni texto adicional.";
+        
+        if (request.customRules) {
+            systemPrompt += `\n\nREGLAS PERSONALIZADAS DE LA EMPRESA/DESARROLLADOR:\n${request.customRules}\nDEBES DAR PRIORIDAD ABSOLUTA A ESTAS REGLAS EN EL RENOMBRAMIENTO.`;
+        }
+
         const userContent = JSON.stringify(request.utilities);
 
         let jsonRaw = '';
