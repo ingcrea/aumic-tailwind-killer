@@ -6,7 +6,7 @@ El motor destructivo definitivo para erradicar Tailwind CSS de cualquier proyect
 * **Interceptor Híbrido AST + Regex**: Destripa de forma segura la lógica interna de React (JSX/TSX), Astro, Vue, Svelte, Python (Jinja), Rust (Tera), PHP (Blade) y Go.
 * **Modo Parásito (Web Clone)**: Clona cualquier página web pública desde una URL **(exclusivo para sitios construidos con Tailwind CSS)**, descarga sus assets, reescribe los enlaces a formato local estático, e intercepta su CSS para inyectar la doctrina [AUM-IC](https://github.com/ingcrea/aum-ic). El motor cuenta con un escáner de firmas y abortará la misión automáticamente si la web objetivo no utiliza Tailwind.
 * **Inteligencia Artificial Semántica**: (Opcional) Renombra los hashes criptográficos por nombres de clase semánticos BEM legibles utilizando APIs unificadas de OpenAI, Claude, Gemini, DeepSeek, xAI o Alibaba.
-* **Modo Interactivo y CLI Avanzado**: Apto para desarrolladores Noob (UI con Inquirer) o para DevSecOps avanzados (Flags CLI).
+* **Modo Interactivo y CLI Avanzado**: Interfaz de control dual. Utiliza el asistente interactivo (Inquirer UI) para misiones asistidas de alta velocidad, o toma el control absoluto mediante banderas (Flags CLI) para integraciones directas en pipelines DevSecOps y CI/CD.
 * **Protocolo de Erradicación**: Borra automáticamente dependencias, configuraciones y rastros de Tailwind en `package.json`.
 
 ## 💻 Uso
