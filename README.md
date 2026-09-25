@@ -4,7 +4,7 @@ El motor destructivo definitivo para erradicar Tailwind CSS de cualquier proyect
 
 Arquitectura pragmática construida por y para desarrolladores reales hartos de la deuda técnica de las clases utilitarias.
 
-## 🚀 Las 11 Armas Letales (Características)
+## 🚀 Las 12 Armas Letales (Características)
 
 1. **Zero-Bloat JIT Interceptor**: No generamos CSS a ciegas. Instanciamos el compilador nativo de Tailwind en memoria, permitimos que optimice y de-duplique el CSS con su algoritmo nativo, y luego secuestramos el resultado para inyectar nuestra nomenclatura. Resultado: **Cero inflación de código**, CSS matemáticamente perfecto.
 2. **Interceptor Agnóstico Universal**: Destripa de forma segura la lógica interna de React, Astro, Vue, Svelte, Python, Rust, PHP y Go sin importar si el framework actualiza su sintaxis mañana.
@@ -16,8 +16,8 @@ Arquitectura pragmática construida por y para desarrolladores reales hartos de 
 8. **Inteligencia Artificial Semántica (Ollama y Cloud)**: Bautiza las clases criptográficas a nombres BEM legibles conectando con OpenAI, Claude, Gemini, DeepSeek, xAI, Alibaba o **Ollama** (Modelos 100% locales en tu propia GPU sin costo).
 9. **Inyección de Reglas Personalizadas (.aumicrc.json)**: Control absoluto sobre la IA. Coloca este archivo en tu raíz para obligar al LLM a seguir directivas de nombrado BEM personalizadas de tu equipo o empresa.
 10. **Simulador de Impacto (Dry-Run Profiler)**: Usa el flag `--simulate` para ejecutar un escaneo táctico en frío. No altera archivos, sino que genera un Dashboard HTML (`aumic-report.html`) mostrándote el impacto exacto de las clases detectadas y cómo serán erradicadas.
-12. **Arquitecturas de Salida M�ltiples (Output Targets)**: AUM-IC no te amarra. Genera SCSS modular AUM-IC, CSS Global, o transmuta tu c�digo de React a **CSS Modules** nativos o **Styled Components** (CSS-in-JS). Nos adaptamos al ecosistema.
-11. **Rollback Absoluto (Modo Restauración)**: ¿Te arrepentiste o algo falló? El motor usa el mapa criptográfico generado (`aumic-lock.json`) y sus backups ocultos (`.aumic-bak`) para restaurar todo el código, resucitar tu `package.json` exacto (con todos sus scripts intactos) y reinstalar la versión exacta de Tailwind que estabas usando.
+11. **Arquitecturas de Salida Múltiples (Output Targets)**: AUM-IC no te amarra. Genera SCSS modular AUM-IC, CSS Global, o transmuta tu código de React a **CSS Modules** nativos o **Styled Components** (CSS-in-JS). Nos adaptamos al ecosistema.
+12. **Rollback Absoluto (Modo Restauración)**: ¿Te arrepentiste o algo falló? El motor usa el mapa criptográfico generado (`aumic-lock.json`) y sus backups ocultos (`.aumic-bak`) para restaurar todo el código, resucitar tu `package.json` exacto (con todos sus scripts intactos) y reinstalar la versión exacta de Tailwind que estabas usando.
 
 ## 💻 Uso
 
@@ -30,8 +30,8 @@ npx aumic-tailwind-killer
 ### Modo CLI Avanzado (Operaciones Desatendidas)
 Para integraciones directas en pipelines de CI/CD, puedes saltar la interfaz pasando flags:
 ```bash
-# Modo Local: Transmutar proyecto en disco, sin IA, salida modular
-npx aumic-tailwind-killer --mode local -t ./mi-proyecto -o modular
+# Modo Local: Transmutar proyecto en disco, sin IA, salida SCSS modular AUM-IC
+npx aumic-tailwind-killer --mode local -t ./mi-proyecto -o aumic
 
 # Ataque Quirúrgico: Migrar solo componentes de UI (Sin desinstalar Tailwind)
 npx aumic-tailwind-killer --mode surgical --scope "src/components/ui/**/*.tsx" --no-eradicate
@@ -55,7 +55,7 @@ npx aumic-tailwind-killer --mode restore
 * `-d, --depth <depth>`: `page` (solo la URL) o `site` (toda la web recursiva).
 * `-s, --scope <path>`: Glob path para ataques quirúrgicos incrementales (ej. `src/**/*.tsx`).
 * `-t, --target <dir>`: Directorio raíz de destino.
-* -o, --output <type>: umic (SCSS AUM-IC), global, css-modules (React/Next), styled-components (CSS-in-JS).
+* `-o, --output <type>`: `aumic` (SCSS AUM-IC), `global`, `css-modules` (React/Next), `styled-components` (CSS-in-JS).
 * `--simulate`: Activa el simulador Dry-Run y emite el `aumic-report.html`.
 * `--ai <provider>`: Motor IA: `openai`, `claude`, `gemini`, `deepseek`, `xai`, `alibaba`, `ollama`.
 * `--key <token>`: Llave de la API (solo existe en RAM durante la ejecución).

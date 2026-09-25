@@ -30,8 +30,8 @@ Sabemos que borrar Tailwind y reescribir clases de todo un proyecto asusta. Por 
 Si la mutaci√≥n final no te convence, el **Modo Restauraci√≥n** usa estos mapas como un "Control Z" maestro. Restaura todo tu c√≥digo fuente original, resucita tu `package.json` exacto (con todos sus scripts) y ejecuta una reinstalaci√≥n pura. Cero riesgo de p√©rdida de datos.
 
 ## 8. Arquitectura de Salida Universal (Output Targets)
-AUM-IC no fuerza tu proyecto a una estructura ˙nica. Entendemos que el frontend es vasto y cada ecosistema exige su propio formato. Por ello, el motor est· diseÒado con m˙ltiples vectores de salida:
-- **SCSS Modular AUM-IC**: Nuestra recomendaciÛn. Exporta en SCSS segmentando ·tomos y molÈculas. Ideal para proyectos agnÛsticos o globales.
-- **CSS Global**: Todo en un solo archivo para inyecciÛn r·pida y Legacy.
-- **Astro Nativo**: Respeta las etiquetas <style> encapsuladas (Manejado implÌcitamente por la arquitectura del framework objetivo).
-- **CSS Modules y Styled Components (Beta)**: Exclusivo para desarrolladores atados al ecosistema React/Next.js. Genera archivos .module.css locales o transmuta Tailwind directamente a objetos JS de \styled-components\, eliminando los archivos CSS externos.
+AUM-IC no fuerza tu proyecto a una estructura √∫nica. Entendemos que el frontend es vasto y cada ecosistema exige su propio formato. Por ello, el motor est√° dise√±ado con m√∫ltiples vectores de salida:
+- **SCSS Modular AUM-IC**: Nuestra recomendaci√≥n. Exporta en SCSS segmentando √°tomos y mol√©culas. Ideal para proyectos agn√≥sticos o globales.
+- **CSS Global**: Todo en un solo archivo para inyecci√≥n r√°pida y Legacy.
+- **Astro Nativo**: Respeta las etiquetas `<style>` encapsuladas (Manejado impl√≠citamente por la arquitectura del framework objetivo).
+- **CSS Modules y Styled Components (Beta)**: Exclusivo para desarrolladores atados al ecosistema React/Next.js. Genera archivos `.module.css` locales o transmuta Tailwind directamente a objetos JS de `styled-components`, eliminando los archivos CSS externos.
