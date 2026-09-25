@@ -1,6 +1,6 @@
 {
   "name": "aumic-tailwind-killer",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Transpilador de Tailwind a CSS3 puro bajo estándar AUM-IC",
   "main": "dist/index.js",
   "bin": {

@@ -2,7 +2,7 @@
 
 ## 1. Filosofía [AUM-IC](https://github.com/ingcrea/aum-ic)
 Seamos sinceros: Tailwind CSS es brutalmente rápido para prototipar, pero a la larga te deja el HTML lleno de basura y una "sopa de clases" inmanejable. Rompe la escalabilidad real porque dificulta la reutilización limpia de componentes y mezcla la estructura (HTML) con la capa de presentación (CSS).
-[AUM-IC](https://github.com/ingcrea/aum-ic) (Atomic Universal Modeling - Ingeniería Creativa) es nuestro estándar interno para devolverle la cordura al desarrollo web. Creemos que los estilos deben ser escalables, limpios y respetar una jerarquía lógica: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
+[AUM-IC](https://github.com/ingcrea/aum-ic) (Modelado Universal Atómico - Ingeniería Creativa) es nuestro estándar interno para devolverle la cordura al desarrollo web. Creemos que los estilos deben ser escalables, limpios y respetar una jerarquía lógica: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
 Como desarrolladores, nos cansamos de lo infernal y tedioso que resulta migrar o mutar un proyecto amarrado a Tailwind para pasarlo a CSS puro. Creamos este motor destructivo exactamente para automatizar ese dolor: extraer las utilidades, purgar el framework y generar un CSS estandarizado que cumpla obligatoriamente con nuestras directivas AUM-IC para los que vengan detrás.
 
 ## 2. Determinismo Criptográfico (Zero-Trust)

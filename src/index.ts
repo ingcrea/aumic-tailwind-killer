@@ -60,7 +60,7 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.8')
+        .version('2.0.9')
         .option('-m, --mode <type>', 'Vector de ataque: "local", "clone", o "restore"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
         .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Parásito)')
@@ -80,7 +80,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.8`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.9`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -491,7 +491,7 @@ async function run(): Promise<void> {
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.8)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.9)\n`)));
 }
 
 run().catch(console.error);
