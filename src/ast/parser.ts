@@ -63,6 +63,30 @@ export class AstInterceptor {
         const traverseAst = (traverse as any).default || traverse;
 
         traverseAst(ast, {
+            CallExpression(path: any) {
+                const calleeName = path.node.callee.name;
+                if (['clsx', 'cva', 'cn', 'twMerge', 'classNames'].includes(calleeName)) {
+                    path.traverse({
+                        StringLiteral(strPath: any) {
+                            const originalStr = strPath.node.value;
+                            const cleanStr = originalStr.replace(/\s+/g, ' ').trim();
+                            if (cleanStr && !cleanStr.includes('aumic-')) {
+                                extracted.add(cleanStr);
+                                strPath.node.value = replacerFn(cleanStr);
+                            }
+                        },
+                        TemplateElement(tplPath: any) {
+                            const originalRaw = tplPath.node.value.raw;
+                            const cleanStr = originalRaw.replace(/\s+/g, ' ').trim();
+                            if (cleanStr && !cleanStr.includes('aumic-')) {
+                                extracted.add(cleanStr);
+                                tplPath.node.value.raw = replacerFn(cleanStr);
+                                tplPath.node.value.cooked = tplPath.node.value.raw;
+                            }
+                        }
+                    });
+                }
+            },
             JSXAttribute(path: any) {
                 const attrName = path.node.name.name;
                 if (attrName === 'className' || attrName === 'class') {

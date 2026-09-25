@@ -1,4 +1,4 @@
-export type AIProvider = 'gemini' | 'openai' | 'claude' | 'deepseek' | 'xai' | 'alibaba';
+export type AIProvider = 'gemini' | 'openai' | 'claude' | 'deepseek' | 'xai' | 'alibaba' | 'ollama';
 
 export interface SemanticsRequest {
     utilities: string[];
@@ -28,6 +28,7 @@ export class AIEngine {
             case 'alibaba': return 'qwen-turbo';
             case 'claude': return 'claude-3-haiku-20240307';
             case 'gemini': return 'gemini-1.5-flash';
+            case 'ollama': return 'llama3';
             default: return 'gpt-4o-mini';
         }
     }
@@ -38,6 +39,7 @@ export class AIEngine {
             case 'deepseek': return 'https://api.deepseek.com/chat/completions';
             case 'xai': return 'https://api.x.ai/v1/chat/completions';
             case 'alibaba': return 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
+            case 'ollama': return 'http://127.0.0.1:11434/api/generate';
             default: return '';
         }
     }
@@ -59,6 +61,8 @@ export class AIEngine {
             jsonRaw = await this.callGemini(systemPrompt, userContent);
         } else if (this.provider === 'claude') {
             jsonRaw = await this.callClaude(systemPrompt, userContent);
+        } else if (this.provider === 'ollama') {
+            jsonRaw = await this.callOllama(systemPrompt, userContent);
         } else {
             throw new Error(`Proveedor ${this.provider} no implementado.`);
         }
@@ -135,5 +139,24 @@ export class AIEngine {
         if (!res.ok) throw new Error(`[IA] Error HTTP ${res.status}: ${await res.text()}`);
         const data = await res.json();
         return data.content[0].text;
+    }
+
+    private async callOllama(system: string, user: string): Promise<string> {
+        const url = this.getProviderBaseUrl(this.provider);
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: this.model,
+                system: system,
+                prompt: user,
+                stream: false,
+                options: { temperature: 0.1 }
+            })
+        });
+
+        if (!res.ok) throw new Error(`[IA] Error Ollama HTTP ${res.status}: Asegúrate de que Ollama esté corriendo en local.`);
+        const data = await res.json();
+        return data.response;
     }
 }

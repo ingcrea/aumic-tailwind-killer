@@ -16,10 +16,21 @@ Si no usas la IA opcional, la herramienta opera 100% offline. No adivina nombres
    - Pones tu propia llave API (que *jamás* guardamos en disco, vive solo en RAM durante los milisegundos que dura la ejecución).
    - A las APIs de IA solo les mandamos un JSON con las clases sueltas (ej. `["flex p-4", "text-center"]`). El código fuente real de tu proyecto, tu lógica de negocio y tus secretos **JAMÁS** abandonan tu disco duro.
 
-## 4. Modo Parásito (Web Cloning)
-Básicamente, el motor baja el HTML, JS y CSS de una web pública para que puedas refactorizar su estructura de diseño en tu máquina local.
-No te equivoques, esto no es para hackear: no elude logins, no intercepta bases de datos ni inyecta payloads raros. Es simplemente un scraper puro y duro enfocado en agilizarte la vida cuando necesitas refactorizar el diseño de un front-end existente.
+## 4. Auditoría Forense y Modo Inverso (Anteriormente Modo Parásito)
+El motor permite clonar archivos HTML, JS y CSS expuestos públicamente. Su naturaleza **no es ofensiva ni de intrusión**. Está diseñado estrictamente para:
+- Auditorías de Accesibilidad (a11y) y rediseños UI.
+- Análisis competitivo de diseño estático.
+- **Disaster Recovery**: Recuperar tus propios proyectos de los cuales perdiste el código fuente, transmutando el código compilado de Tailwind de vuelta a una estructura AUM-IC mantenible.
+No elude autenticaciones, DRM ni inyecta payloads maliciosos.
 
-## 5. Prevención de Pérdida de Datos y Rollback
+## 5. Resolución Dinámica AST (Algorítmica)
+Una crítica común a la migración de Tailwind es la rotura de clases dinámicas (ej. `clsx`, `twMerge` o condicionales JS/TS). Nuestro **AST Dynamic Resolver** intercepta algorítmicamente estas llamadas a funciones o expresiones ternarias, penetrando en los literales de cadena interiores y transmutándolos matemáticamente sin romper la lógica de tu aplicación. 
+
+## 6. Eficiencia Zero-Cost: AUM-IC Titanium Cache y Ollama
+Evitamos el sangrado financiero por tokens en proyectos masivos de dos formas:
+1. **Ollama:** Soporte 100% offline para modelos LLM locales (Llama 3, Qwen) corriendo en tu propia tarjeta gráfica sin costo.
+2. **Titanium Cache:** El motor mapea en `.aumic-memory.json` cada clase traducida. Si escanea miles de archivos pero solo hay 50 combinaciones únicas, tu API solo es consultada 50 veces. Caché persistente absoluto.
+
+## 7. Prevención de Pérdida de Datos y Rollback
 Sabemos que borrar Tailwind y reescribir clases de todo un proyecto asusta. Por eso, antes de tocar nada, generamos el archivo `aumic-lock.json` en la raíz. 
 Es un mapa exacto de qué clase de Tailwind se convirtió en qué clase de AUM-IC. Si te arrepientes o la mutación falla en algo, usamos este archivo como "Control Z" en el Modo Restauración para dejar tu código exactamente como estaba.

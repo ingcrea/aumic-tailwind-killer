@@ -60,7 +60,7 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.9')
+        .version('2.0.10')
         .option('-m, --mode <type>', 'Vector de ataque: "local", "clone", o "restore"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
         .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Parásito)')
@@ -80,7 +80,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.9`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.10`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -158,14 +158,15 @@ async function run(): Promise<void> {
                     { name: 'Google (Gemini)', value: 'gemini' },
                     { name: 'DeepSeek', value: 'deepseek' },
                     { name: 'xAI (Grok)', value: 'xai' },
-                    { name: 'Alibaba (Qwen)', value: 'alibaba' }
+                    { name: 'Alibaba (Qwen)', value: 'alibaba' },
+                    { name: 'Ollama (Local / Gratis)', value: 'ollama' }
                 ]
             },
             {
                 type: 'password',
                 name: 'apiKey',
                 message: 'Introduce tu API Key (No se guardará):',
-                when: (ans: any) => ans.useAI
+                when: (ans: any) => ans.useAI && ans.aiProvider !== 'ollama'
             },
             {
                 type: 'confirm',
@@ -308,16 +309,35 @@ async function run(): Promise<void> {
         } catch(e) {}
     }
 
-    if (answers.useAI && answers.apiKey) {
-        spinner.start(pc.magenta(`Conectando con ${answers.aiProvider.toUpperCase()} para bautizo semántico...`));
-        const aiEngine = new AIEngine(answers.aiProvider as AIProvider, answers.apiKey);
-        const { mapping } = await aiEngine.generateSemanticNames({ utilities: Array.from(globalExtracted), customRules });
+    if (answers.useAI && (answers.apiKey || answers.aiProvider === 'ollama')) {
+        const memoryPath = path.join(TARGET_DIR, '.aumic-memory.json');
+        let memoryCache: Record<string, string> = {};
+        if (fs.existsSync(memoryPath)) {
+            try { memoryCache = await fs.readJson(memoryPath); } catch(e) {}
+        }
+
+        const utilitiesArray = Array.from(globalExtracted);
+        const missingUtilities = utilitiesArray.filter(u => !memoryCache[u]);
+
+        let newMapping: Record<string, string> = {};
+        if (missingUtilities.length > 0) {
+            spinner.start(pc.magenta(`Titanium Cache Miss: Conectando con ${answers.aiProvider.toUpperCase()} para bautizar ${missingUtilities.length} clases nuevas...`));
+            const aiEngine = new AIEngine(answers.aiProvider as AIProvider, answers.apiKey || 'ollama-local');
+            const res = await aiEngine.generateSemanticNames({ utilities: missingUtilities, customRules });
+            newMapping = res.mapping;
+            spinner.succeed(pc.magenta(`Bautizo semántico ${aumicLink} completado.`));
+        } else {
+            spinner.succeed(pc.cyan(`Titanium Cache Hit: 100% de las clases resueltas desde memoria local (.aumic-memory.json)`));
+        }
+
+        // Fusionar memoria y nuevo mapeo
+        const finalMapping = { ...memoryCache, ...newMapping };
+        await fs.writeJson(memoryPath, finalMapping, { spaces: 2 });
         
         for (const orig of globalExtracted) {
-            const cleanAumic = mapping[orig] || `aumic-ai-${getHash(orig)}`;
+            const cleanAumic = finalMapping[orig] || `aumic-ai-${getHash(orig)}`;
             classMapping.set(orig, { original: orig, array: orig.split(' '), aumicClass: cleanAumic });
         }
-        spinner.succeed(pc.magenta(`Bautizo semántico ${aumicLink} completado.`));
     } else {
         spinner.start('Generando hashes deterministas...');
         for (const orig of globalExtracted) {
@@ -491,7 +511,7 @@ async function run(): Promise<void> {
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.9)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.10)\n`)));
 }
 
 run().catch(console.error);
