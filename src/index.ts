@@ -60,10 +60,10 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.13')
+        .version('2.0.14')
         .option('-m, --mode <type>', 'Vector de ataque: "local", "clone", o "restore"')
-        .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
-        .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Parásito)')
+        .option('-u, --url <url>', 'URL objetivo (solo Modo Forense)')
+        .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Forense)')
         .option('-t, --target <dir>', 'Directorio objetivo (por defecto: actual)')
         .option('-s, --scope <path>', 'Ruta de Ataque Quirúrgico (ej. src/components/**/*.tsx)')
         .option('-o, --output <type>', 'Arquitectura de salida: "aumic", "global", "css-modules", "styled-components"')
@@ -80,7 +80,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.13`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.14`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -91,7 +91,7 @@ async function run(): Promise<void> {
                 choices: [
                     { name: 'Modo Local (Proyecto en disco completo)', value: 'local' },
                     { name: 'Ataque Quirúrgico (Migración Incremental)', value: 'surgical' },
-                    { name: 'Modo Parásito (Clonar Web por URL)', value: 'clone' },
+                    { name: 'Modo Forense (Clonar Web por URL)', value: 'clone' },
                     { name: 'Modo Restauración (Rollback vía aumic-lock.json)', value: 'restore' }
                 ]
             },
@@ -262,7 +262,7 @@ async function run(): Promise<void> {
     }
 
     if (answers.mode === 'clone') {
-        let spinner = ora(`Modo Parásito: Infiltrando ${answers.targetUrl}...`).start();
+        let spinner = ora(`Modo Forense: Infiltrando ${answers.targetUrl}...`).start();
         await WebCloner.cloneWebsite(answers.targetUrl, TARGET_DIR, answers.cloneDepth);
         spinner.succeed(`Extracción completada (${answers.cloneDepth}). Archivos anclados en ${TARGET_DIR}.`);
         
@@ -427,7 +427,7 @@ async function run(): Promise<void> {
     }
 
     if (answers.mode === 'clone') {
-        spinner.start(`Fase 4: Mutando hojas de estilo CSS extranjeras (Modo Parásito)...`);
+        spinner.start(`Fase 4: Mutando hojas de estilo CSS extranjeras (Modo Forense)...`);
         const cssFiles = await glob('**/*.css', { cwd: TARGET_DIR, absolute: true });
         for (const cssFile of cssFiles) {
             const cssContent = await fs.readFile(cssFile, 'utf-8');
@@ -519,7 +519,7 @@ async function run(): Promise<void> {
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.13)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.14)\n`)));
 }
 
 run().catch(console.error);
