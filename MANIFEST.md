@@ -5,32 +5,26 @@ Seamos sinceros: Tailwind CSS es brutalmente rápido para prototipar, pero a la 
 [AUM-IC](https://github.com/ingcrea/aum-ic) (Modelado Universal Atómico - Ingeniería Creativa) es nuestro estándar interno para devolverle la cordura al desarrollo web. Creemos que los estilos deben ser escalables, limpios y respetar una jerarquía lógica: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
 Como desarrolladores, nos cansamos de lo infernal y tedioso que resulta migrar o mutar un proyecto amarrado a Tailwind para pasarlo a CSS puro. Creamos este motor destructivo exactamente para automatizar ese dolor: extraer las utilidades, purgar el framework y generar un CSS estandarizado que cumpla obligatoriamente con nuestras directivas AUM-IC para los que vengan detrás.
 
-## 2. Determinismo Criptográfico (Zero-Trust)
-Si no usas la IA opcional, la herramienta opera 100% offline. No adivina nombres. Ejecuta un algoritmo de hashing `SHAKE-256` sobre cada bloque detectado y asigna una firma única (`aumic-[etiqueta]-[hash]`). Entran los mismos datos, sale siempre la misma clase. Cero magia negra, pura matemática para evitar colisiones.
+## 2. Inmunidad a la Inflación de CSS (Zero-Bloat JIT Interceptor)
+Muchos temen que al abandonar Tailwind se pierda su de-duplicación nativa y el CSS resultante se infle brutalmente. **Falso**. 
+Nosotros no generamos CSS a mano. Nuestro motor instancia el compilador nativo `JIT` (Just-In-Time) de Tailwind de forma oculta en memoria RAM, inyecta un DOM virtual, y permite que el algoritmo original de Tailwind minifique y optimice el código. Una vez optimizado, *secuestramos* ese CSS y reemplazamos los selectores con las clases AUM-IC. El resultado es un archivo CSS puro estructuralmente idéntico (byte por byte) al que generaría el framework original. Cero código muerto, cero inflación.
 
-## 3. Aislamiento y Privacidad de Datos
-1. **Ejecución Offline:** Todo el escaneo de código (Babel AST y Expresiones Regulares) y la regeneración de CSS (PostCSS) se realiza localmente en tu máquina. 
-2. **Cero Telemetría:** El CLI no contacta servidores, no nos envía estadísticas de uso, ni hace rastreos.
-3. **Módulo de IA (Opcional):** Las peticiones a proveedores externos (OpenAI, Claude, Gemini, etc.) **solo** ocurren si:
-   - Activas el parámetro explícitamente.
-   - Pones tu propia llave API (que *jamás* guardamos en disco, vive solo en RAM durante los milisegundos que dura la ejecución).
-   - A las APIs de IA solo les mandamos un JSON con las clases sueltas (ej. `["flex p-4", "text-center"]`). El código fuente real de tu proyecto, tu lógica de negocio y tus secretos **JAMÁS** abandonan tu disco duro.
+## 3. Consistencia Semántica (Anti-Alucinaciones)
+Delegar el nombramiento masivo de clases a una IA suele provocar inconsistencias y alucinaciones en proyectos grandes. Lo solucionamos con el **Titanium Cache** (`.aumic-memory.json`). El motor fuerza un mapeo 1:1 estricto: si un botón utilitario (`bg-red-500 text-white p-4`) se repite 500 veces en tu proyecto, la API se consulta **una sola vez**. El resto se resuelve matemáticamente desde la memoria local. Es algorítmicamente imposible que el motor asigne dos nombres AUM-IC distintos para el mismo bloque original.
 
-## 4. Auditoría Forense y Modo Inverso (Anteriormente Modo Parásito)
+## 4. Agnosticismo de Framework (Anti-Mantenimiento)
+El ecosistema JS muta cada pocos meses. Para evitar que nuestro motor se rompa con cada nueva actualización de los frameworks, aplicamos pragmatismo puro: utilizamos análisis profundo de AST (Babel) *exclusivamente* para JS/TS/JSX (React/Next). Para el resto del universo (Vue, Svelte, Astro, PHP Blade, Python Jinja, Go), el motor recurre a nuestro **Interceptor Agnóstico Universal**, cazando implacablemente los atributos `class=` y `className=`. Mientras los frameworks sigan compilando hacia HTML, nuestro motor jamás quedará obsoleto.
+
+## 5. Auditoría Forense y Modo Inverso (Web Clone)
 El motor permite clonar archivos HTML, JS y CSS expuestos públicamente. Su naturaleza **no es ofensiva ni de intrusión**. Está diseñado estrictamente para:
 - Auditorías de Accesibilidad (a11y) y rediseños UI.
 - Análisis competitivo de diseño estático.
 - **Disaster Recovery**: Recuperar tus propios proyectos de los cuales perdiste el código fuente, transmutando el código compilado de Tailwind de vuelta a una estructura AUM-IC mantenible.
 No elude autenticaciones, DRM ni inyecta payloads maliciosos.
 
-## 5. Resolución Dinámica AST (Algorítmica)
+## 6. Resolución Dinámica AST
 Una crítica común a la migración de Tailwind es la rotura de clases dinámicas (ej. `clsx`, `twMerge` o condicionales JS/TS). Nuestro **AST Dynamic Resolver** intercepta algorítmicamente estas llamadas a funciones o expresiones ternarias, penetrando en los literales de cadena interiores y transmutándolos matemáticamente sin romper la lógica de tu aplicación. 
 
-## 6. Eficiencia Zero-Cost: AUM-IC Titanium Cache y Ollama
-Evitamos el sangrado financiero por tokens en proyectos masivos de dos formas:
-1. **Ollama:** Soporte 100% offline para modelos LLM locales (Llama 3, Qwen) corriendo en tu propia tarjeta gráfica sin costo.
-2. **Titanium Cache:** El motor mapea en `.aumic-memory.json` cada clase traducida. Si escanea miles de archivos pero solo hay 50 combinaciones únicas, tu API solo es consultada 50 veces. Caché persistente absoluto.
-
-## 7. Prevención de Pérdida de Datos y Rollback
-Sabemos que borrar Tailwind y reescribir clases de todo un proyecto asusta. Por eso, antes de tocar nada, generamos el archivo `aumic-lock.json` en la raíz. 
-Es un mapa exacto de qué clase de Tailwind se convirtió en qué clase de AUM-IC. Si te arrepientes o la mutación falla en algo, usamos este archivo como "Control Z" en el Modo Restauración para dejar tu código exactamente como estaba.
+## 7. Prevención de Pérdida de Datos y Rollback Absoluto
+Sabemos que borrar Tailwind y reescribir clases de todo un proyecto asusta. Por eso, antes de tocar nada, generamos el archivo `aumic-lock.json` y creamos respaldos ocultos (`.aumic-bak`) de tus configuraciones y `package.json`. 
+Si la mutación final no te convence, el **Modo Restauración** usa estos mapas como un "Control Z" maestro. Restaura todo tu código fuente original, resucita tu `package.json` exacto (con todos sus scripts) y ejecuta una reinstalación pura. Cero riesgo de pérdida de datos.

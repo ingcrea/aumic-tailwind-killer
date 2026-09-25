@@ -1,19 +1,22 @@
 # ⚔️ [AUM-IC](https://github.com/ingcrea/aum-ic) Tailwind Killer
 
-El motor destructivo definitivo para erradicar Tailwind CSS de cualquier proyecto o página web, transmutándolo matemáticamente a CSS puro o SCSS bajo la estricta **Doctrina [AUM-IC](https://github.com/ingcrea/aum-ic)** (Átomos -> Galaxias).
+El motor destructivo definitivo para erradicar Tailwind CSS de cualquier proyecto o página web, transmutándolo matemáticamente a CSS puro o SCSS bajo la estricta **Doctrina [AUM-IC](https://github.com/ingcrea/aum-ic)** (Átomos -> Galaxias). 
 
-## 🚀 Las 10 Armas Letales (Características)
+Arquitectura pragmática construida por y para desarrolladores reales hartos de la deuda técnica de las clases utilitarias.
 
-1. **Interceptor Híbrido AST + Regex**: Destripa de forma segura la lógica interna de React, Astro, Vue, Svelte, Python, Rust, PHP y Go.
-2. **AST Dynamic Resolver**: Algoritmo determinista nativo que penetra en lógica condicional de React (`isActive ? 'bg-red-500' : 'bg-blue-500'`) y dentro de funciones como `clsx()`, `cva()` y `twMerge()`, aislando clases dinámicas sin romper la aplicación.
-3. **Ataque Quirúrgico (Migración Incremental)**: Usa el flag `--scope` para aislar el ataque a componentes específicos (ej. `src/components/**/*.tsx`) sin desinstalar Tailwind del repo. Ideal para refactorización de repositorios monolíticos legacy.
-4. **Modo Forense (Anteriormente Modo Parásito)**: Clona cualquier página web pública **(exclusivo para sitios Tailwind)**, descarga sus assets y transmuta su CSS. Herramienta White-Hat diseñada para auditorías a11y, disaster recovery y análisis competitivo.
-5. **Theme Harvester (Extractor de Variables Nativas)**: Antes de erradicar Tailwind, el motor lee matemáticamente tu paleta de colores de `tailwind.config.js` y genera variables puras en `:root` (`--color-primary`, etc.) para preservar tu identidad corporativa intacta.
-6. **Titanium Cache (.aumic-memory.json)**: Memoria local persistente. El motor recuerda cada traducción semántica, evitando llamadas duplicadas a APIs externas y reduciendo costos a cero en reprocesamientos masivos.
-7. **Inteligencia Artificial Semántica (Ollama y Cloud)**: Bautiza las clases criptográficas a nombres BEM legibles conectando con OpenAI, Claude, Gemini, DeepSeek, xAI, Alibaba o **Ollama** (Modelos 100% locales en tu propia GPU sin costo).
-8. **Inyección de Reglas Personalizadas (.aumicrc.json)**: Control absoluto sobre la IA. Coloca este archivo en tu raíz para obligar al LLM a seguir directivas de nombrado BEM personalizadas de tu equipo o empresa.
-9. **Simulador de Impacto (Dry-Run Profiler)**: Usa el flag `--simulate` para ejecutar un escaneo táctico en frío. No altera archivos, sino que genera un Dashboard HTML (`aumic-report.html`) mostrándote el impacto exacto de las clases detectadas y cómo serán erradicadas.
-10. **Rollback Absoluto (Modo Restauración)**: ¿Te arrepentiste o algo falló? El motor usa el mapa criptográfico generado (`aumic-lock.json`) para restaurar todo el código, resucitar tu `package.json` exacto (con todos sus scripts) y reinstalar la versión exacta de Tailwind que estabas usando.
+## 🚀 Las 11 Armas Letales (Características)
+
+1. **Zero-Bloat JIT Interceptor**: No generamos CSS a ciegas. Instanciamos el compilador nativo de Tailwind en memoria, permitimos que optimice y de-duplique el CSS con su algoritmo nativo, y luego secuestramos el resultado para inyectar nuestra nomenclatura. Resultado: **Cero inflación de código**, CSS matemáticamente perfecto.
+2. **Interceptor Agnóstico Universal**: Destripa de forma segura la lógica interna de React, Astro, Vue, Svelte, Python, Rust, PHP y Go sin importar si el framework actualiza su sintaxis mañana.
+3. **AST Dynamic Resolver**: Algoritmo determinista nativo que penetra en lógica condicional de React (`isActive ? 'bg-red-500' : 'bg-blue-500'`) y dentro de funciones como `clsx()`, `cva()` y `twMerge()`, aislando clases dinámicas sin romper la aplicación.
+4. **Ataque Quirúrgico (Migración Incremental)**: Usa el flag `--scope` para aislar el ataque a componentes específicos (ej. `src/components/**/*.tsx`) sin desinstalar Tailwind del repo global. Ideal para refactorización táctica de repositorios monolíticos legacy.
+5. **Modo Forense (Anteriormente Modo Parásito)**: Clona cualquier página web pública **(exclusivo para sitios Tailwind)**, descarga sus assets y transmuta su CSS. Herramienta White-Hat diseñada para auditorías a11y, disaster recovery y análisis competitivo.
+6. **Theme Harvester (Extractor de Variables Nativas)**: Antes de erradicar Tailwind, el motor lee matemáticamente tu paleta de colores de `tailwind.config.js` y genera variables puras en `:root` (`--color-primary`, etc.) para preservar tu identidad corporativa intacta.
+7. **Titanium Cache (.aumic-memory.json)**: Memoria local persistente. El motor recuerda cada traducción semántica, imponiendo una consistencia 1:1 estricta (cero alucinaciones). Evita llamadas duplicadas a APIs externas y reduce costos a cero en reprocesamientos masivos.
+8. **Inteligencia Artificial Semántica (Ollama y Cloud)**: Bautiza las clases criptográficas a nombres BEM legibles conectando con OpenAI, Claude, Gemini, DeepSeek, xAI, Alibaba o **Ollama** (Modelos 100% locales en tu propia GPU sin costo).
+9. **Inyección de Reglas Personalizadas (.aumicrc.json)**: Control absoluto sobre la IA. Coloca este archivo en tu raíz para obligar al LLM a seguir directivas de nombrado BEM personalizadas de tu equipo o empresa.
+10. **Simulador de Impacto (Dry-Run Profiler)**: Usa el flag `--simulate` para ejecutar un escaneo táctico en frío. No altera archivos, sino que genera un Dashboard HTML (`aumic-report.html`) mostrándote el impacto exacto de las clases detectadas y cómo serán erradicadas.
+11. **Rollback Absoluto (Modo Restauración)**: ¿Te arrepentiste o algo falló? El motor usa el mapa criptográfico generado (`aumic-lock.json`) y sus backups ocultos (`.aumic-bak`) para restaurar todo el código, resucitar tu `package.json` exacto (con todos sus scripts intactos) y reinstalar la versión exacta de Tailwind que estabas usando.
 
 ## 💻 Uso
 
@@ -38,7 +41,7 @@ npx aumic-tailwind-killer --mode local --simulate
 # Modo Forense (Web Clone): Clonar toda una web y transmutar su CSS
 npx aumic-tailwind-killer --mode clone --url https://nexoremoto.com/rescue --depth site -t ./clon-nexoremoto
 
-# Modo IA + Ollama Local (Gratis e ilimitado)
+# Modo IA + Ollama Local (Gratis, Ilimitado y Privado)
 npx aumic-tailwind-killer --mode local --ai ollama
 
 # Modo Restauración: Aplicar el Rollback Absoluto
