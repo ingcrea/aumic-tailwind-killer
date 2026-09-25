@@ -1,22 +1,25 @@
 # 🛡 MANIFIESTO DE SEGURIDAD OPERACIONAL Y FILOSOFÍA [AUM-IC](https://github.com/ingcrea/aum-ic)
 
 ## 1. Filosofía [AUM-IC](https://github.com/ingcrea/aum-ic)
-[AUM-IC](https://github.com/ingcrea/aum-ic) (Atomic Universal Modeling - Ingeniería Creativa) postula que el CSS debe ser escalable, matemáticamente predecible y respetar la jerarquía universal: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
-Tailwind CSS rompe esta doctrina al ofuscar el DOM con cadenas utilitarias ("Sopa de clases") que degradan la mantenibilidad a largo plazo. Este motor fue creado para restaurar el orden.
+Seamos sinceros: Tailwind CSS es brutalmente rápido para prototipar, pero a la larga te deja el HTML lleno de basura y una "sopa de clases" inmanejable. 
+[AUM-IC](https://github.com/ingcrea/aum-ic) (Atomic Universal Modeling - Ingeniería Creativa) es nuestro estándar interno para devolverle la cordura al CSS. Creemos que los estilos deben ser escalables, limpios y respetar una jerarquía lógica: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
+Nacimos de la necesidad de mantener proyectos gigantes sin volvernos locos. Este motor fue creado exactamente para eso: limpiar el desastre de Tailwind y restaurar el orden estructural para los desarrolladores que vengan detrás.
 
 ## 2. Determinismo Criptográfico (Zero-Trust)
-Por defecto, el motor no adivina nombres. Ejecuta un algoritmo de hashing `SHAKE-256` sobre cada bloque utilitario detectado y asigna una firma única (`aumic-[etiqueta]-[hash]`). Esto garantiza Cero Colisiones en arquitecturas masivas de CSS.
+Si no usas la IA opcional, la herramienta opera 100% offline. No adivina nombres. Ejecuta un algoritmo de hashing `SHAKE-256` sobre cada bloque detectado y asigna una firma única (`aumic-[etiqueta]-[hash]`). Entran los mismos datos, sale siempre la misma clase. Cero magia negra, pura matemática para evitar colisiones.
 
 ## 3. Aislamiento y Privacidad de Datos
-1. **Ejecución Offline:** Todo el escaneo de código (Babel AST y Expresiones Regulares) y la regeneración de CSS (PostCSS) se realiza localmente en la máquina del usuario (o en el clon extraído). 
-2. **Cero Telemetría:** El CLI no contacta servidores de terceros, no contiene rastreadores, ni envía estadísticas de uso.
-3. **Módulo de IA:** Las peticiones a proveedores externos (OpenAI, Anthropic, Gemini, etc.) **solo** ocurren si el desarrollador:
-   - Activa el parámetro `--ai`.
-   - Inyecta su propia `--key` (la cual *jamás* se persiste en disco, solo reside en memoria RAM durante la ejecución).
-   - Los datos enviados al proveedor consisten únicamente en un array JSON de las clases extraídas (ej. `["flex p-4", "text-center"]`). El código fuente completo (JS/TS/HTML), lógica de negocio, IPs, o variables de entorno **JAMÁS** abandonan el sistema local.
+1. **Ejecución Offline:** Todo el escaneo de código (Babel AST y Expresiones Regulares) y la regeneración de CSS (PostCSS) se realiza localmente en tu máquina. 
+2. **Cero Telemetría:** El CLI no contacta servidores, no nos envía estadísticas de uso, ni hace rastreos.
+3. **Módulo de IA (Opcional):** Las peticiones a proveedores externos (OpenAI, Claude, Gemini, etc.) **solo** ocurren si:
+   - Activas el parámetro explícitamente.
+   - Pones tu propia llave API (que *jamás* guardamos en disco, vive solo en RAM durante los milisegundos que dura la ejecución).
+   - A las APIs de IA solo les mandamos un JSON con las clases sueltas (ej. `["flex p-4", "text-center"]`). El código fuente real de tu proyecto, tu lógica de negocio y tus secretos **JAMÁS** abandonan tu disco duro.
 
 ## 4. Modo Parásito (Web Cloning)
-El motor de clonación web descarga archivos HTML, JS y CSS expuestos de manera pública en el front-end. El objetivo del motor es exclusivamente la transmutación técnica del CSS (refactorización) para desarrollo en local o análisis estático. No elude autenticaciones ni inyecta payloads maliciosos.
+Básicamente, el motor baja el HTML, JS y CSS de una web pública para que puedas refactorizar su estructura de diseño en tu máquina local.
+No te equivoques, esto no es para hackear: no elude logins, no intercepta bases de datos ni inyecta payloads raros. Es simplemente un scraper puro y duro enfocado en agilizarte la vida cuando necesitas refactorizar el diseño de un front-end existente.
 
-## 5. Prevención de Pérdida de Datos
-Antes de erradicar Tailwind, el motor genera un `aumic-lock.json` en la raíz del proyecto. Este archivo contiene el mapeo inverso exacto, permitiendo una posible restauración futura o auditoría forense manual.
+## 5. Prevención de Pérdida de Datos y Rollback
+Sabemos que borrar Tailwind y reescribir clases de todo un proyecto asusta. Por eso, antes de tocar nada, generamos el archivo `aumic-lock.json` en la raíz. 
+Es un mapa exacto de qué clase de Tailwind se convirtió en qué clase de AUM-IC. Si te arrepientes o la mutación falla en algo, usamos este archivo como "Control Z" en el Modo Restauración para dejar tu código exactamente como estaba.

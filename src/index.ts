@@ -49,7 +49,7 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.3')
+        .version('2.0.5')
         .option('-m, --mode <type>', 'Vector de ataque: "local" o "clone"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
         .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Parásito)')
@@ -67,7 +67,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.3`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.5`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -77,7 +77,8 @@ async function run(): Promise<void> {
                 message: '¿Vector de Ataque?',
                 choices: [
                     { name: 'Modo Local (Proyecto en disco)', value: 'local' },
-                    { name: 'Modo Parásito (Clonar Web por URL)', value: 'clone' }
+                    { name: 'Modo Parásito (Clonar Web por URL)', value: 'clone' },
+                    { name: 'Modo Restauración (Rollback vía aumic-lock.json)', value: 'restore' }
                 ]
             },
             {
@@ -161,6 +162,58 @@ async function run(): Promise<void> {
 
     const TARGET_DIR = path.resolve(answers.targetDir);
     let twVersion: 3 | 4 = 3;
+
+    if (answers.mode === 'restore') {
+        const lockPath = path.join(TARGET_DIR, 'aumic-lock.json');
+        if (!fs.existsSync(lockPath)) {
+            console.log(pc.red('\n[X] Error: No se encontró aumic-lock.json en el directorio objetivo. Imposible restaurar.\n'));
+            return;
+        }
+        
+        let spinner = ora('Modo Restauración: Leyendo aumic-lock.json...').start();
+        const lockData = await fs.readJson(lockPath);
+        
+        spinner.start('Restaurando clases en archivos fuente...');
+        const files = await glob('**/*.{astro,tsx,jsx,html,py,rs,php,go,erb,svelte,vue}', { 
+            cwd: TARGET_DIR, 
+            absolute: true, 
+            ignore: ['node_modules/**', 'dist/**', '.git/**', 'target/**', '__pycache__/**', 'venv/**'] 
+        });
+
+        const astEngine = new AstInterceptor();
+        let restoredCount = 0;
+        
+        for (const file of files) {
+            const content = await fs.readFile(file, 'utf-8');
+            try {
+                const { newCode } = astEngine.processFrameworkFile(content, file, (twClass) => {
+                    return lockData[twClass] || twClass;
+                });
+                if (newCode !== content) {
+                    await fs.writeFile(file, newCode, 'utf-8');
+                    restoredCount++;
+                }
+            } catch (e) {}
+        }
+        spinner.succeed(`Se restauraron las clases originales en ${restoredCount} archivos.`);
+        
+        spinner.start('Restaurando dependencias y configuraciones...');
+        try {
+            ['tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs', 'tailwind.config.mjs'].forEach(conf => {
+                const bakPath = path.join(TARGET_DIR, `${conf}.aumic-bak`);
+                if (fs.existsSync(bakPath)) {
+                    fs.renameSync(bakPath, path.join(TARGET_DIR, conf));
+                }
+            });
+            execSync('npm install tailwindcss postcss', { cwd: TARGET_DIR, stdio: 'ignore' });
+            spinner.succeed('Tailwind CSS ha sido reinstalado y los backups de config fueron restaurados.');
+        } catch (e) {
+            spinner.warn('Tailwind reinstalado, pero hubo un problema restaurando los configs.');
+        }
+        
+        console.log(pc.green(pc.bold(`\n[✔] PROYECTO RESTAURADO CON ÉXITO A SU ESTADO ORIGINAL.\n`)));
+        return;
+    }
 
     if (answers.mode === 'clone') {
         let spinner = ora(`Modo Parásito: Infiltrando ${answers.targetUrl}...`).start();
@@ -341,16 +394,19 @@ async function run(): Promise<void> {
         spinner.start(pc.red('Fase 5: Erradicando dependencias de Tailwind...'));
         try {
             ['tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs', 'tailwind.config.mjs'].forEach(conf => {
-                fs.removeSync(path.join(TARGET_DIR, conf));
+                const confPath = path.join(TARGET_DIR, conf);
+                if (fs.existsSync(confPath)) {
+                    fs.renameSync(confPath, `${confPath}.aumic-bak`);
+                }
             });
             execSync('npm uninstall tailwindcss postcss @tailwindcss/postcss', { cwd: TARGET_DIR, stdio: 'ignore' });
-            spinner.succeed(pc.green('Tailwind ha sido purgado completamente.'));
+            spinner.succeed(pc.green('Tailwind ha sido purgado completamente. (Configuraciones respaldadas en .aumic-bak)'));
         } catch (e) {
             spinner.warn('Fallo menor en desinstalación (probablemente ya no existía en el package.json).');
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.3)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.5)\n`)));
 }
 
 run().catch(console.error);
