@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs-extra';
 import { glob } from 'glob';
 import postcss, { Rule, AtRule, Root } from 'postcss';
@@ -60,7 +61,7 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.14')
+        .version('2.0.15')
         .option('-m, --mode <type>', 'Vector de ataque: "local", "clone", o "restore"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Forense)')
         .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Forense)')
@@ -80,7 +81,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.14`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.15`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -519,7 +520,7 @@ async function run(): Promise<void> {
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.14)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.15)\n`)));
 }
 
 run().catch(console.error);
