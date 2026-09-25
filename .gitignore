@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.env
+aumic-clone/
+*.log
+.DS_Store
