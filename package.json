@@ -1,10 +1,10 @@
 {
   "name": "aumic-tailwind-killer",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "description": "Transpilador de Tailwind a CSS3 puro bajo estándar AUM-IC",
   "main": "dist/index.js",
   "bin": {
-    "aumic-tailwind-killer": "./dist/index.js"
+    "aumic-tailwind-killer": "dist/index.js"
   },
   "scripts": {
     "bump": "node scripts/bump.js",
@@ -13,8 +13,13 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.6.1",
     "fs-extra": "^11.2.0",
     "glob": "^10.3.10",
+    "inquirer": "^9.3.8",
+    "ora": "^7.0.1",
+    "picocolors": "^1.1.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1"
   },
@@ -26,7 +31,7 @@
   "author": "Ingeniería Creativa <soporte@ingcrea.com> (https://ingcrea.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ingcrea/aumic-tailwind-killer.git"
+    "url": "git+https://github.com/ingcrea/aumic-tailwind-killer.git"
   },
   "keywords": [
     "tailwind",
