@@ -1,10 +1,10 @@
-# ⚔️ AUM-IC Tailwind Killer
+# ⚔️ [AUM-IC](https://github.com/ingcrea/aum-ic) Tailwind Killer
 
-El motor destructivo definitivo para erradicar Tailwind CSS de cualquier proyecto o página web, transmutándolo matemáticamente a CSS puro o SCSS bajo la estricta **Doctrina AUM-IC** (Átomos -> Galaxias).
+El motor destructivo definitivo para erradicar Tailwind CSS de cualquier proyecto o página web, transmutándolo matemáticamente a CSS puro o SCSS bajo la estricta **Doctrina [AUM-IC](https://github.com/ingcrea/aum-ic)** (Átomos -> Galaxias).
 
 ## 🚀 Características
 * **Interceptor Híbrido AST + Regex**: Destripa de forma segura la lógica interna de React (JSX/TSX), Astro, Vue, Svelte, Python (Jinja), Rust (Tera), PHP (Blade) y Go.
-* **Modo Parásito (Web Clone)**: Clona cualquier página web pública desde una URL, descarga sus assets, reescribe los enlaces a formato local estático, e intercepta su CSS para inyectar la doctrina AUM-IC.
+* **Modo Parásito (Web Clone)**: Clona cualquier página web pública desde una URL, descarga sus assets, reescribe los enlaces a formato local estático, e intercepta su CSS para inyectar la doctrina [AUM-IC](https://github.com/ingcrea/aum-ic).
 * **Inteligencia Artificial Semántica**: (Opcional) Renombra los hashes criptográficos por nombres de clase semánticos BEM legibles utilizando APIs unificadas de OpenAI, Claude, Gemini, DeepSeek, xAI o Alibaba.
 * **Modo Interactivo y CLI Avanzado**: Apto para desarrolladores Noob (UI con Inquirer) o para DevSecOps avanzados (Flags CLI).
 * **Protocolo de Erradicación**: Borra automáticamente dependencias, configuraciones y rastros de Tailwind en `package.json`.

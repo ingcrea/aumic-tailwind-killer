@@ -41,12 +41,14 @@ function classifyComponent(fileName: string): string {
     return 'molecules';
 }
 
+const aumicLink = `\x1b]8;;https://github.com/ingcrea/aum-ic\x07AUM-IC\x1b]8;;\x07`;
+
 async function run(): Promise<void> {
     const program = new Command();
 
     program
         .name('aumic-tailwind-killer')
-        .description(pc.cyan('Motor destructivo para transmutar Tailwind a CSS puro (AUM-IC)'))
+        .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
         .version('2.0.3')
         .option('-m, --mode <type>', 'Vector de ataque: "local" o "clone"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
@@ -65,7 +67,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  AUM-IC TAILWIND KILLER v2.0.3`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.3`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -105,14 +107,14 @@ async function run(): Promise<void> {
                 name: 'outputMode',
                 message: '¿Arquitectura de Salida para el CSS?',
                 choices: [
-                    { name: 'Modular (Clasificación AUM-IC automática)', value: 'modular' },
+                    { name: `Modular (Clasificación ${aumicLink} automática)`, value: 'modular' },
                     { name: 'Global (Un solo archivo aumic-styles.css)', value: 'global' }
                 ]
             },
             {
                 type: 'confirm',
                 name: 'useAI',
-                message: pc.magenta('¿Deseas Renombramiento Semántico AUM-IC usando IA por API? (Sí/No)'),
+                message: pc.magenta(`¿Deseas Renombramiento Semántico ${aumicLink} usando IA por API? (Sí/No)`),
                 default: false
             },
             {
@@ -214,7 +216,7 @@ async function run(): Promise<void> {
             const cleanAumic = mapping[orig] || `aumic-ai-${getHash(orig)}`;
             classMapping.set(orig, { original: orig, array: orig.split(' '), aumicClass: cleanAumic });
         }
-        spinner.succeed(pc.magenta('Bautizo semántico AUM-IC completado.'));
+        spinner.succeed(pc.magenta(`Bautizo semántico ${aumicLink} completado.`));
     } else {
         spinner.start('Generando hashes deterministas...');
         for (const orig of globalExtracted) {
@@ -281,7 +283,7 @@ async function run(): Promise<void> {
             });
             await fs.writeFile(cssFile, cssAst.toString(), 'utf-8');
         }
-        spinner.succeed('CSS extranjero hackeado y reescrito a la doctrina AUM-IC.');
+        spinner.succeed(`CSS extranjero hackeado y reescrito a la doctrina ${aumicLink}.`);
     } else {
         spinner.start(`Fase 4: Forzando JIT de Tailwind (v${twVersion})...`);
         const virtualHtml = Array.from(classMapping.values()).map(map => `<div class="${map.original}"></div>`).join('\n');
@@ -348,7 +350,7 @@ async function run(): Promise<void> {
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA AUM-IC. (v2.0.3)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.3)\n`)));
 }
 
 run().catch(console.error);

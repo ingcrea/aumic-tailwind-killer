@@ -1,7 +1,7 @@
-# 🛡 MANIFIESTO DE SEGURIDAD OPERACIONAL Y FILOSOFÍA AUM-IC
+# 🛡 MANIFIESTO DE SEGURIDAD OPERACIONAL Y FILOSOFÍA [AUM-IC](https://github.com/ingcrea/aum-ic)
 
-## 1. Filosofía AUM-IC
-AUM-IC (Atomic Universal Modeling - Ingeniería Creativa) postula que el CSS debe ser escalable, matemáticamente predecible y respetar la jerarquía universal: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
+## 1. Filosofía [AUM-IC](https://github.com/ingcrea/aum-ic)
+[AUM-IC](https://github.com/ingcrea/aum-ic) (Atomic Universal Modeling - Ingeniería Creativa) postula que el CSS debe ser escalable, matemáticamente predecible y respetar la jerarquía universal: **Átomos, Moléculas, Organismos, Ecosistemas y Galaxias**. 
 Tailwind CSS rompe esta doctrina al ofuscar el DOM con cadenas utilitarias ("Sopa de clases") que degradan la mantenibilidad a largo plazo. Este motor fue creado para restaurar el orden.
 
 ## 2. Determinismo Criptográfico (Zero-Trust)
