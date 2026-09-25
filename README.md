@@ -16,6 +16,7 @@ Arquitectura pragmática construida por y para desarrolladores reales hartos de 
 8. **Inteligencia Artificial Semántica (Ollama y Cloud)**: Bautiza las clases criptográficas a nombres BEM legibles conectando con OpenAI, Claude, Gemini, DeepSeek, xAI, Alibaba o **Ollama** (Modelos 100% locales en tu propia GPU sin costo).
 9. **Inyección de Reglas Personalizadas (.aumicrc.json)**: Control absoluto sobre la IA. Coloca este archivo en tu raíz para obligar al LLM a seguir directivas de nombrado BEM personalizadas de tu equipo o empresa.
 10. **Simulador de Impacto (Dry-Run Profiler)**: Usa el flag `--simulate` para ejecutar un escaneo táctico en frío. No altera archivos, sino que genera un Dashboard HTML (`aumic-report.html`) mostrándote el impacto exacto de las clases detectadas y cómo serán erradicadas.
+12. **Arquitecturas de Salida M�ltiples (Output Targets)**: AUM-IC no te amarra. Genera SCSS modular AUM-IC, CSS Global, o transmuta tu c�digo de React a **CSS Modules** nativos o **Styled Components** (CSS-in-JS). Nos adaptamos al ecosistema.
 11. **Rollback Absoluto (Modo Restauración)**: ¿Te arrepentiste o algo falló? El motor usa el mapa criptográfico generado (`aumic-lock.json`) y sus backups ocultos (`.aumic-bak`) para restaurar todo el código, resucitar tu `package.json` exacto (con todos sus scripts intactos) y reinstalar la versión exacta de Tailwind que estabas usando.
 
 ## 💻 Uso
@@ -54,7 +55,7 @@ npx aumic-tailwind-killer --mode restore
 * `-d, --depth <depth>`: `page` (solo la URL) o `site` (toda la web recursiva).
 * `-s, --scope <path>`: Glob path para ataques quirúrgicos incrementales (ej. `src/**/*.tsx`).
 * `-t, --target <dir>`: Directorio raíz de destino.
-* `-o, --output <type>`: `modular` (SCSS separado por átomos/moléculas) o `global` (CSS único).
+* -o, --output <type>: umic (SCSS AUM-IC), global, css-modules (React/Next), styled-components (CSS-in-JS).
 * `--simulate`: Activa el simulador Dry-Run y emite el `aumic-report.html`.
 * `--ai <provider>`: Motor IA: `openai`, `claude`, `gemini`, `deepseek`, `xai`, `alibaba`, `ollama`.
 * `--key <token>`: Llave de la API (solo existe en RAM durante la ejecución).

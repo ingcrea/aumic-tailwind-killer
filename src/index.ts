@@ -60,13 +60,13 @@ async function run(): Promise<void> {
     program
         .name('aumic-tailwind-killer')
         .description(pc.cyan(`Motor destructivo para transmutar Tailwind a CSS puro (${aumicLink})`))
-        .version('2.0.11')
+        .version('2.0.12')
         .option('-m, --mode <type>', 'Vector de ataque: "local", "clone", o "restore"')
         .option('-u, --url <url>', 'URL objetivo (solo Modo Parásito)')
         .option('-d, --depth <depth>', 'Profundidad de clonación: "page" o "site" (solo Modo Parásito)')
         .option('-t, --target <dir>', 'Directorio objetivo (por defecto: actual)')
         .option('-s, --scope <path>', 'Ruta de Ataque Quirúrgico (ej. src/components/**/*.tsx)')
-        .option('-o, --output <type>', 'Arquitectura de salida: "modular" o "global"')
+        .option('-o, --output <type>', 'Arquitectura de salida: "aumic", "global", "css-modules", "styled-components"')
         .option('--ai <provider>', 'Proveedor IA (openai, claude, gemini, deepseek, xai, alibaba)')
         .option('--key <token>', 'API Key para la IA (requerido si se usa --ai)')
         .option('--simulate', 'Simulador de daños (Dry-Run Profiler sin mutar archivos)')
@@ -80,7 +80,7 @@ async function run(): Promise<void> {
     let answers: any = {};
 
     if (!hasManualArgs || opts.interactive) {
-        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.11`)));
+        console.log(pc.cyan(pc.bold(`\n⚔️  ${aumicLink} TAILWIND KILLER v2.0.12`)));
         console.log(pc.gray(`Iniciando consola de mando...\n`));
 
         answers = await inquirer.prompt([
@@ -129,8 +129,10 @@ async function run(): Promise<void> {
                 message: '¿Arquitectura de Salida para el CSS?',
                 when: (ans: any) => ans.mode !== 'restore',
                 choices: [
-                    { name: `Modular (Clasificación ${aumicLink} automática)`, value: 'modular' },
-                    { name: 'Global (Un solo archivo aumic-styles.css)', value: 'global' }
+                    { name: `SCSS Modular AUM-IC (Método Atómico recomendado)`, value: 'aumic' },
+                    { name: 'CSS Global (Todo en 1 solo archivo para inyección rápida)', value: 'global' },
+                    { name: 'CSS Modules (.module.css) [Fase Beta - Prox. Actualización]', value: 'css-modules' },
+                    { name: 'CSS-in-JS (Styled Components) [Fase Beta - Prox. Actualización]', value: 'styled-components' }
                 ]
             },
             {
@@ -183,7 +185,7 @@ async function run(): Promise<void> {
             targetUrl: opts.url,
             cloneDepth: opts.depth || 'page',
             targetDir: opts.target || process.cwd(),
-            outputMode: opts.output || 'modular',
+            outputMode: opts.output || 'aumic',
             simulate: !!opts.simulate,
             useAI: !!opts.ai,
             aiProvider: opts.ai,
@@ -194,6 +196,12 @@ async function run(): Promise<void> {
 
     const TARGET_DIR = path.resolve(answers.targetDir);
     let twVersion: 3 | 4 = 3;
+
+    if (answers.outputMode === 'css-modules' || answers.outputMode === 'styled-components') {
+        console.log(pc.yellow(`\n[!] La arquitectura de salida "${answers.outputMode}" está actualmente en fase Beta y será liberada en el próximo parche.`));
+        console.log(pc.cyan(`-> Por favor selecciona "aumic" (SCSS Modular) o "global" temporalmente.\n`));
+        process.exit(0);
+    }
 
     if (answers.mode === 'restore') {
         const lockPath = path.join(TARGET_DIR, 'aumic-lock.json');
@@ -455,7 +463,7 @@ async function run(): Promise<void> {
                     for (const target of targets) {
                         const clonedRule = rule.clone();
                         clonedRule.selector = clonedRule.selector.replace(escapedUtil, `.${target.aumicClass}`);
-                        const targetRoot = answers.outputMode === 'modular' ? categoryRoots[target.category] : globalRoot;
+                        const targetRoot = answers.outputMode === 'aumic' ? categoryRoots[target.category] : globalRoot;
                         if (rule.parent && rule.parent.type === 'atrule') {
                             const parentAtRule = rule.parent as AtRule;
                             const clonedAtRule = postcss.atRule({ name: parentAtRule.name, params: parentAtRule.params });
@@ -511,7 +519,7 @@ async function run(): Promise<void> {
         }
     }
 
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.11)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.12)\n`)));
 }
 
 run().catch(console.error);

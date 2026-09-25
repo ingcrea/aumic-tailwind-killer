@@ -28,3 +28,10 @@ Una crÃ­tica comÃºn a la migraciÃ³n de Tailwind es la rotura de clases dinÃ¡mica
 ## 7. PrevenciÃ³n de PÃ©rdida de Datos y Rollback Absoluto
 Sabemos que borrar Tailwind y reescribir clases de todo un proyecto asusta. Por eso, antes de tocar nada, generamos el archivo `aumic-lock.json` y creamos respaldos ocultos (`.aumic-bak`) de tus configuraciones y `package.json`. 
 Si la mutaciÃ³n final no te convence, el **Modo RestauraciÃ³n** usa estos mapas como un "Control Z" maestro. Restaura todo tu cÃ³digo fuente original, resucita tu `package.json` exacto (con todos sus scripts) y ejecuta una reinstalaciÃ³n pura. Cero riesgo de pÃ©rdida de datos.
+
+## 8. Arquitectura de Salida Universal (Output Targets)
+AUM-IC no fuerza tu proyecto a una estructura única. Entendemos que el frontend es vasto y cada ecosistema exige su propio formato. Por ello, el motor está diseñado con múltiples vectores de salida:
+- **SCSS Modular AUM-IC**: Nuestra recomendación. Exporta en SCSS segmentando átomos y moléculas. Ideal para proyectos agnósticos o globales.
+- **CSS Global**: Todo en un solo archivo para inyección rápida y Legacy.
+- **Astro Nativo**: Respeta las etiquetas <style> encapsuladas (Manejado implícitamente por la arquitectura del framework objetivo).
+- **CSS Modules y Styled Components (Beta)**: Exclusivo para desarrolladores atados al ecosistema React/Next.js. Genera archivos .module.css locales o transmuta Tailwind directamente a objetos JS de \styled-components\, eliminando los archivos CSS externos.
