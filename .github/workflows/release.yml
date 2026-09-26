@@ -1,0 +1,102 @@
+name: Build and Release Native Binaries
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build_binaries:
+    name: Build on ${{ matrix.os }} (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            artifact_name: aumic-tailwind-killer.exe
+            asset_name: aumic-tailwind-killer-win-x64.exe
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            artifact_name: aumic-tailwind-killer
+            asset_name: aumic-tailwind-killer-linux-x64
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            artifact_name: aumic-tailwind-killer
+            asset_name: aumic-tailwind-killer-macos-x64
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            artifact_name: aumic-tailwind-killer
+            asset_name: aumic-tailwind-killer-macos-arm64
+          - os: ubuntu-latest
+            target: aarch64-unknown-linux-gnu
+            artifact_name: aumic-tailwind-killer
+            asset_name: aumic-tailwind-killer-linux-arm64
+            use_cross: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install cross (for Linux ARM64)
+        if: matrix.use_cross
+        run: cargo install cross --git https://github.com/cross-rs/cross
+
+      - name: Build Release Binary (Native)
+        if: ${{ !matrix.use_cross }}
+        working-directory: ./src-rust
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Build Release Binary (Cross)
+        if: matrix.use_cross
+        working-directory: ./src-rust
+        run: cross build --release --target ${{ matrix.target }}
+
+      - name: Upload Binary to Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: src-rust/target/${{ matrix.target }}/release/${{ matrix.artifact_name }}
+          asset_name: aumic-tailwind-killer-${{ github.ref_name }}-${{ matrix.asset_name }}
+          tag: ${{ github.ref }}
+          overwrite: true
+
+  package_sources:
+    name: Package Independent Source Codes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Zip Rust Source
+        run: zip -r aumic-source-rust.zip src-rust/
+
+      - name: Zip TypeScript Source
+        run: zip -r aumic-source-typescript.zip src-typescript/
+
+      - name: Upload Rust Source Zip
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: aumic-source-rust.zip
+          asset_name: aumic-source-rust-${{ github.ref_name }}.zip
+          tag: ${{ github.ref }}
+          overwrite: true
+
+      - name: Upload TS Source Zip
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: aumic-source-typescript.zip
+          asset_name: aumic-source-typescript-${{ github.ref_name }}.zip
+          tag: ${{ github.ref }}
+          overwrite: true

@@ -1,0 +1,11 @@
+src-rust/
+src-typescript/
+.github/
+.vscode/
+scripts/
+tests/
+tsconfig.json
+Cargo.toml
+Cargo.lock
+target/
+*.md
