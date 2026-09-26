@@ -1,78 +1,84 @@
-# ⚔️ AUM-IC Tailwind Killer (Arquitectura Híbrida)
+﻿# ⚔️ AUM-IC Tailwind Killer (Native & Hybrid Core)
 
-**AUM-IC Tailwind Killer** es un orquestador CLI de altísimo rendimiento diseñado para **transmutar** proyectos basados en Tailwind CSS en ecosistemas de clases ofuscadas, deterministas y libres de dependencias (Zero-Bloat).
+> **Transmutador de Tailwind CSS a Arquitectura Zero-Bloat, potenciado por Rust y TypeScript.**
 
-Desarrollado por **Ingeniería Creativa (IngCrea)**, esta herramienta audita, extrae, compila (vía JIT) y purga tu código fuente en segundos.
-
-> [!IMPORTANT]
-> **Arquitectura Híbrida (Rust + TypeScript)**
-> Este repositorio alberga **dos motores independientes** que trabajan en simbiosis para garantizar que la herramienta jamás falle en ningún sistema operativo:
-> 1. **Motor Nativo (Rust):** Escrito en Rust estricto con concurrencia masiva vía `rayon`. Se compila a código máquina para Windows, Linux y macOS. Ejecuta la transmutación en microsegundos y consume cero memoria residual.
-> 2. **Motor de Respaldo (TypeScript):** Código fuertemente tipado que utiliza AST (Babel) para análisis profundo de componentes. Actúa como red de seguridad (Fallback).
+**AUM-IC Tailwind Killer** es un orquestador CLI de grado corporativo, diseñado por **Ingeniería Creativa (IngCrea)**. Su función principal es **erradicar** el framework de Tailwind CSS de tu código fuente y transformarlo en un ecosistema de clases ofuscadas, deterministas y 100% nativas (AUM-IC).
 
 ---
 
-## 🚀 ¿Cómo funciona el Wrapper NPM?
+## ⚡ La Arquitectura de Doble Núcleo: ¿Por qué Rust?
 
-Cuando instalas o ejecutas este paquete desde NPM, nuestro Wrapper inteligente evalúa tu sistema (Windows, Linux, macOS - x64 o ARM) y **descarga dinámicamente el ejecutable de Rust** pre-compilado desde nuestros GitHub Releases. 
+Procesar miles de archivos, parsear el DOM y orquestar el compilador JIT en un entorno mono-hilo como Node.js genera un cuello de botella. Para alcanzar el pináculo del rendimiento, diseñamos una **arquitectura híbrida infalible**:
 
-Si por alguna razón (Firewall corporativo, OS no soportado, red caída) el binario falla, el Wrapper intercepta el error e **inicia silenciosamente el motor de TypeScript** que ya viene empaquetado. Obtienes velocidad extrema si es posible, e infalibilidad garantizada si hay problemas.
+1. 🦀 **Motor Nativo en Rust (El Estándar):**
+   - **Zero-Bloat Absoluto:** Un ejecutable de 2.5 MB sin dependencias de Node.
+   - **Concurrencia Multi-Núcleo:** Utiliza la librería ayon para procesar archivos en paralelo utilizando el 100% de los hilos de tu CPU.
+   - **Velocidad Extrema:** Expresiones regulares nativas y rutinas de criptografía (sha2) que mutan proyectos enteros en milisegundos.
 
----
-
-## ⚡ Fortalezas de cada Motor
-
-### 🦀 Motor Nativo (Rust) - `src-rust/`
-- **Concurrencia Extrema:** Utiliza `rayon` para escalar el escaneo a todos los hilos de tu CPU.
-- **Zero-Bloat Absoluto:** Binario autónomo de ~2.5 MB.
-- **RegEx Multilínea:** Análisis determinista ultra-rápido en archivos HTML, Vue, Svelte y Astro.
-- **Criptografía Segura:** Generación de hashes AUM-IC vía `sha2`.
-
-### 🟦 Motor de Fallback (TypeScript) - `src-typescript/`
-- **Análisis Profundo (AST):** Usa Babel para interpretar sintaxis compleja de JSX, TSX y React puro.
-- **Tipado Fuerte:** Arquitectura modular orientada a objetos (OOP) y tipado estricto.
-- **Ejecución Universal:** Mientras tengas Node.js instalado, correrá donde sea.
+2. 🟦 **Motor de TypeScript (El Fallback Inteligente):**
+   - Sirve como red de seguridad. Si el binario de Rust es bloqueado por políticas corporativas de OS o firewalls estrictos, el Wrapper de NPM detecta el fallo y **ejecuta instantáneamente el motor en TypeScript** (Babel AST), asegurando que tu flujo de trabajo CI/CD jamás se rompa.
 
 ---
 
-## 📦 Instalación y Uso Automático
+## 📦 Instalación
 
-No necesitas clonar el repositorio ni compilar código (a menos que quieras hacerlo). Simplemente utiliza `npx`:
+El Wrapper interceptor distribuirá dinámicamente el ejecutable correspondiente a tu Sistema Operativo (Windows, Linux, macOS).
 
-```bash
+**Uso al vuelo (Recomendado):**
+\\\ash
 npx @ingcrea/aumic-tailwind-killer -m <modo> -t <ruta>
-```
+\\\
 
-### Ejemplos de Uso
-
-**1. Modo de Simulación (Dry-Run)**
-Recomendado para la primera auditoría. Extrae las clases, genera los hashes criptográficos y compila el CSS de prueba, pero **no modifica** tus archivos originales de código fuente.
-```bash
-npx @ingcrea/aumic-tailwind-killer -m simulate -t ./ruta-a-tu-proyecto
-```
-
-**2. Modo de Operación Local (Destructivo)**
-Reemplaza todas las clases de Tailwind en tu código fuente, genera el CSS nativo final y ejecuta la **Fase 5** (Desinstala las librerías de Tailwind del `package.json`).
-```bash
-npx @ingcrea/aumic-tailwind-killer -m local -t ./ruta-a-tu-proyecto
-```
+**Instalación Global:**
+\\\ash
+npm install -g @ingcrea/aumic-tailwind-killer
+aumic-tailwind-killer -m <modo> -t <ruta>
+\\\
 
 ---
 
-## 🛠️ Compilación Manual (Para Desarrolladores)
+## 🛠️ Modos de Operación y Banderas
 
-Si deseas modificar el código o auditar los motores, puedes descargar los ZIPs de código fuente independientes desde nuestra página de Releases:
+El CLI funciona a través de banderas estrictas para evitar mutaciones accidentales.
 
-**Para compilar el Motor en Rust:**
-```bash
-cd src-rust
-cargo build --release
-# Tu binario estará en target/release/aumic-tailwind-killer.exe
-```
+| Bandera | Argumento | Descripción |
+| :--- | :--- | :--- |
+| **-m / --mode** | simulate, local, estore | **(Requerido)** Define el modo de operación del motor. |
+| **-t / --target**| ./mi-proyecto | **(Requerido)** La ruta absoluta o relativa del proyecto a procesar. |
+| **-s / --scope** | components, pages, etc. | *(Opcional)* Limita el escaneo a un subdirectorio específico. |
 
-**Para compilar el Motor en TypeScript:**
-```bash
-npm install
-npm run build
-# Tu código compilado estará en /dist
-```
+---
+
+## 🚀 Ejemplos de Uso en Entornos Reales
+
+### 1. Modo Simulación (Dry-Run)
+*Recomendado para la primera auditoría. Extrae clases, calcula hashes y simula la compilación sin alterar un solo byte de tu código fuente original.*
+\\\ash
+npx @ingcrea/aumic-tailwind-killer -m simulate -t ./mi-landing-page
+\\\
+**Resultado:** Se generará el archivo \umic-lock.json\ con el mapa criptográfico y el \umic-ecosystem.css\ de prueba. Tus archivos \.ts\, \.astro\ o \.html\ quedan intactos.
+
+### 2. Modo Operación Local (Destructivo / Producción)
+*El corazón del motor. Escanea, muta todas las clases legibles a Hashes AUM-IC, inyecta el CSS purgado y **desinstala Tailwind CSS** de tu \package.json\ automáticamente.*
+\\\ash
+npx @ingcrea/aumic-tailwind-killer -m local -t ./frontend-app
+\\\
+**Resultado:** Tu HTML pasará de \<div class="flex items-center text-red-500">\ a \<div class="aumic-rs-1a2b3c aumic-rs-9f8e7d">\. Tailwind será eliminado de tus dependencias y configuraciones respaldadas en \.aumic-bak\.
+
+### 3. Modo Restauración (Rollback)
+*Si cometiste un error o necesitas volver a trabajar con Tailwind, este comando lee el \umic-lock.json\ y revierte tu código fuente a su estado original legible.*
+\\\ash
+npx @ingcrea/aumic-tailwind-killer -m restore -t ./frontend-app
+\\\
+
+---
+
+## 👨‍💻 Código Fuente y Desarrollo (Monorepo)
+
+Si deseas clonar el repositorio, ten en cuenta que el código fuente se divide físicamente para respetar las integraciones CI/CD de GitHub Actions:
+
+- 📁 \src-rust/\: Contiene el manifiesto \Cargo.toml\ y la lógica nativa multiplataforma.
+- 📁 \src-typescript/\: Contiene el motor legacy fuertemente tipado en Node y parsers de AST.
+- 📁 \in/\: Contiene \umic-killer.js\, el Wrapper interceptor inteligente que hace el puente entre NPM y el ejecutable pre-compilado en GitHub Releases.
+
+> Construido bajo los estándares de despliegue de **Ingeniería Creativa**.
