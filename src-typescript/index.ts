@@ -1172,7 +1172,36 @@ async function run(): Promise<void> {
     }
     spinner.succeed(`Se extrajeron ${globalExtracted.size} bloques únicos de Tailwind.`);
 
-    const classMapping = new Map<string, { original: string, array: string[], aumicClass: string, category: string, component: string, occurrences: number }>();
+      // --- NUEVO: JIT VALIDATOR PASS (Zero-Bloat Seguro) ---
+      spinner.start('Verificando clases nativas de Tailwind vs Custom CSS (JIT Validator)...');
+      const allUniqueTokens = new Set<string>();
+      for (const orig of globalExtracted.keys()) {
+          orig.split(' ').forEach(t => { if (t.trim() && !t.includes('aumic-')) allUniqueTokens.add(t.trim()); });
+      }
+      const testHtml = Array.from(allUniqueTokens).map(t => `<div class="${t}"></div>`).join('\n');
+      let testPlugin;
+      try {
+          testPlugin = require('tailwindcss')({ content: [{ raw: testHtml, extension: 'html' }], corePlugins: { preflight: false } });
+      } catch(e) {
+          testPlugin = require('tailwindcss');
+      }
+      const testJit = await postcss([testPlugin]).process(`@tailwind utilities;`, { from: undefined });
+      const testRoot = postcss.parse(testJit.css);
+      const validTwClasses = new Set<string>();
+      testRoot.walkRules((rule) => {
+          const allTokensArr = Array.from(allUniqueTokens);
+          for (const token of allTokensArr) {
+              const escaped = '.' + escapeCssSelector(token);
+              if (rule.selector.includes(escaped)) {
+                  validTwClasses.add(token);
+              }
+          }
+      });
+      spinner.succeed(`Filtro JIT completado: ${validTwClasses.size} utilidades nativas reconocidas.`);
+
+
+
+    const classMapping = new Map<string, { original: string, array: string[], tailwindOnlyArray: string[], customArray: string[], aumicClass: string, replacementString: string, category: string, component: string, occurrences: number }>();
     
     let customRules = '';
     const rcPath = path.join(TARGET_DIR, '.aumicrc.json');
@@ -1211,7 +1240,15 @@ async function run(): Promise<void> {
         
         for (const [orig, { category, component, occurrences }] of globalExtracted) {
             const cleanAumic = finalMapping[orig] || `aumic-ai-${component}-${getHash(orig)}`;
-            classMapping.set(orig, { original: orig, array: orig.split(' '), aumicClass: cleanAumic, category, component, occurrences });
+            
+            const fullArray = orig.split(' ');
+            const twArray = fullArray.filter(c => validTwClasses.has(c));
+            const customArray = fullArray.filter(c => !validTwClasses.has(c));
+            const repString = customArray.length > 0 ? (twArray.length > 0 ? cleanAumic + ' ' + customArray.join(' ') : customArray.join(' ')) : cleanAumic;
+            if (twArray.length > 0) {
+                classMapping.set(orig, { original: orig, array: fullArray, tailwindOnlyArray: twArray, customArray, aumicClass: cleanAumic, replacementString: repString, category, component, occurrences });
+            }
+
         }
     } else {
         spinner.start('Generando hashes deterministas...');
@@ -1224,7 +1261,16 @@ async function run(): Promise<void> {
         };
         for (const [orig, { category, component, occurrences }] of globalExtracted) {
             const prefix = levelPrefix[category] || 'molecule';
-            classMapping.set(orig, { original: orig, array: orig.split(' '), aumicClass: `aumic-${prefix}-${component}-${getHash(orig)}`, category, component, occurrences });
+            
+            const fullArray = orig.split(' ');
+            const twArray = fullArray.filter(c => validTwClasses.has(c));
+            const customArray = fullArray.filter(c => !validTwClasses.has(c));
+            const hashAumic = `aumic-${prefix}-${component}-${getHash(orig)}`;
+            const repString = customArray.length > 0 ? (twArray.length > 0 ? hashAumic + ' ' + customArray.join(' ') : customArray.join(' ')) : hashAumic;
+            if (twArray.length > 0) {
+                classMapping.set(orig, { original: orig, array: fullArray, tailwindOnlyArray: twArray, customArray, aumicClass: hashAumic, replacementString: repString, category, component, occurrences });
+            }
+
         }
         spinner.succeed('Hashes generados.');
     }
@@ -1306,7 +1352,7 @@ async function run(): Promise<void> {
     const utilityToAumic = new Map<string, { aumicClass: string, category: string }[]>();
     for (const [_, mapping] of classMapping) {
         const cat = mapping.category || 'molecules';
-        for (const util of mapping.array) {
+        for (const util of mapping.tailwindOnlyArray) {
             const escaped = '.' + escapeCssSelector(util);
             const list = utilityToAumic.get(escaped) || [];
             list.push({ aumicClass: mapping.aumicClass, category: cat });
@@ -1355,7 +1401,7 @@ async function run(): Promise<void> {
         spinner.succeed(`CSS extranjero hackeado y reescrito a la doctrina ${aumicLink}.`);
     } else {
         spinner.start(`Fase 4: Forzando JIT de Tailwind (v${twVersion})...`);
-        const virtualHtml = Array.from(classMapping.values()).map(map => `<div class="${map.original}"></div>`).join('\n');
+        const virtualHtml = Array.from(classMapping.values()).map(map => `<div class="${map.tailwindOnlyArray.join(' ')}"></div>`).join('\n');
 
         let twPlugin;
         twPlugin = require('tailwindcss')({ content: [{ raw: virtualHtml, extension: 'html' }], corePlugins: { preflight: false } });

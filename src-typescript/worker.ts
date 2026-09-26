@@ -14,7 +14,7 @@ export default async function processFile(data: { mode: 'scan' | 'mutate', conte
     } else if (data.mode === 'mutate') {
         const { newCode } = astEngine.processFrameworkFile(data.content, data.filePath, (twClass) => {
             if (data.map && data.map[twClass]) {
-                return data.map[twClass].aumicClass;
+                return data.map[twClass].replacementString || data.map[twClass].aumicClass;
             }
             return twClass;
         });
