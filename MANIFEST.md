@@ -5,6 +5,11 @@ Seamos sinceros: Tailwind CSS es brutalmente rÃ¡pido para prototipar, pero a l
 [AUM-IC](https://github.com/ingcrea/aum-ic) (Modelado Universal AtÃ³mico - IngenierÃ­a Creativa) es nuestro estÃ¡ndar interno para devolverle la cordura al desarrollo web. Creemos que los estilos deben ser escalables, limpios y respetar una jerarquÃ­a lÃ³gica: **Ãtomos, MolÃ©culas, Organismos, Ecosistemas y Galaxias**. 
 Como desarrolladores, nos cansamos de lo infernal y tedioso que resulta migrar o mutar un proyecto amarrado a Tailwind para pasarlo a CSS puro. Creamos este motor destructivo exactamente para automatizar ese dolor: extraer las utilidades, purgar el framework y generar un CSS estandarizado que cumpla obligatoriamente con nuestras directivas AUM-IC para los que vengan detrÃ¡s.
 
+
+## 1.5. La Arquitectura Híbrida (Rust + TypeScript)
+Para alcanzar el pináculo del rendimiento "Zero-Bloat", reescribimos el núcleo operativo en **Rust**. Esto permite ejecutar la transmutación a nivel de sistema operativo utilizando concurrencia masiva (Rayon), sin depender de la máquina virtual de Node (V8).
+Sin embargo, mantener la fiabilidad técnica es nuestra prioridad. Por ello, adoptamos un **Patrón de Fallback Híbrido**. Mantenemos nuestro potente motor fuertemente tipado en **TypeScript** (con análisis profundo de AST vía Babel) como red de seguridad. Si el binario de Rust falla por políticas restrictivas de hardware o bloqueos corporativos, el motor muta instantáneamente al entorno de Node.js, garantizando que la operación jamás sea interrumpida.
+
 ## 2. Inmunidad a la InflaciÃ³n de CSS (Zero-Bloat JIT Interceptor)
 Muchos temen que al abandonar Tailwind se pierda su de-duplicaciÃ³n nativa y el CSS resultante se infle brutalmente. **Falso**. 
 Nosotros no generamos CSS a mano. Nuestro motor instancia el compilador nativo `JIT` (Just-In-Time) de Tailwind de forma oculta en memoria RAM, inyecta un DOM virtual, y permite que el algoritmo original de Tailwind minifique y optimice el cÃ³digo. Una vez optimizado, *secuestramos* ese CSS y reemplazamos los selectores con las clases AUM-IC. El resultado es un archivo CSS puro estructuralmente idÃ©ntico (byte por byte) al que generarÃ­a el framework original. Cero cÃ³digo muerto, cero inflaciÃ³n.
@@ -35,4 +40,5 @@ AUM-IC no fuerza tu proyecto a una estructura Ãºnica. Entendemos que el fronte
 - **CSS Global**: Todo en un solo archivo para inyecciÃ³n rÃ¡pida y Legacy.
 - **Astro Nativo**: Respeta las etiquetas `<style>` encapsuladas (Manejado implÃ­citamente por la arquitectura del framework objetivo).
 - **CSS Modules y Styled Components (Beta)**: Exclusivo para desarrolladores atados al ecosistema React/Next.js. Genera archivos `.module.css` locales o transmuta Tailwind directamente a objetos JS de `styled-components`, eliminando los archivos CSS externos.
+
 
