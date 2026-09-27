@@ -93,5 +93,22 @@ npx @ingcrea/aumic-tailwind-killer -m restore -t ./
 
 ---
 
+---
+
+## 🧠 Arquitectura de 5 Fases (El Pipeline de Transmutación)
+
+Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reemplazos de texto (Regex). Utiliza un pipeline de compilación avanzado:
+
+1. **Reconocimiento & Pre-Flight:** Validamos exhaustivamente el sistema de archivos, ignorando estrictamente agujeros negros (`node_modules`, `.git`, `dist`) y asegurando que tu rama de Git esté limpia.
+2. **Extracción Paralela (Node Worker Threads + AST):** Usando `piscina` (hilos de trabajo en Node) escaneamos miles de archivos en paralelo. Utilizamos **Babel** y **Cheerio** para parsear el Árbol de Sintaxis Abstracta (AST) de tus componentes React/Astro, mutando el código de forma quirúrgica sin romper tu lógica de JavaScript.
+3. **Criptografía de Nomenclatura:** Se ejecuta la deduplicación masiva asignando hashes deterministas (`aumic-rs-[hash]`). Si una utilidad se usa 5,000 veces, solo se genera un hash.
+4. **Motor Multi-Level JIT Cache:** 
+   - Consulta rápida a la L1 (DuckDB) para resolver utilidades estáticas.
+   - Si existen variables dinámicas, se orquesta el L2 Cache inyectando el compilador local del cliente para generar el CSS faltante.
+5. **Erradicación Total:** Generamos el archivo CSS puro final, creamos el mapa `aumic-lock.json` para futuros rollbacks, y ejecutamos un desinstalador agresivo que purga Tailwind CSS de tu `package.json`.
+
+---
 > Desarrollado bajo la doctrina tecnológica de Ingeniería Creativa. Excelencia, Determinismo y Zero-Trust.
+
+
 
