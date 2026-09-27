@@ -18,7 +18,7 @@ Si el orquestador no se invoca con la bandera de mutación destructiva (`-m loca
 
 ### 1.5. Escalabilidad Absoluta (Multi-Level Cache)
 Procesar miles de archivos en monorepos corporativos exige velocidad determinista. Por ello, la arquitectura opera bajo una red de cachés de doble nivel que destroza cuellos de botella:
-1. **L1 Cache (DuckDB - Oráculo Estático):** Compresión columnar masiva que resuelve instantáneamente más de 26,000 clases pre-calculadas en tiempo O(1), sin costo de procesamiento (Zero-Execution).
+1. **L1 Cache (DuckDB - Oráculo Estático):** Mediante ingeniería inversa, pre-compilamos y extrajimos las equivalencias exactas en CSS puro de más de 26,000 clases nativas. Operando bajo compresión columnar masiva, inyecta los valores CSS directamente en tiempo O(1), sin costo de procesamiento (Zero-Execution). Su naturaleza de diccionario universal lo hace invulnerable a cambios arquitectónicos, soportando a la perfección desde ecosistemas legacy (v1, v2, v3) hasta el nuevo motor Oxide (v4).
 2. **L2 Cache (Dynamic JIT):** Capacidad de inyección dinámica que secuestra el entorno `node_modules/tailwindcss` del propio usuario. Esto fusiona la velocidad de una base de datos analítica con la precisión milimétrica del motor local del cliente, garantizando escalabilidad infinita sin importar la versión del framework subyacente.
 
 ## 2. Escenarios Soportados
@@ -26,5 +26,6 @@ Procesar miles de archivos en monorepos corporativos exige velocidad determinist
 - Monorepos de Next.js (Server/Client components).
 - Backends Python (Jinja2 / Django Templates).
 - Transmutación masiva a AUM-IC de plantillas legacy compradas en marketplaces.
+
 
 

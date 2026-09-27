@@ -30,7 +30,7 @@ Si analizamos los debates de arquitectura de software a nivel global, existen qu
 Para alcanzar el pináculo del rendimiento "Zero-Bloat", el núcleo de AUM-IC fue rediseñado bajo una arquitectura de caché de doble nivel impulsada 100% por Node.js y bases de datos analíticas:
 
 1. **L1 Cache (DuckDB - El Oráculo Estático):**
-   - Utiliza una base de datos binaria súper comprimida (`aumic-lexicon.duckdb`) que resuelve más de 26,000 clases nativas de Tailwind CSS en tiempo O(1) de forma completamente offline (Zero-Execution).
+   Mediante ingeniería inversa, pre-compilamos y extrajimos las equivalencias exactas en CSS puro de más de 26,000 clases nativas. Toda esta data reside en una base de datos binaria súper comprimida (umic-lexicon.duckdb) que inyecta los valores CSS instantáneamente en tiempo O(1), de forma completamente offline y sin invocar compiladores (Zero-Execution). **Su diseño de diccionario universal garantiza retrocompatibilidad y soporte total para las 4 grandes generaciones del framework (Tailwind v1, v2, v3 y el nuevo v4 Oxide).**
 2. **L2 Cache (Dynamic JIT - El Secuestrador):**
    - Si una clase dinámica compleja no está en la caché L1, el motor secuestra e invoca de forma dinámica el propio compilador `tailwindcss` instalado en la carpeta `node_modules` de tu proyecto. Esto garantiza que la compilación respete la versión exacta que usas (v2, v3 o v4 Oxide).
 3. **Preflight Theme Extractor:**
@@ -119,6 +119,7 @@ Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reempla
 
 ---
 > Desarrollado bajo la doctrina tecnológica de Ingeniería Creativa. Excelencia, Determinismo y Zero-Trust.
+
 
 
 
