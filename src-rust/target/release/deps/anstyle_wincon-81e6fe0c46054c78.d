@@ -1,0 +1,10 @@
+C:\Users\NexoRemoto\Proyectos\aumic-tailwind-killer\target\release\deps\anstyle_wincon-81e6fe0c46054c78.d: C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\lib.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\ansi.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\stream.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\windows.rs
+
+C:\Users\NexoRemoto\Proyectos\aumic-tailwind-killer\target\release\deps\libanstyle_wincon-81e6fe0c46054c78.rlib: C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\lib.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\ansi.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\stream.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\windows.rs
+
+C:\Users\NexoRemoto\Proyectos\aumic-tailwind-killer\target\release\deps\libanstyle_wincon-81e6fe0c46054c78.rmeta: C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\lib.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\ansi.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\stream.rs C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\windows.rs
+
+C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\lib.rs:
+C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\ansi.rs:
+C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\stream.rs:
+C:\Users\NexoRemoto\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anstyle-wincon-3.0.11\src\windows.rs:

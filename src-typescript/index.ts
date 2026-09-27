@@ -17,8 +17,9 @@ import { AIEngine, AIProvider } from './ai/provider';
 import { WebCloner } from './core/scraper';
 
 // Versión dinámica
-let pkgVersion = '2.0.x';
-try { pkgVersion = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8')).version; } catch(e) {}
+let userConfig: any = {};
+let pkgVersion = '4.1.3';
+try { pkgVersion = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8').replace(/^\uFEFF/, '')).version; } catch(e) {}
 
 
 async function runConcurrent<T, R>(items: T[], concurrency: number, task: (item: T) => Promise<R>): Promise<R[]> {
@@ -1179,12 +1180,40 @@ async function run(): Promise<void> {
           orig.split(' ').forEach(t => { if (t.trim() && !t.includes('aumic-')) allUniqueTokens.add(t.trim()); });
       }
       const testHtml = Array.from(allUniqueTokens).map(t => `<div class="${t}"></div>`).join('\n');
-      let testPlugin;
-      try {
-          testPlugin = require('tailwindcss')({ content: [{ raw: testHtml, extension: 'html' }], corePlugins: { preflight: false } });
-      } catch(e) {
-          testPlugin = require('tailwindcss');
-      }
+      
+        const configPath = require('fs').existsSync(require('path').resolve(TARGET_DIR, 'tailwind.config.js')) ? require('path').resolve(TARGET_DIR, 'tailwind.config.js') : (require('fs').existsSync(require('path').resolve(TARGET_DIR, 'tailwind.config.mjs')) ? require('path').resolve(TARGET_DIR, 'tailwind.config.mjs') : null);
+        if (configPath) {
+            try {
+                const dynamicImport = new Function('modulePath', 'return import(modulePath)');
+                userConfig = (await dynamicImport(require('url').pathToFileURL(configPath).href)).default || require(configPath);
+            } catch(e) {
+                try { 
+                    userConfig = require(configPath); 
+                } catch(err) {
+                    try {
+                        const fsExt = require('fs');
+                        const tempPath = configPath + '.mjs';
+                        let raw = fsExt.readFileSync(configPath, 'utf8');
+                        raw = raw.replace(/module\.exports\s*=\s*/, 'export default ');
+                        fsExt.writeFileSync(tempPath, raw, 'utf8');
+                        const dynamicImport = new Function('modulePath', 'return import(modulePath)');
+                        userConfig = (await dynamicImport(require('url').pathToFileURL(tempPath).href)).default;
+                        fsExt.unlinkSync(tempPath);
+                    } catch (fatal) {
+                        console.log('[AUM-IC] Fallo al cargar Tailwind Config:', (fatal as any).message);
+                    }
+                }
+            }
+        }
+        
+        let mergedConfig = { content: [{ raw: testHtml, extension: 'html' }], corePlugins: { preflight: false }, theme: userConfig.theme || {} };
+
+        let testPlugin;
+        try {
+            testPlugin = require('tailwindcss')(mergedConfig);
+        } catch(e) {
+            testPlugin = require('tailwindcss');
+        }
       const testJit = await postcss([testPlugin]).process(`@tailwind utilities;`, { from: undefined });
       const testRoot = postcss.parse(testJit.css);
       const validTwClasses = new Set<string>();
@@ -1200,6 +1229,38 @@ async function run(): Promise<void> {
       spinner.succeed(`Filtro JIT completado: ${validTwClasses.size} utilidades nativas reconocidas.`);
 
 
+
+    
+    spinner.start('Analizando entorno y dependencias de Tailwind...');
+    const envStatus = { version: 3, usesAstro: false, usesVite: false, usesPostcss: false, importsPreflight: false, importsUtilities: false, cssEntrypoint: '' as string | null };
+    
+    try {
+        const p = require(path.join(TARGET_DIR, 'package.json'));
+        const deps = { ...(p.dependencies || {}), ...(p.devDependencies || {}) };
+        if (deps['tailwindcss']) envStatus.version = deps['tailwindcss'].startsWith('^4') || deps['tailwindcss'].startsWith('4') ? 4 : 3;
+        else if (deps['@tailwindcss/vite'] || deps['@tailwindcss/postcss']) envStatus.version = 4;
+        
+        envStatus.usesAstro = !!deps['@astrojs/tailwind'];
+        envStatus.usesVite = !!deps['@tailwindcss/vite'];
+        envStatus.usesPostcss = !!deps['@tailwindcss/postcss'];
+    } catch(e) {}
+
+    const rootCssFiles = await glob('**/*.{css,scss,sass,less,pcss}', { cwd: TARGET_DIR, absolute: true, ignore: ['node_modules/**', 'dist/**', 'public/**'] });
+    for (const file of rootCssFiles) {
+        const c = await fs.readFile(file, 'utf-8');
+        if (c.includes('@tailwind') || c.includes('tailwindcss')) {
+            envStatus.cssEntrypoint = file;
+            if (c.includes('@tailwind base') || c.includes('tailwindcss/preflight') || c.includes('@import "tailwindcss"')) envStatus.importsPreflight = true;
+            if (c.includes('@tailwind utilities') || c.includes('tailwindcss/utilities') || c.includes('@import "tailwindcss"')) envStatus.importsUtilities = true;
+        }
+    }
+
+    if (envStatus.usesAstro) {
+        envStatus.importsPreflight = true;
+        envStatus.importsUtilities = true;
+    }
+    
+    spinner.succeed(pc.cyan(`Entorno JIT DinÃ¡mico: Tailwind v${envStatus.version} | Preflight: ${envStatus.importsPreflight ? 'Activo' : 'Inactivo'} | IntegraciÃ³n: ${envStatus.usesVite ? 'Vite' : envStatus.usesAstro ? 'Astro' : 'PostCSS'}`));
 
     const classMapping = new Map<string, { original: string, array: string[], tailwindOnlyArray: string[], customArray: string[], aumicClass: string, replacementString: string, category: string, component: string, occurrences: number }>();
     
@@ -1400,17 +1461,76 @@ async function run(): Promise<void> {
         }
         spinner.succeed(`CSS extranjero hackeado y reescrito a la doctrina ${aumicLink}.`);
     } else {
-        spinner.start(`Fase 4: Forzando JIT de Tailwind (v${twVersion})...`);
-        const virtualHtml = Array.from(classMapping.values()).map(map => `<div class="${map.tailwindOnlyArray.join(' ')}"></div>`).join('\n');
+        spinner.start(`Fase 4: Ejecutando L1 Cache (DuckDB) y delegando L2 (JIT v${twVersion})...`);
+        
+        // --- L1 DUCKDB CACHE ---
+        const duckdb = require('duckdb');
+        const dbPath = path.join(__dirname, '../aumic-lexicon.duckdb');
+        const db = new duckdb.Database(dbPath);
+        
+        let l1Css = '';
+        let unresolvedClasses = new Set<string>();
+        
+        const allTwClasses = new Set<string>();
+        for (const map of classMapping.values()) {
+            map.tailwindOnlyArray.forEach(cls => allTwClasses.add(cls));
+        }
 
+        const classArray = Array.from(allTwClasses);
+        const l1Promises = classArray.map(cls => {
+            return new Promise<void>((resolve) => {
+                db.all("SELECT css FROM tw_lexicon WHERE version = ? AND class = ?", [twVersion, cls], (err: any, rows: any[]) => {
+                    if (err || rows.length === 0) {
+                        unresolvedClasses.add(cls);
+                    } else {
+                        l1Css += `\n/* tw: ${cls} (L1) */\n.${escapeCssSelector(cls)} { ${rows[0].css} }\n`;
+                    }
+                    resolve();
+                });
+            });
+        });
+        await Promise.all(l1Promises);
+        db.close();
+
+        // --- L2 DYNAMIC JIT ---
+        const virtualHtml = Array.from(unresolvedClasses).map(cls => `<div class="${cls}"></div>`).join('\n');
+        
+        const projectTwPath = path.join(TARGET_DIR, 'node_modules', 'tailwindcss');
         let twPlugin;
-        twPlugin = require('tailwindcss')({ content: [{ raw: virtualHtml, extension: 'html' }], corePlugins: { preflight: false } });
+        if (fs.existsSync(projectTwPath)) {
+            twPlugin = require(projectTwPath)({ content: [{ raw: virtualHtml, extension: 'html' }], corePlugins: { preflight: false }, theme: userConfig.theme || {} });
+        } else {
+            twPlugin = require('tailwindcss')({ content: [{ raw: virtualHtml, extension: 'html' }], corePlugins: { preflight: false }, theme: userConfig.theme || {} });
+        }
 
         await piscinaPool.destroy();
         const jitResult = await postcss([twPlugin]).process(`@tailwind utilities;`, { from: undefined });
-        const root = postcss.parse(jitResult.css);
+        const root = postcss.parse(l1Css + '\n' + jitResult.css);
         
-        root.walkRules((rule: Rule) => {
+            // =======================================
+            // AUM-IC PREFLIGHT INJECTOR
+            // =======================================
+            let preflightCss = '';
+            if (envStatus.importsPreflight) {
+            try {
+                let pfPlugin;
+                if (fs.existsSync(projectTwPath)) {
+                    pfPlugin = require(projectTwPath)({ content: [{raw: '<div class="a"></div>', extension: 'html'}], theme: userConfig.theme || {} });
+                } else {
+                    pfPlugin = require('tailwindcss')({ content: [{raw: '<div class="a"></div>', extension: 'html'}], theme: userConfig.theme || {} });
+                }
+                const pfRes = await postcss([pfPlugin]).process('@tailwind base;', { from: undefined });
+                preflightCss = pfRes.css;
+            } catch(e) {
+                console.warn("No se pudo extraer Preflight.");
+            }
+            } // end if importsPreflight
+            if (preflightCss) {
+                const pfAst = postcss.parse(preflightCss);
+                globalRoot.prepend(pfAst);
+            }
+
+          root.walkRules((rule: Rule) => {
             for (const [escapedUtil, targets] of utilityToAumic) {
                 if (rule.selector.includes(escapedUtil)) {
                     for (const target of targets) {
@@ -1430,9 +1550,21 @@ async function run(): Promise<void> {
             }
         });
 
+        
         if (answers.outputMode === 'global') {
-            await fs.writeFile(path.join(TARGET_DIR, 'aumic-styles.css'), themeVars + globalRoot.toString(), 'utf-8');
+            const outPath = path.join(TARGET_DIR, 'src', 'styles');
+            require('fs-extra').ensureDirSync(outPath);
+            await fs.writeFile(path.join(outPath, 'aumic-styles.css'), themeVars + globalRoot.toString(), 'utf-8');
+            
+            const globalScss = path.join(outPath, 'global.scss');
+            if (fs.existsSync(globalScss)) {
+                let scss = fs.readFileSync(globalScss, 'utf8');
+                if (!scss.includes('aumic-styles')) {
+                    fs.writeFileSync(globalScss, scss + '\n@import "./aumic-styles.css";\n', 'utf8');
+                }
+            }
         } else {
+
             for (const [cat, cssRoot] of Object.entries(categoryRoots)) {
                 if (cssRoot.nodes && cssRoot.nodes.length > 0) {
                     const dir = path.join(TARGET_DIR, 'src', 'styles', cat);
@@ -1465,7 +1597,51 @@ async function run(): Promise<void> {
                     fs.renameSync(confPath, `${confPath}.aumic-bak`);
                 }
             });
-            execSync('npm uninstall tailwindcss postcss @tailwindcss/postcss', { cwd: TARGET_DIR, stdio: 'ignore' });
+            // ==========================================
+            // UNIVERSAL TAILWIND ERADICATOR (v1 - v4)
+            // ==========================================
+            
+            // 1. Respaldar y neutralizar archivos de configuraciÃ³n (v1, v2, v3)
+            const twConfigFiles = ['tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.js'];
+            twConfigFiles.forEach(conf => {
+                const confPath = require('path').join(TARGET_DIR, conf);
+                if (fs.existsSync(confPath)) fs.renameSync(confPath, `${confPath}.aumic-bak`);
+            });
+
+            // 2. Limpieza de Integradores (v4 Vite, Astro, PostCSS)
+            const integrations = [
+                { file: 'astro.config.mjs', regex: /import\s+tailwind\s+from\s+['"]@astrojs\/tailwind['"];?\n?/, regex2: /tailwind\(\)\s*,?/ },
+                { file: 'astro.config.ts', regex: /import\s+tailwind\s+from\s+['"]@astrojs\/tailwind['"];?\n?/, regex2: /tailwind\(\)\s*,?/ },
+                { file: 'vite.config.js', regex: /import\s+tailwindcss\s+from\s+['"]@tailwindcss\/vite['"];?\n?/, regex2: /tailwindcss\(\)\s*,?/ },
+                { file: 'vite.config.ts', regex: /import\s+tailwindcss\s+from\s+['"]@tailwindcss\/vite['"];?\n?/, regex2: /tailwindcss\(\)\s*,?/ }
+            ];
+            
+            integrations.forEach(intg => {
+                const intgPath = require('path').join(TARGET_DIR, intg.file);
+                if (fs.existsSync(intgPath)) {
+                    let c = fs.readFileSync(intgPath, 'utf8');
+                    c = c.replace(intg.regex, '');
+                    c = c.replace(intg.regex2, '');
+                    fs.writeFileSync(intgPath, c, 'utf8');
+                }
+            });
+
+            // 3. DesinstalaciÃ³n DinÃ¡mica Universal (Identifica dependencias exactas en package.json)
+            try {
+                const pkg = require(require('path').join(TARGET_DIR, 'package.json'));
+                const allDeps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
+                const targets = ['tailwindcss', '@tailwindcss/vite', '@tailwindcss/postcss', '@tailwindcss/cli', '@astrojs/tailwind'];
+                
+                // Si encontramos tailwind v1 o v2, muchas veces se usaba autoprefixer a la par estrictamente.
+                if (allDeps['tailwindcss'] && (allDeps['tailwindcss'].startsWith('^1') || allDeps['tailwindcss'].startsWith('^2'))) {
+                    // Solo como heurÃ­stica
+                }
+                
+                const toUninstall = targets.filter(t => allDeps[t]);
+                if (toUninstall.length > 0) {
+                    require('child_process').execSync(`npm uninstall ${toUninstall.join(' ')}`, { cwd: TARGET_DIR, stdio: 'ignore' });
+                }
+            } catch(e) {}
             spinner.succeed(pc.green('Tailwind ha sido purgado completamente. (Configuraciones y package.json respaldados en .aumic-bak)'));
         } catch (e) {
             spinner.warn('Fallo menor en desinstalación (probablemente ya no existía en el package.json).');
@@ -1474,7 +1650,7 @@ async function run(): Promise<void> {
 
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
     logAudit(`[EJECUCIÓN] Operación completada exitosamente en ${duration} segundos.`);
-    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v2.0.24)\n`)));
+    console.log(pc.green(pc.bold(`\n[✔] PROYECTO TRANSMUTADO A LA DOCTRINA ${aumicLink}. (v${pkgVersion})\n`)));
 
     // Generate Final Report
     spinner.start('Generando reporte post-mortem...');
