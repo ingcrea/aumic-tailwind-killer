@@ -1,5 +1,5 @@
-src-rust/
-src-typescript/
+﻿src-rust/
+src/
 .github/
 .vscode/
 scripts/
@@ -9,3 +9,4 @@ Cargo.toml
 Cargo.lock
 target/
 *.md
+
