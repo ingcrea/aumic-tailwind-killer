@@ -18,8 +18,8 @@ Si analizamos los debates de arquitectura de software a nivel global, existen qu
    El terror de los CTOs es atar un proyecto gigante a la sintaxis de un framework de terceros que podría cambiar o volverse obsoleto. Con AUM-IC, **no eres esclavo de Tailwind**. Construye rápido usando utilidades, y cuando pases a producción, nuestro motor lo purga físicamente de tu `package.json` extrayendo un archivo `.css` estándar y agnóstico. Recuperas la soberanía de tu código.
 3. **Restauración Arquitectónica (Separation of Concerns):**
    Los puristas odian mezclar estructura y diseño en la misma línea. AUM-IC te permite disfrutar la velocidad de Tailwind en desarrollo, pero en producción, nuestro orquestador extrae el diseño a un ecosistema CSS determinista, restaurando la frontera sagrada entre tu lógica y tus estilos.
-4. **Ofuscación Anti-Scraping (Seguridad UI/UX):**
-   Al minificar y encriptar tus clases legibles bajo hashes matemáticos, bloqueas a los competidores o bots que intenten clonar la estructura de tu diseño.
+4. **Ofuscación, Prevención de Colisiones y Nombrado Semántico por IA:**
+   No ofuscamos el código solo por seguridad anti-scraping. Al generar hashes matemáticos (umic-rs-[hash]), unificamos las etiquetas y **garantizamos cero colisiones de estilos** al terminar la migración masiva. Además, AUM-IC integra una opción de **Nombrado Semántico vía Inteligencia Artificial** (compatible local y remotamente con *Ollama, Claude, Gemini, DeepSeek y Codex*). Gracias a nuestro algoritmo de deduplicación, el sistema es ridículamente eficiente: la IA **solo procesa las combinaciones ÚNICAS**, no tu código fuente completo. Esto ahorra millones de tokens, acelera el procesamiento y blinda tu privacidad, ya que tu proyecto jamás se almacena ni se envía a ningún servidor de terceros.
 5. **Rendimiento Extremo (Zero-Bloat Build Time):**
    Al erradicar el inmenso motor de Tailwind de tus procesos de CI/CD, los tiempos de compilación de frameworks modernos (Next.js, Astro, Vite) se aceleran drásticamente, ahorrando recursos de servidor.
 
@@ -119,6 +119,8 @@ Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reempla
 
 ---
 > Desarrollado bajo la doctrina tecnológica de Ingeniería Creativa. Excelencia, Determinismo y Zero-Trust.
+
+
 
 
 
