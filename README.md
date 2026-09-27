@@ -1,6 +1,6 @@
 ﻿# ⚔️ AUM-IC Tailwind Killer
 
-**AUM-IC Tailwind Killer** es un orquestador CLI de alto rendimiento diseñado para **transmutar** proyectos basados en Tailwind CSS en ecosistemas de clases ofuscadas, deterministas y libres de dependencias (Zero-Bloat). 
+**AUM-IC (Arquitectura de Universos Multidimensionales de Ingeniería Creativa) Tailwind Killer** es un orquestador CLI de alto rendimiento diseñado para **transmutar** proyectos basados en Tailwind CSS en ecosistemas de clases ofuscadas, deterministas y libres de dependencias (Zero-Bloat). 
 
 Desarrollado por el equipo de **Ingeniería Creativa (IngCrea)**, esta herramienta audita, extrae, compila (vía JIT) y purga tu código fuente en segundos gracias a su nueva arquitectura **Multi-Level JIT Cache (DuckDB + TypeScript)** e interceptores AST universales.
 
@@ -94,3 +94,4 @@ npx @ingcrea/aumic-tailwind-killer -m restore -t ./
 ---
 
 > Desarrollado bajo la doctrina tecnológica de Ingeniería Creativa. Excelencia, Determinismo y Zero-Trust.
+
