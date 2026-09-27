@@ -10,9 +10,9 @@ Nos cansamos de la fragilidad y el acoplamiento que genera atar un proyecto masi
 ### 1.2. Intercepción JIT (Zero-Bloat Guarantee)
 No generamos CSS a mano ni adivinamos estilos. Nuestro motor instancia el compilador nativo `JIT` (Just-In-Time) de Tailwind de forma oculta en memoria RAM, inyecta un DOM virtual y permite que el algoritmo original minifique el código. Una vez optimizado, ejecutamos un secuestro táctico del CSS y reemplazamos los selectores con hashes AUM-IC. El resultado es CSS puro estructuralmente idéntico (byte por byte) al framework original. Cero código muerto, cero inflación.
 
-### 1.3. Determinismo y Titanium Cache
-Delegar el nombramiento masivo de clases a una IA o a algoritmos volátiles provoca inconsistencias y colapsos en proyectos a gran escala. Lo solucionamos con el **Titanium Cache** (`aumic-lock.json`). El motor fuerza un mapeo 1:1 estricto: si un botón utilitario (`bg-red-500 text-white p-4`) se repite 5,000 veces en tu monorepo, la clave criptográfica se resuelve matemáticamente desde la memoria local. Es algorítmicamente imposible que el motor asigne dos nombres AUM-IC distintos para el mismo bloque original.
-
+### 1.3. Determinismo, Prevención de Colisiones e IA Semántica
+Delegar el nombramiento masivo de clases a una Inteligencia Artificial archivo por archivo provoca inconsistencias, colapsos por colisiones de CSS y un gasto absurdo de tokens. Lo solucionamos con el **Titanium Cache** (umic-lock.json) y nuestro algoritmo de deduplicación. 
+El motor fuerza un mapeo 1:1 estricto: si una tarjeta (g-white shadow-lg p-6 rounded-xl) se repite 5,000 veces en tu monorepo, el sistema la comprime a una única combinación matemática. Es gracias a esta arquitectura de unificación que podemos integrar de forma segura **Nombrado Semántico por IA** (*Ollama, Claude, Codex, DeepSeek, Gemini*). Al enviar únicamente los diccionarios deduplicados en lugar del código fuente completo, garantizamos **cero colisiones de estilos**, ahorramos millones de tokens de procesamiento y blindamos la privacidad (Zero-Trust): la propiedad intelectual y la lógica de negocio de la empresa jamás se exponen a servidores de terceros.
 ### 1.4. Inmutabilidad (Zero-Trust)
 Si el orquestador no se invoca con la bandera de mutación destructiva (`-m local`), opera bajo un estado de desconfianza absoluto (Modo Simulación). El motor jamás sobreescribirá tus componentes (React, Astro, Python) a menos que aprueben la validación Pre-Flight, verificando los permisos del sistema de archivos y el estado de tu árbol de Git. Prevenimos estados corruptos antes de que ocurran.
 
@@ -26,3 +26,5 @@ Procesar miles de archivos en monorepos corporativos exige velocidad determinist
 - Monorepos de Next.js (Server/Client components).
 - Backends Python (Jinja2 / Django Templates).
 - Transmutación masiva a AUM-IC de plantillas legacy compradas en marketplaces.
+
+
