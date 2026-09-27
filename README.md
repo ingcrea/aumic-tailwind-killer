@@ -4,7 +4,7 @@
 
 Como programador, conoces perfectamente la carga mental: Tailwind CSS es una maravilla para prototipar rápido, pero a medida que tu proyecto crece, el HTML se contamina con cadenas kilométricas (`flex items-center justify-center pt-4...`), el acoplamiento al framework se vuelve asfixiante y el código pierde su legibilidad semántica. **La filosofía AUM-IC corta esa cadena y reprograma este paradigma.** Creemos firmemente que tu código fuente no debe ser esclavo de una dependencia externa. Los estilos deben ser inmutables, deterministas y seguir una expansión fractal lógica: desde un simple Átomo hasta un Universo completo.
 
-Desarrollado corporativamente por **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)**, este "Tailwind Killer" de alto rendimiento audita, extrae, compila (vía JIT) y purga tu código fuente en segundos. Su misión es transmutar el caos de las clases utilitarias en un ecosistema ofuscado, estandarizado y libre de dependencias (Zero-Bloat) impulsado por una arquitectura implacable de *Multi-Level JIT Cache (DuckDB + Node.js)* e interceptores AST universales.
+Diseñado bajo el rigor arquitectónico de **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)**, este "Tailwind Killer" de alto rendimiento audita, extrae, compila (vía JIT) y purga tu código fuente en segundos. Su misión es transmutar el caos de las clases utilitarias en un ecosistema ofuscado, estandarizado y libre de dependencias (Zero-Bloat) impulsado por una arquitectura implacable de *Multi-Level JIT Cache (DuckDB + Node.js)* e interceptores AST universales.
 
 ---
 
@@ -111,6 +111,7 @@ Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reempla
 
 ---
 > Desarrollado bajo la doctrina tecnológica de Ingeniería Creativa. Excelencia, Determinismo y Zero-Trust.
+
 
 
 
