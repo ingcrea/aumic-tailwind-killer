@@ -64,7 +64,7 @@ fn main() {
     let start_time = Instant::now();
     let args = Args::parse();
 
-    println!("\n{}", "⚔️  AUM-IC TAILWIND KILLER v3.1.4 (Native Core)".cyan().bold());
+    println!("\n{}", "⚔️  AUM-IC TAILWIND KILLER v3.0 (Native Core)".cyan().bold());
     println!("{}", "[i] Motores de Rayon Desplegados: Concurrencia de CPU al 100%\n".bright_black());
 
     let target_dir = args.target.canonicalize().unwrap_or_else(|_| args.target.clone());

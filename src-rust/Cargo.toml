@@ -1,6 +1,6 @@
 [package]
 name = "aumic-tailwind-killer"
-version = "3.1.4"
+version = "3.0.0"
 edition = "2021"
 authors = ["Ingeniería Creativa <soporte@ingcrea.com>"]
 description = "Transmutador nativo y multiplataforma de Tailwind a AUM-IC (Zero-Bloat)"
