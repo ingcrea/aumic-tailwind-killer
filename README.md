@@ -1,9 +1,10 @@
 # ⚔️ AUM-IC Tailwind Killer
 
-[![npm version](https://img.shields.io/npm/v/@ingcrea/aumic-tailwind-killer?color=crimson&label=npm%20version&style=flat-square)](https://www.npmjs.com/package/@ingcrea/aumic-tailwind-killer)
+[![npm version](https://img.shields.io/badge/version-4.1.3-crimson?style=flat-square)](https://www.npmjs.com/package/@ingcrea/aumic-tailwind-killer)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-zero--bloat-brightgreen?style=flat-square)](https://github.com/ingcrea/aumic-tailwind-killer)
 [![DuckDB Powered](https://img.shields.io/badge/powered%20by-DuckDB-yellow?style=flat-square)](https://duckdb.org)
 [![Tailwind v1-v4](https://img.shields.io/badge/Tailwind-v1%20%7C%20v2%20%7C%20v3%20%7C%20v4%20Oxide-38bdf8?style=flat-square)](https://tailwindcss.com)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-339933?style=flat-square)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 **AUM-IC Tailwind Killer** no es solo un orquestador CLI; es la manifestación técnica de una doctrina de diseño. Se llama así porque está fundamentado estrictamente en la **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)**, una filosofía nacida para devolverle la cordura, el control absoluto y la escalabilidad a los ingenieros de software.
@@ -33,25 +34,81 @@ Si analizamos los debates de arquitectura de software a nivel global, existen qu
 
 ## 🦖 Arquitectura v4.1.3: Multi-Level JIT Cache
 
-Para alcanzar el pináculo del rendimiento "Zero-Bloat", el núcleo de AUM-IC fue rediseñado bajo una arquitectura de caché de doble nivel impulsada 100% por Node.js y bases de datos analíticas:
+Para alcanzar el pináculo del rendimiento "Zero-Bloat", el núcleo de AUM-IC opera bajo una arquitectura de caché de doble nivel impulsada 100% por Node.js y bases de datos analíticas:
 
 1. **L1 Cache (DuckDB - El Oráculo Estático):**
    Mediante ingeniería inversa, pre-compilamos y extrajimos las equivalencias exactas en CSS puro de más de 26,000 clases nativas. Toda esta data reside en una base de datos binaria súper comprimida (`aumic-lexicon.duckdb`) que inyecta los valores CSS instantáneamente en tiempo O(1), de forma completamente offline y sin invocar compiladores (Zero-Execution). **Su diseño de diccionario universal garantiza retrocompatibilidad y soporte total para las 4 grandes generaciones del framework (Tailwind v1, v2, v3 y el nuevo v4 Oxide).**
 2. **L2 Cache (Dynamic JIT - El Secuestrador):**
-   - Si una clase dinámica compleja no está en la caché L1, el motor secuestra e invoca de forma dinámica el propio compilador `tailwindcss` instalado en la carpeta `node_modules` de tu proyecto. Esto garantiza que la compilación respete la versión exacta que usas (v2, v3 o v4 Oxide).
+   Si una clase dinámica compleja no está en la caché L1, el motor secuestra e invoca de forma dinámica el propio compilador `tailwindcss` instalado en la carpeta `node_modules` de tu proyecto. Esto garantiza que la compilación respete la versión exacta que usas (v2, v3 o v4 Oxide).
 3. **Preflight Theme Extractor:**
-   - Absorbe dinámicamente tu archivo `tailwind.config.*`, preservando tipografías nativas (ej. `Inter`) y variables de color personalizadas con fidelidad visual del 100%.
+   Absorbe dinámicamente tu archivo `tailwind.config.*`, preservando tipografías nativas (ej. `Inter`) y variables de color personalizadas con fidelidad visual del 100%.
 
-*(Nota Histórica: Versiones anteriores usaban un motor en Rust. A partir de la v4.1.3, se migró a Node.js puro para habilitar la inyección dinámica del entorno local del cliente).*
+---
+
+## 🧠 Arquitectura de 5 Fases (El Pipeline de Transmutación)
+
+Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reemplazos de texto (Regex). Utiliza un pipeline de compilación avanzado:
+
+```
+ Tu Proyecto (código fuente)
+        │
+        ▼
+┌───────────────────────────────────────────────────────────┐
+│  FASE 1 ─ Reconocimiento & Pre-Flight                     │
+│  Valida Git, permisos y excluye node_modules/.git/dist    │
+└───────────────────────┬───────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  FASE 2 ─ Extracción Paralela (AST + Piscina Threads)     │
+│  Babel/Cheerio parsean JSX/Astro/Vue/HTML quirúrgicamente │
+│  Extrae clases → Deduplica → Genera combinaciones únicas  │
+└───────────────────────┬───────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  FASE 3 ─ Criptografía de Nomenclatura                    │
+│  Hashes deterministas aumic-rs-[hash] por combinación     │
+│  5,000 repeticiones de una clase = 1 solo hash en RAM     │
+└──────────┬────────────────────────────┬───────────────────┘
+           │                            │
+           ▼                            ▼
+┌──────────────────────┐   ┌────────────────────────────────┐
+│  L1 Cache (DuckDB)   │   │  L2 Cache (Dynamic JIT)        │
+│  26,000+ clases      │   │  Compilador tailwindcss local  │
+│  O(1) · Offline      │   │  Para clases dinámicas w-[Xpx] │
+│  Hit Rate: 99.2%     │   │  Respeta tu versión instalada  │
+└──────────┬───────────┘   └────────────────┬───────────────┘
+           └────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  FASE 4 ─ Síntesis y Output                               │
+│  CSS puro unificado · aumic-lock.json (mapa de rollback)  │
+└───────────────────────┬───────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  FASE 5 ─ Erradicación Total                              │
+│  Purga Tailwind de package.json · Reescribe componentes   │
+│  Tu código queda libre, limpio y soberano.                │
+└───────────────────────────────────────────────────────────┘
+```
+
+1. **Reconocimiento & Pre-Flight:** Valida exhaustivamente el sistema de archivos, ignorando agujeros negros (`node_modules`, `.git`, `dist`) y asegurando que tu rama de Git esté limpia.
+2. **Extracción Paralela (Node Worker Threads + AST):** Usando `piscina` (hilos de trabajo en Node) escaneamos miles de archivos en paralelo. Utilizamos **Babel** y **Cheerio** para parsear el Árbol de Sintaxis Abstracta (AST) de tus componentes React/Astro/Vue, mutando el código de forma quirúrgica sin romper tu lógica de JavaScript.
+3. **Criptografía de Nomenclatura:** Se ejecuta la deduplicación masiva asignando hashes deterministas (`aumic-rs-[hash]`). Si una utilidad se usa 5,000 veces, solo se genera un hash.
+4. **Motor Multi-Level JIT Cache:** Consulta rápida a la L1 (DuckDB) para resolver utilidades estáticas. Si existen variables dinámicas, se orquesta el L2 Cache inyectando el compilador local del cliente.
+5. **Erradicación Total:** Generamos el archivo CSS puro final, creamos el mapa `aumic-lock.json` para futuros rollbacks, y ejecutamos un desinstalador agresivo que purga Tailwind CSS de tu `package.json`.
 
 ---
 
 ## 🚀 Instalación
 
-Puedes ejecutarlo al vuelo usando `npx` (recomendado) o instalarlo globalmente:
+**Requisitos:** Node.js >= 18.0
 
 ```bash
-# Uso al vuelo mediante NPX
+# Uso al vuelo mediante NPX (recomendado)
 npx @ingcrea/aumic-tailwind-killer -m local -t ./mi-proyecto
 
 # Instalación global
@@ -79,7 +136,7 @@ npx @ingcrea/aumic-tailwind-killer -m simulate -t ./
 ```bash
 npx @ingcrea/aumic-tailwind-killer -m local -t ./
 ```
-* **Qué hace:** Ejecuta las Fases de AUM-IC. Reescribe físicamente todos los archivos soportados, inyecta el CSS nativo unificado, elimina dependencias en `package.json` y genera un mapa reverso (`aumic-lock.json`).
+* **Qué hace:** Ejecuta las 5 Fases de AUM-IC. Reescribe físicamente todos los archivos soportados, inyecta el CSS nativo unificado, elimina dependencias en `package.json` y genera un mapa reverso (`aumic-lock.json`).
 
 ### 3. Modo Quirúrgico (Surgical Scope)
 **Caso de uso:** Tienes un monorepo gigante y solo quieres ofuscar una carpeta específica (ej. solo el frontend de marketing).
@@ -87,7 +144,7 @@ npx @ingcrea/aumic-tailwind-killer -m local -t ./
 ```bash
 npx @ingcrea/aumic-tailwind-killer -m local -t ./ -s "src/frontend/**/*.{tsx,astro}"
 ```
-* **Qué hace:** Restringe la mutación **estrictamente** al patrón Glob (Regex) definido en el argumento `-s` (Scope).
+* **Qué hace:** Restringe la mutación **estrictamente** al patrón Glob definido en el argumento `-s` (Scope).
 
 ### 4. Modo Restauración (Rollback)
 **Caso de uso:** Algo falló durante el QA post-mutación o necesitas volver a trabajar con Tailwind en tu entorno local.
@@ -97,15 +154,34 @@ npx @ingcrea/aumic-tailwind-killer -m restore -t ./
 ```
 * **Qué hace:** Lee el mapa criptográfico `aumic-lock.json`, revierte los hashes en tus archivos a sus clases Tailwind originales y restaura las configuraciones de `.aumic-bak`.
 
+### 5. Nombrado Semántico por IA (Opcional)
+**Caso de uso:** Después de la transmutación, quieres reemplazar los hashes crípticos por nombres semánticos legibles (ej. `aumic-rs-1b3a` → `card-header-primary`).
+
+```bash
+# Con Ollama local (privacidad total, cero costo)
+npx @ingcrea/aumic-tailwind-killer -m local -t ./ --ai ollama --ai-model llama3
+
+# Con Claude API (mayor precisión semántica)
+npx @ingcrea/aumic-tailwind-killer -m local -t ./ --ai claude --ai-key sk-ant-...
+
+# Con Gemini, DeepSeek o Codex
+npx @ingcrea/aumic-tailwind-killer -m local -t ./ --ai gemini --ai-key AIza...
+```
+* **Qué hace:** Solo envía las **combinaciones únicas de clases** (nunca el código fuente) al proveedor de IA seleccionado, recibe nombres semánticos y los aplica de forma consistente en todo el proyecto.
+
 ---
 
 ## ⚙️ Banderas y Variables (CLI Options)
 
 | Bandera Corta | Bandera Larga | Descripción | Obligatorio |
 | :--- | :--- | :--- | :--- |
-| `-m` | `--mode` | Define el comportamiento del orquestador (`simulate`, `local`, `restore`). | **Sí** |
-| `-t` | `--target` | Ruta absoluta o relativa al directorio del proyecto a procesar. | **Sí** |
-| `-s` | `--scope` | Patrón de búsqueda para restringir la mutación a archivos específicos. | No |
+| `-m` | `--mode` | Modo de operación: `simulate`, `local`, `restore`. | **Sí** |
+| `-t` | `--target` | Ruta al directorio del proyecto a procesar. | **Sí** |
+| `-s` | `--scope` | Patrón Glob para restringir la mutación a archivos específicos. | No |
+| — | `--ai` | Proveedor de IA para nombrado semántico: `ollama`, `claude`, `gemini`, `deepseek`, `codex`. | No |
+| — | `--ai-model` | Modelo específico del proveedor (ej. `llama3`, `claude-3-5-sonnet`). | No |
+| — | `--ai-key` | API Key del proveedor remoto (no requerida para `ollama`). | No |
+| — | `--ai-base-url` | URL base para instancias de Ollama personalizadas (default: `http://localhost:11434`). | No |
 
 ---
 
@@ -150,20 +226,6 @@ Esto es lo que verás en tu terminal al ejecutar una transmutación sobre un pro
 
 ---
 
-## 🧠 Arquitectura de 5 Fases (El Pipeline de Transmutación)
-
-Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reemplazos de texto (Regex). Utiliza un pipeline de compilación avanzado:
-
-1. **Reconocimiento & Pre-Flight:** Validamos exhaustivamente el sistema de archivos, ignorando estrictamente agujeros negros (`node_modules`, `.git`, `dist`) y asegurando que tu rama de Git esté limpia.
-2. **Extracción Paralela (Node Worker Threads + AST):** Usando `piscina` (hilos de trabajo en Node) escaneamos miles de archivos en paralelo. Utilizamos **Babel** y **Cheerio** para parsear el Árbol de Sintaxis Abstracta (AST) de tus componentes React/Astro, mutando el código de forma quirúrgica sin romper tu lógica de JavaScript.
-3. **Criptografía de Nomenclatura:** Se ejecuta la deduplicación masiva asignando hashes deterministas (`aumic-rs-[hash]`). Si una utilidad se usa 5,000 veces, solo se genera un hash.
-4. **Motor Multi-Level JIT Cache:**
-   - Consulta rápida a la L1 (DuckDB) para resolver utilidades estáticas.
-   - Si existen variables dinámicas, se orquesta el L2 Cache inyectando el compilador local del cliente para generar el CSS faltante.
-5. **Erradicación Total:** Generamos el archivo CSS puro final, creamos el mapa `aumic-lock.json` para futuros rollbacks, y ejecutamos un desinstalador agresivo que purga Tailwind CSS de tu `package.json`.
-
----
-
 ## ❓ Preguntas Frecuentes (FAQ)
 
 **¿Esto rompe mis pseudo-clases de Tailwind como `hover:`, `focus:`, `md:`?**
@@ -178,8 +240,37 @@ Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reempla
 **¿Qué pasa si tengo clases dinámicas generadas en JavaScript (`cn(...)`, `clsx(...)`)?**
 > AUM-IC analiza el AST de tus archivos `.tsx` y `.jsx`. Detecta patrones de concatenación y funciones de utilidad (`cn`, `clsx`, `twMerge`) e intenta resolver las cadenas estáticas. Las cadenas completamente dinámicas (generadas en runtime) se marcan en el reporte de simulación para revisión manual.
 
-**¿Soporta Tailwind v4 Oxide (el nuevo motor en Rust)?**
+**¿Soporta Tailwind v4 Oxide?**
 > Sí. El L1 Cache (DuckDB) contiene el diccionario compilado de Tailwind v4 Oxide. El L2 Cache secuestra el compilador `@tailwindcss/vite` o el binario nativo según el `package.json` detectado.
+
+**¿Qué versión de Node.js necesito?**
+> Node.js >= 18.0. No se requieren instalaciones adicionales del sistema operativo. Todo opera sobre el runtime estándar de Node.
+
+---
+
+## 🗺️ Roadmap
+
+| Versión | Feature | Estado |
+| :--- | :--- | :---: |
+| v4.1.3 | DuckDB L1 Cache · AST Paralelo · Rollback | ✅ Estable |
+| v4.2.0 | Plugin Vite nativo · Integración Turbopack | 🔄 En desarrollo |
+| v4.3.0 | Soporte Svelte estable · Angular 17+ | 📋 Planificado |
+| v5.0.0 | Plugin VS Code · Dashboard de auditoría web | 📋 Planificado |
+
+---
+
+## 🤝 Contribuciones
+
+¿Encontraste un bug o quieres agregar soporte para un nuevo framework? Las contribuciones son bienvenidas.
+
+1. Haz un **fork** del repositorio.
+2. Crea una rama: `git checkout -b feat/mi-mejora`.
+3. Ejecuta las pruebas: `npm test`.
+4. Abre un **Pull Request** describiendo el cambio y su motivación técnica.
+
+Para cambios mayores (nuevos modos, nuevos proveedores de IA, soporte de frameworks), abre un **Issue** primero para discutir el diseño.
+
+> Ver [`MANIFEST.md`](./MANIFEST.md) para los principios de diseño no negociables que rigen toda contribución.
 
 ---
 

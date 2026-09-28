@@ -40,6 +40,37 @@ Sabemos que como ingeniero senior, confías en el código y en la arquitectura, 
 
 **¿Cómo encuentra AUM-IC la relación exacta entre tu clase y el CSS sin comprometer tu máquina?**
 
+```
+  Tu archivo .tsx / .astro / .vue
+           │
+           │  [Babel/Cheerio AST — LECTURA ESTÁTICA]
+           │  Nunca se ejecuta tu código.
+           ▼
+  Lista de clases extraídas
+  [ "bg-white", "p-4", "hover:shadow-lg", "w-[320px]" ]
+           │
+           │  [Deduplicación matemática en RAM]
+           ▼
+  Combinaciones únicas (solo estas se procesan)
+           │
+           ├──────────────────────────────────────────┐
+           │ Clase estática?                          │ Clase dinámica?
+           ▼                                          ▼
+  ┌─────────────────────┐              ┌──────────────────────────┐
+  │  L1: DuckDB         │              │  L2: JIT local           │
+  │  aumic-lexicon.duckdb│              │  tailwindcss de tu       │
+  │  READ-ONLY · Offline│              │  node_modules            │
+  │  O(1) instantáneo   │              │  Aislado · Sin red       │
+  └──────────┬──────────┘              └─────────────┬────────────┘
+             └─────────────────────────────────────────┘
+                                  │
+                                  │  [Todo ocurre en RAM]
+                                  │  Tu código NUNCA abandona tu máquina.
+                                  ▼
+                        CSS puro + aumic-lock.json
+                        Memoria destruida al terminar.
+```
+
 1. **Aislamiento Total (Air-Gapped):** La base de datos `aumic-lexicon.duckdb` se descarga una sola vez y opera de forma 100% local, desconectada e inmutable (Read-Only). No hace *ping* a ningún servidor. Cero llamadas a APIs en la sombra. Cero rastreo.
 2. **Análisis Estático (Cero Ejecución de Código):** Nunca ejecutamos tus scripts. Utilizamos interceptores AST (Babel) que leen tus componentes como un árbol matemático puro. Extraemos las clases quirúrgicamente, garantizando inmunidad total contra ataques de ejecución de código arbitrario que pudieran esconderse en proyectos de terceros.
 3. **Búsqueda Indexada Determinista:** Una vez extraída una clase (ej. `bg-red-500`), el motor no realiza heurísticas dudosas. Ejecuta una consulta vectorial exacta en memoria: `SELECT css_value FROM lexicon WHERE class_name = 'bg-red-500'`. Si la utilidad existe en el diccionario estático de 26,000 clases, se inyecta su equivalente CSS al instante. Si es dinámica o lleva variables nativas del cliente (ej. `w-[320px]`), se aísla temporalmente y se compila inyectando la lógica en un entorno local y cerrado.
@@ -47,21 +78,36 @@ Sabemos que como ingeniero senior, confías en el código y en la arquitectura, 
 
 ---
 
-## 2. Escenarios Soportados
+## 2. Principios de Diseño No Negociables
 
-| Framework / Tecnología | Extensiones Soportadas | Estado |
-| :--- | :--- | :---: |
-| **Astro SSR** | `.astro` | ✅ Estable |
-| **Next.js / React** | `.tsx`, `.jsx`, `.js` | ✅ Estable |
-| **Vue.js** | `.vue` | ✅ Estable |
-| **Python (Jinja2 / Django)** | `.html`, `.j2` | ✅ Estable |
-| **Svelte** | `.svelte` | 🔄 Beta |
-| **Plantillas HTML puras** | `.html` | ✅ Estable |
-| **Monorepos con Turborepo** | Múltiples frameworks | ✅ Estable |
+Toda contribución, modificación o extensión de AUM-IC debe respetar estos principios fundacionales. Son la columna vertebral del estándar:
+
+| # | Principio | Descripción |
+| :---: | :--- | :--- |
+| **P1** | **Determinismo Absoluto** | La misma entrada siempre produce exactamente la misma salida. Sin aleatoriedad, sin timestamps en los hashes. |
+| **P2** | **Zero-Execution** | AUM-IC nunca ejecuta el código del usuario. Solo lo lee como árbol sintáctico. Sin excepciones. |
+| **P3** | **Offline-First** | El núcleo de procesamiento no requiere conexión a internet. La IA es una capa opcional, no estructural. |
+| **P4** | **Rollback Garantizado** | Cualquier mutación destructiva debe poder revertirse en un solo comando usando `aumic-lock.json`. |
+| **P5** | **Cero Dependencias de Framework** | El CSS de salida no debe requerir ningún preprocesador, runtime ni framework para funcionar. CSS puro y estándar. |
 
 ---
 
-## 3. Garantías de Seguridad y Privacidad
+## 3. Escenarios Soportados
+
+| Framework / Tecnología | Extensiones Soportadas | Node.js Mínimo | Estado |
+| :--- | :--- | :---: | :---: |
+| **Astro SSR** | `.astro` | 18.0 | ✅ Estable |
+| **Next.js / React** | `.tsx`, `.jsx`, `.js` | 18.0 | ✅ Estable |
+| **Vue.js** | `.vue` | 18.0 | ✅ Estable |
+| **Python (Jinja2 / Django)** | `.html`, `.j2` | 18.0 | ✅ Estable |
+| **Plantillas HTML puras** | `.html` | 18.0 | ✅ Estable |
+| **Monorepos con Turborepo** | Múltiples frameworks | 20.0 | ✅ Estable |
+| **Svelte** | `.svelte` | 18.0 | 🔄 Beta |
+| **Angular 17+** | `.html`, `.ts` | 20.0 | 📋 Planificado |
+
+---
+
+## 4. Garantías de Seguridad y Privacidad
 
 Esta herramienta fue construida para operar dentro de entornos corporativos donde el código fuente es propiedad intelectual altamente sensible. Nuestras garantías técnicas son:
 
@@ -69,6 +115,28 @@ Esta herramienta fue construida para operar dentro de entornos corporativos dond
 - **Cero dependencias de red en runtime:** Una vez instalado, AUM-IC opera completamente offline. La única conexión a internet ocurre en la instalación inicial de npm.
 - **Código fuente nunca abandona tu máquina:** El análisis AST, la deduplicación y la generación de hashes suceden en procesos locales de Node.js que terminan inmediatamente al finalizar la tarea.
 - **IA Opcional y Controlada:** La integración con APIs de IA (Claude, Gemini, DeepSeek) es 100% opcional y solo envía los *hashes de combinaciones únicas*, nunca el código fuente, nombres de variables ni lógica de negocio.
+
+**¿Quieres verificarlo tú mismo?** Puedes auditar exactamente qué se incluye en el paquete antes de instalarlo:
+
+```bash
+# Ver todos los archivos que se incluyen en el paquete npm
+npx npm pack @ingcrea/aumic-tailwind-killer --dry-run
+
+# Inspeccionar el código fuente directamente
+git clone https://github.com/ingcrea/aumic-tailwind-killer
+grep -r "fetch\|axios\|http\|https\|request" src/ --include="*.ts"
+# Resultado esperado: cero llamadas de red en el núcleo de procesamiento.
+```
+
+---
+
+## 5. Historial de Versiones
+
+| Versión | Cambios Principales |
+| :--- | :--- |
+| **v4.1.3** *(actual)* | Motor 100% Node.js. DuckDB L1 Cache con 26,000+ clases. Soporte AST para React/Astro/Vue/Python. Nombrado semántico por IA (Ollama, Claude, Gemini, DeepSeek). Rollback determinista. |
+| **v4.0.x** | Primera integración de DuckDB como caché primario. Arquitectura Multi-Level JIT. |
+| **v3.x** | Motor de extracción paralela con Piscina Worker Threads. Soporte Astro SSR. |
 
 ---
 
