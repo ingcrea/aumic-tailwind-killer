@@ -382,7 +382,7 @@ For major changes (new modes, new AI providers, new framework support), open an 
 
 **AUM-IC Tailwind Killer** operates under a **Dual-License Model**:
 
-1. **Open Source:** Free under the [AGPL v3 License](./LICENSE.txt) for open source, personal, or non-commercial projects.
+1. **Open Source:** Free under the [AGPL v3 License](./LICENSE.md) for open source, personal, or non-commercial projects.
 2. **Commercial:** Proprietary licensing for organizations embedding AUM-IC in closed-source products, SaaS platforms, or internal enterprise workflows. See [LICENSE-COMMERCIAL.md](./LICENSE-COMMERCIAL.md) for details.
 
 For organizations with large-scale monorepos, **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)** offers:

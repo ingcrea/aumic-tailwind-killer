@@ -361,7 +361,7 @@ npx @ingcrea/aumic-tailwind-killer -m local -t ./ --ai gemini --ai-key AIza...
 
 **AUM-IC Tailwind Killer** opera bajo un **Modelo de Licencia Dual**:
 
-1. **Open Source:** Gratis bajo la licencia [AGPL v3](./LICENSE.txt) para proyectos open source, personales o educativos.
+1. **Open Source:** Gratis bajo la licencia [AGPL v3](./LICENSE.md) para proyectos open source, personales o educativos.
 2. **Comercial:** Licencia propietaria para organizaciones que embeben AUM-IC en productos cerrados, plataformas SaaS o flujos de trabajo enterprise internos. Ver [LICENSE-COMMERCIAL.es.md](./LICENSE-COMMERCIAL.es.md) para detalles.
 
 Para organizaciones con monorepos de gran escala, **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)** ofrece:
