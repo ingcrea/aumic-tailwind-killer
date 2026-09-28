@@ -3,7 +3,7 @@
 > 🌐 **Navigation:** 🇲🇽 [Leer en Español](./MANIFEST.es.md) &nbsp;|&nbsp; 📖 [README (EN)](./README.md) &nbsp;|&nbsp; 📖 [README (ES)](./README.es.md)
 
 > *"Software is not a product — it is a system of consciousness. Build with the precision of a Swiss watchmaker and the vision of a cosmic architect."*
-> — AUM-IC Doctrine, INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.
+> — AUM-IC Standard, INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.
 
 ---
 
@@ -38,7 +38,7 @@ Processing thousands of files in corporate monorepos demands deterministic speed
 
 ### 1.6. Operational Paranoia: The Cryptographic Search Bunker
 
-We know that as a senior engineer, you trust code and architecture — not marketing promises. If you assume (rightfully) that any modern CLI tool is extracting telemetry in the background or sending your proprietary code to a remote server for processing, this section is for you. We designed AUM-IC's matching mechanism under a strict **Operational Paranoia** doctrine.
+We know that as a senior engineer, you trust code and architecture — not marketing promises. If you assume (rightfully) that any modern CLI tool is extracting telemetry in the background or sending your proprietary code to a remote server for processing, this section is for you. We designed AUM-IC's matching mechanism under a strict **Operational Paranoia** standard.
 
 **How does AUM-IC find the exact relationship between your class and the CSS without compromising your machine?**
 

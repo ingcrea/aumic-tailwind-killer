@@ -10,7 +10,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-339933?style=flat-square)](https://nodejs.org)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
 
-**AUM-IC Tailwind Killer** no es solo un orquestador CLI; es la manifestación técnica de una doctrina de diseño. Se llama así porque está fundamentado estrictamente en el estándar **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)**: una filosofía nacida para devolverle la cordura, el control absoluto y la escalabilidad infinita a los ingenieros de software.
+**AUM-IC Tailwind Killer** no es solo un orquestador CLI; es la manifestación técnica de una estándar de diseño. Se llama así porque está fundamentado estrictamente en el estándar **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)**: una filosofía nacida para devolverle la cordura, el control absoluto y la escalabilidad infinita a los ingenieros de software.
 
 Diseñado bajo el rigor arquitectónico de **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)**, este "Tailwind Killer" de alto rendimiento audita, extrae, compila (vía JIT) y purga tu código fuente en segundos — transmutando el caos de las clases utilitarias en un ecosistema ofuscado, estandarizado y libre de dependencias (Zero-Bloat) impulsado por una arquitectura implacable de *Multi-Level JIT Cache (DuckDB + Node.js)* e interceptores AST universales.
 
@@ -379,4 +379,4 @@ Para organizaciones con monorepos de gran escala, **INGENIERÍA CREATIVA Y DESAR
 
 ---
 
-> Desarrollado bajo la doctrina tecnológica de **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.** Excelencia, Determinismo y Zero-Trust.
+> Desarrollado bajo la estándar tecnológica de **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.** Excelencia, Determinismo y Zero-Trust.

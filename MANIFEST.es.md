@@ -3,7 +3,7 @@
 > 🌐 **Navegación:** 🇺🇸 [Read in English](./MANIFEST.md) &nbsp;|&nbsp; 📖 [README (ES)](./README.es.md) &nbsp;|&nbsp; 📖 [README (EN)](./README.md)
 
 > *"El software no es un producto, es un sistema de consciencia. Construye con la precisión de un relojero suizo y la visión de un arquitecto del cosmos."*
-> — Doctrina AUM-IC, INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.
+> — Estándar AUM-IC, INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.
 
 ---
 
@@ -38,7 +38,7 @@ Procesar miles de archivos en monorepos corporativos exige velocidad determinist
 
 ### 1.6. Paranoia Operacional: El Búnker Criptográfico de Búsqueda
 
-Sabemos que como ingeniero senior, confías en el código y en la arquitectura, no en las promesas de marketing. Si asumes (con justa razón) que cualquier herramienta CLI moderna está extrayendo telemetría en la sombra o enviando tu código propietario a un servidor remoto para ser procesado, esta sección es para ti. Diseñamos el mecanismo de emparejamiento de AUM-IC bajo una estricta doctrina de **Paranoia Operacional**.
+Sabemos que como ingeniero senior, confías en el código y en la arquitectura, no en las promesas de marketing. Si asumes (con justa razón) que cualquier herramienta CLI moderna está extrayendo telemetría en la sombra o enviando tu código propietario a un servidor remoto para ser procesado, esta sección es para ti. Diseñamos el mecanismo de emparejamiento de AUM-IC bajo una estricta estándar de **Paranoia Operacional**.
 
 **¿Cómo encuentra AUM-IC la relación exacta entre tu clase y el CSS sin comprometer tu máquina?**
 

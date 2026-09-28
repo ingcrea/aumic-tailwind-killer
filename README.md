@@ -10,7 +10,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-339933?style=flat-square)](https://nodejs.org)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
 
-**AUM-IC Tailwind Killer** is not just a CLI orchestrator — it is the technical manifestation of a design doctrine. It is named after the **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)** standard: a philosophy built to restore sanity, absolute control and infinite scalability to software engineers.
+**AUM-IC Tailwind Killer** is not just a CLI orchestrator — it is the technical manifestation of a design standard. It is named after the **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)** standard: a philosophy built to restore sanity, absolute control and infinite scalability to software engineers.
 
 Designed under the architectural rigor of **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)**, this high-performance "Tailwind Killer" audits, extracts, compiles (via JIT) and purges your codebase in seconds — transmuting the chaos of utility classes into an obfuscated, standardized, dependency-free ecosystem (Zero-Bloat) powered by an implacable *Multi-Level JIT Cache (DuckDB + Node.js)* architecture with universal AST interceptors.
 
@@ -324,6 +324,27 @@ Measured on a Next.js monorepo with **1,200 files** and **48,000 unique Tailwind
 
 ---
 
+
+## 🧠 Under the Hood: The Engineering
+
+AUM-IC Tailwind Killer is not a simple Regex script. It is a **Safe Static Analysis** tool designed for enterprise-grade monorepos:
+
+*   **AST Interceptors (Abstract Syntax Tree):** We utilize Babel (for JSX/TSX/Vue) and Cheerio (for Astro/HTML) to structurally read your components. This guarantees zero code corruption on conditional interpolations.
+*   **Intermediate Bytecode for Semantic Naming:** The hashes you see injected into your code (e.g., `class="aumic-rs-1b3a"`) **are NOT the final output**. They act as an intermediate *bytecode*. AUM-IC offers an **AI Semantic Naming** engine (via Ollama or Claude) that reads your `aumic-lock.json` and automatically translates these hashes into pure, maintainable semantic CSS (e.g., `.dashboard-card`). It is an automated bridge back to traditional CSS.
+*   **Dynamic Classes Management (clsx, twMerge):** If a class cannot be deterministically resolved at compile time (e.g., `<div class={\`bg-${color}-500\`}>`), the static analyzer safely ignores it and flags it in the simulation report for developer review.
+
+## 🥊 AUM-IC vs Tailwind v4
+
+Tailwind v4 introduced monumental improvements in compilation speed (Oxide engine) and CSS-first configuration. So why use AUM-IC?
+
+Tailwind v4 solves performance, but it **DOES NOT solve Vendor Lock-in or HTML Soup**.
+If you use v4, your HTML code remains strictly coupled to a proprietary Domain-Specific Language (DSL). AUM-IC Tailwind Killer does not compete on compilation speed; its sole objective is **Architectural Independence (Zero Vendor Lock-in)**. It returns full control to you via clean, semantic HTML and standard CSS that will outlive any frontend framework trend.
+
+## ⚠️ Limitations and Ideal Use Cases
+
+*   **Not recommended for:** Projects highly dependent on fully dynamic classes constructed at runtime (string interpolation) without exhaustive manual auditing. If your project has thousands of runtime logic branches for styles, you will need a gradual migration approach.
+*   **Highly recommended for:** Freezing technical debt, standardizing monorepos, protecting UI Intellectual Property for commercial licensing, and preparing architectures for 10+ year maintenance lifecycles.
+
 ## ❓ FAQ
 
 **Does this break Tailwind pseudo-classes like `hover:`, `focus:`, `md:`?**
@@ -400,4 +421,4 @@ For organizations with large-scale monorepos, **INGENIERÍA CREATIVA Y DESARROLL
 
 ---
 
-> Developed under the technological doctrine of **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.** Excellence, Determinism and Zero-Trust.
+> Developed under the technological standard of **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.** Excellence, Determinism and Zero-Trust.
