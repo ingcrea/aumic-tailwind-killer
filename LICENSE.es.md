@@ -1,9 +1,9 @@
-> 🌐 **Navegación:** 🇺🇸 [Read Official Text in English](./LICENSE.md) &nbsp;|&nbsp; 🇲🇽 [Leer Resumen en Español](./LICENSE.es.md)
+> 🌐 **Navegación:** 🇺🇸 [Read Official Text in English](./LICENSE) &nbsp;|&nbsp; 🇲🇽 [Leer Resumen en Español](./LICENSE.es.md)
 
 # 📜 Licencia GNU AGPL v3 (Resumen en Español)
 
 > **⚠️ AVISO LEGAL IMPORTANTE:** 
-> La Free Software Foundation establece que la única versión legalmente vinculante de esta licencia es el **texto original en inglés**. Este documento es un resumen informativo (Human-Readable) para ayudar a la comunidad hispanohablante a entender sus derechos y obligaciones. Para cualquier disputa o validación legal, refiérase exclusivamente al archivo [LICENSE.md](./LICENSE.md).
+> La Free Software Foundation establece que la única versión legalmente vinculante de esta licencia es el **texto original en inglés**. Este documento es un resumen informativo (Human-Readable) para ayudar a la comunidad hispanohablante a entender sus derechos y obligaciones. Para cualquier disputa o validación legal, refiérase exclusivamente al archivo [LICENSE](./LICENSE).
 
 ---
 

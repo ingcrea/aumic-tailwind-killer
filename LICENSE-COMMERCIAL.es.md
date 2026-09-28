@@ -4,7 +4,7 @@
 
 **AUM-IC Tailwind Killer** opera bajo un **Modelo de Licencia Dual**:
 
-1. **GNU AGPL v3 (Open Source):** Gratis para uso personal, proyectos educativos y aplicaciones open-source, siempre que se cumplan los términos *copyleft* de la AGPL v3 (lo cual incluye publicar tu código fuente si distribuyes u ofreces el software como un servicio de red). Ver [LICENSE.md](./LICENSE.md).
+1. **GNU AGPL v3 (Open Source):** Gratis para uso personal, proyectos educativos y aplicaciones open-source, siempre que se cumplan los términos *copyleft* de la AGPL v3 (lo cual incluye publicar tu código fuente si distribuyes u ofreces el software como un servicio de red). Ver [LICENSE](./LICENSE).
 2. **Licencia Comercial:** Para organizaciones que desean embeber, modificar u ofrecer AUM-IC como servicio dentro de productos propietarios y de código cerrado, sin estar sujetos a las obligaciones de la AGPL v3.
 
 ---
