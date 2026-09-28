@@ -8,7 +8,7 @@
 [![DuckDB Powered](https://img.shields.io/badge/powered%20by-DuckDB-yellow?style=flat-square)](https://duckdb.org)
 [![Tailwind v1-v4](https://img.shields.io/badge/Tailwind-v1%20%7C%20v2%20%7C%20v3%20%7C%20v4%20Oxide-38bdf8?style=flat-square)](https://tailwindcss.com)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-339933?style=flat-square)](https://nodejs.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
 
 **AUM-IC Tailwind Killer** is not just a CLI orchestrator — it is the technical manifestation of a design doctrine. It is named after the **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)** standard: a philosophy built to restore sanity, absolute control and infinite scalability to software engineers.
 
@@ -378,9 +378,12 @@ For major changes (new modes, new AI providers, new framework support), open an 
 
 ---
 
-## 🏢 Enterprise Support & Licensing
+## 🏢 Enterprise Support & Dual-Licensing
 
-**AUM-IC Tailwind Killer** is Open Source (MIT) — free for personal and commercial use.
+**AUM-IC Tailwind Killer** operates under a **Dual-License Model**:
+
+1. **Open Source:** Free under the [AGPL v3 License](./LICENSE) for open source, personal, or non-commercial projects.
+2. **Commercial:** Proprietary licensing for organizations embedding AUM-IC in closed-source products, SaaS platforms, or internal enterprise workflows. See [LICENSE-COMMERCIAL.md](./LICENSE-COMMERCIAL.md) for details.
 
 For organizations with large-scale monorepos, **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)** offers:
 
