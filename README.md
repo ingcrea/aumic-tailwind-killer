@@ -110,7 +110,7 @@ npx @ingcrea/aumic-tailwind-killer -m restore -t ./
 Para garantizar la seguridad de tu código fuente, AUM-IC no usa simples reemplazos de texto (Regex). Utiliza un pipeline de compilación avanzado:
 
 1. **Reconocimiento & Pre-Flight:** Validamos exhaustivamente el sistema de archivos, ignorando estrictamente agujeros negros (`node_modules`, `.git`, `dist`) y asegurando que tu rama de Git esté limpia.
-2. **Extracción Paralela (Node Worker Threads + AST):** Usando `piscina` (hilos de trabajo en Node) escaneamos miles de archivos en paralelo. Utilizamos **Babel** y **Cheerio** para parsear el Árbol de Sintaxis Abstracta (AST) de tus componentes React/Astro, mutando el código de forma quirúrgica sin romper tu lógica de JavaScript.
+2. **Extracción Paralela (Node Worker Threads + AST):** Usando ``piscina`` (hilos de trabajo en Node) escaneamos miles de archivos en paralelo. Utilizamos **Babel** y **Cheerio** para parsear el Árbol de Sintaxis Abstracta (AST) de tus componentes React/Astro, mutando el código de forma quirúrgica sin romper tu lógica de JavaScript.
 3. **Criptografía de Nomenclatura:** Se ejecuta la deduplicación masiva asignando hashes deterministas (`aumic-rs-[hash]`). Si una utilidad se usa 5,000 veces, solo se genera un hash.
 4. **Motor Multi-Level JIT Cache:** 
    - Consulta rápida a la L1 (DuckDB) para resolver utilidades estáticas.
