@@ -1021,8 +1021,11 @@ async function run(): Promise<void> {
             const content = await fs.readFile(file, 'utf-8');
             try {
                 const { newCode } = astEngine.processFrameworkFile(content, file, (twClass) => {
-                    return lockData[twClass] || twClass;
-                });
+                    // Dividimos por si hay múltiples hashes en el mismo string
+                    const classes = twClass.split(" ");
+                    const restored = classes.map(c => lockData[c] || c).join(" ");
+                    return restored;
+                }, true);
                 if (newCode !== content) {
                     await fs.writeFile(file, newCode, 'utf-8');
                     restoredCount++;

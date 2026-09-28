@@ -14,18 +14,18 @@ export class AstInterceptor {
      * e intercepta todos los StringLiterals dentro, sin importar su nivel 
      * de anidación o lógica condicional (ternarios, arrays, etc).
      */
-    public processFrameworkFile(code: string, fileName: string, replacerFn: (twClass: string) => string): ASTProcessResult {
+    public processFrameworkFile(code: string, fileName: string, replacerFn: (twClass: string) => string, isRestore: boolean = false): ASTProcessResult {
         const ext = fileName.split('.').pop()?.toLowerCase();
         const jsExtensions = ['jsx', 'tsx', 'js', 'ts'];
         
         if (jsExtensions.includes(ext || '')) {
-            return this.processWithBabel(code, replacerFn);
+            return this.processWithBabel(code, replacerFn, isRestore);
         } else {
-            return this.processWithUniversalRegex(code, replacerFn);
+            return this.processWithUniversalRegex(code, replacerFn, isRestore);
         }
     }
 
-    private processWithUniversalRegex(code: string, replacerFn: (twClass: string) => string): ASTProcessResult {
+    private processWithUniversalRegex(code: string, replacerFn: (twClass: string) => string, isRestore: boolean = false): ASTProcessResult {
         const extracted = new Set<string>();
         // Regex letal que captura class="...", className='...', class:list={`...`} en cualquier motor de plantillas (Jinja, Blade, Tera, HTML)
         const classRegex = /(class|className|class:list)\s*(=|:)\s*(["'`])(.*?)\3/gs;
@@ -37,7 +37,7 @@ export class AstInterceptor {
         while ((match = classRegex.exec(code)) !== null) {
             const classString = match[4];
             const cleanStr = classString.replace(/\s+/g, ' ').trim();
-            if (cleanStr && !cleanStr.includes('aumic-')) {
+            if (cleanStr && (isRestore || !cleanStr.includes('aumic-'))) {
                 extracted.add(cleanStr);
             }
         }
@@ -45,7 +45,7 @@ export class AstInterceptor {
         // Fase 2: Mutación directa
         newCode = code.replace(classRegex, (fullMatch, attr, separator, quote, classString) => {
             const cleanStr = classString.replace(/\s+/g, ' ').trim();
-            if (!cleanStr || cleanStr.includes('aumic-')) return fullMatch;
+            if (!cleanStr || (!isRestore && cleanStr.includes('aumic-'))) return fullMatch;
             const newClass = replacerFn(cleanStr);
             return `${attr}${separator}${quote}${newClass}${quote}`;
         });
@@ -53,7 +53,7 @@ export class AstInterceptor {
         return { newCode, extractedClasses: Array.from(extracted) };
     }
 
-    private processWithBabel(code: string, replacerFn: (twClass: string) => string): ASTProcessResult {
+    private processWithBabel(code: string, replacerFn: (twClass: string) => string, isRestore: boolean = false): ASTProcessResult {
         const ast = parse(code, {
             sourceType: 'module',
             plugins: ['jsx', 'typescript']
@@ -70,7 +70,7 @@ export class AstInterceptor {
                         StringLiteral(strPath: any) {
                             const originalStr = strPath.node.value;
                             const cleanStr = originalStr.replace(/\s+/g, ' ').trim();
-                            if (cleanStr && !cleanStr.includes('aumic-')) {
+                            if (cleanStr && (isRestore || !cleanStr.includes('aumic-'))) {
                                 extracted.add(cleanStr);
                                 strPath.node.value = replacerFn(cleanStr);
                             }
@@ -78,7 +78,7 @@ export class AstInterceptor {
                         TemplateElement(tplPath: any) {
                             const originalRaw = tplPath.node.value.raw;
                             const cleanStr = originalRaw.replace(/\s+/g, ' ').trim();
-                            if (cleanStr && !cleanStr.includes('aumic-')) {
+                            if (cleanStr && (isRestore || !cleanStr.includes('aumic-'))) {
                                 extracted.add(cleanStr);
                                 tplPath.node.value.raw = replacerFn(cleanStr);
                                 tplPath.node.value.cooked = tplPath.node.value.raw;
@@ -94,7 +94,7 @@ export class AstInterceptor {
                         StringLiteral(strPath: any) {
                             const originalStr = strPath.node.value;
                             const cleanStr = originalStr.replace(/\s+/g, ' ').trim();
-                            if (cleanStr && !cleanStr.includes('aumic-')) {
+                            if (cleanStr && (isRestore || !cleanStr.includes('aumic-'))) {
                                 extracted.add(cleanStr);
                                 strPath.node.value = replacerFn(cleanStr);
                             }
@@ -102,7 +102,7 @@ export class AstInterceptor {
                         TemplateElement(tplPath: any) {
                             const originalRaw = tplPath.node.value.raw;
                             const cleanStr = originalRaw.replace(/\s+/g, ' ').trim();
-                            if (cleanStr && !cleanStr.includes('aumic-')) {
+                            if (cleanStr && (isRestore || !cleanStr.includes('aumic-'))) {
                                 extracted.add(cleanStr);
                                 tplPath.node.value.raw = replacerFn(cleanStr);
                                 tplPath.node.value.cooked = tplPath.node.value.raw;
