@@ -34,11 +34,12 @@
     "@types/node": "^20.11.20",
     "typescript": "^5.3.3"
   },
-  "author": "IngenierÃ­a Creativa <soporte@ingcrea.com> (https://ingcrea.com)",
+  "author": "Ingeniería Creativa <soporte@ingcrea.com> (https://ingcrea.com)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ingcrea/aumic-tailwind-killer.git"
   },
+  "license": "AGPL-3.0-or-later",
   "keywords": [
     "tailwind",
     "css",
