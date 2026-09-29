@@ -1,6 +1,6 @@
-﻿# âš”ï¸ AUM-IC Tailwind Killer
+# ⚔️ AUM-IC Tailwind Killer
 
-> ðŸŒ **Navigation:** ðŸ‡²ðŸ‡½ [Leer en EspaÃ±ol](./README.es.md) &nbsp;|&nbsp; ðŸ“œ [Manifesto (EN)](./MANIFEST.md) &nbsp;|&nbsp; ðŸ“œ [Manifiesto (ES)](./MANIFEST.es.md)
+> 🌐 **Navigation:** 🇲🇽 [Leer en Español](./README.es.md) &nbsp;|&nbsp; 📜 [Manifesto (EN)](./MANIFEST.md) &nbsp;|&nbsp; 📜 [Manifiesto (ES)](./MANIFEST.es.md)
 
 [![version](https://img.shields.io/badge/version-4.1.3-crimson?style=flat-square)](https://www.npmjs.com/package/@ingcrea/aumic-tailwind-killer)
 [![Stars](https://img.shields.io/github/stars/ingcrea/aumic-tailwind-killer?style=flat-square&color=gold)](https://github.com/ingcrea/aumic-tailwind-killer/stargazers)
@@ -10,15 +10,15 @@
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0-339933?style=flat-square)](https://nodejs.org)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
 
-**AUM-IC Tailwind Killer** is not just a CLI orchestrator â€” it is the technical manifestation of a design standard. It is named after the **Arquitectura de Universos Multidimensionales de IngenierÃ­a Creativa (AUM-IC)** standard: a philosophy built to restore sanity, absolute control and infinite scalability to software engineers.
+**AUM-IC Tailwind Killer** is not just a CLI orchestrator — it is the technical manifestation of a design standard. It is named after the **Arquitectura de Universos Multidimensionales de Ingeniería Creativa (AUM-IC)** standard: a philosophy built to restore sanity, absolute control and infinite scalability to software engineers.
 
-Designed under the architectural rigor of **INGENIERÃA CREATIVA Y DESARROLLOS TECNOLÃ“GICOS S.A.S. (IngCrea)**, this high-performance "Tailwind Killer" audits, extracts, compiles (via JIT) and purges your codebase in seconds â€” transmuting the chaos of utility classes into an obfuscated, standardized, dependency-free ecosystem (Zero-Bloat) powered by an implacable *Multi-Level JIT Cache (DuckDB + Node.js)* architecture with universal AST interceptors.
+Designed under the architectural rigor of **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)**, this high-performance "Tailwind Killer" audits, extracts, compiles (via JIT) and purges your codebase in seconds — transmuting the chaos of utility classes into an obfuscated, standardized, dependency-free ecosystem (Zero-Bloat) powered by an implacable *Multi-Level JIT Cache (DuckDB + Node.js)* architecture with universal AST interceptors.
 
 ---
 
-## âš¡ Quick Start (60 seconds)
+## ⚡ Quick Start (60 seconds)
 
-> **Prerequisites:** Node.js >= 18.0 Â· No extra system installations required. DuckDB is bundled.
+> **Prerequisites:** Node.js >= 18.0 · No extra system installations required. DuckDB is bundled.
 
 ```bash
 # 1. Audit your project without touching any file (recommended first step)
@@ -35,7 +35,7 @@ npx @ingcrea/aumic-tailwind-killer -m restore -t ./my-project
 
 ---
 
-## âš¡ Why AUM-IC Tailwind Killer? (The Pain Cure)
+## ⚡ Why AUM-IC Tailwind Killer? (The Pain Cure)
 
 Debates in global software architecture forums expose universal complaints about Tailwind CSS at scale. AUM-IC Tailwind Killer was forged to annihilate exactly those pains:
 
@@ -43,39 +43,39 @@ Debates in global software architecture forums expose universal complaints about
    The #1 developer complaint. Components flooded with kilometer-long strings (`class="flex items-center justify-between p-4 bg-white shadow-md..."`) that destroy readability. AUM-IC transmutes that toxic chain into an elegant, clean, obfuscated hash (`class="aumic-rs-1b3a"`). We give your DOM its visual purity back.
 
 2. **Vendor Lock-In Liberation (The Escape Hatch):**
-   CTOs dread tying a massive project to third-party framework syntax that could change or become obsolete. With AUM-IC Tailwind Killer, **you are no longer Tailwind's slave**. Build fast with utilities â€” when you ship to production, our engine physically purges it from your `package.json` and extracts a standard, framework-agnostic `.css` file. You reclaim code sovereignty.
+   CTOs dread tying a massive project to third-party framework syntax that could change or become obsolete. With AUM-IC Tailwind Killer, **you are no longer Tailwind's slave**. Build fast with utilities — when you ship to production, our engine physically purges it from your `package.json` and extracts a standard, framework-agnostic `.css` file. You reclaim code sovereignty.
 
 3. **Architectural Restoration (Separation of Concerns):**
    Purists hate mixing structure and design in the same line. AUM-IC lets you enjoy Tailwind's speed in development, but in production our orchestrator extracts design into a deterministic CSS ecosystem, restoring the sacred boundary between your logic and your styles.
 
 4. **Obfuscation, Collision Prevention and AI Semantic Naming:**
-   We don't obfuscate only for anti-scraping security. By generating mathematical hashes (`aumic-rs-[hash]`), we **unify tags and guarantee zero style collisions** after a massive migration. AUM-IC also integrates an optional **AI Semantic Naming** feature (locally via *Ollama* or remotely via *Claude, Gemini, DeepSeek, Codex*). Thanks to our deduplication algorithm, the AI **only processes UNIQUE combinations** â€” never your full source code. This saves millions of tokens and shields your privacy.
+   We don't obfuscate only for anti-scraping security. By generating mathematical hashes (`aumic-rs-[hash]`), we **unify tags and guarantee zero style collisions** after a massive migration. AUM-IC also integrates an optional **AI Semantic Naming** feature (locally via *Ollama* or remotely via *Claude, Gemini, DeepSeek, Codex*). Thanks to our deduplication algorithm, the AI **only processes UNIQUE combinations** — never your full source code. This saves millions of tokens and shields your privacy.
 
 5. **Extreme Performance (Zero-Bloat Build Time):**
-   Eliminating Tailwind's massive engine from your CI/CD pipelines dramatically accelerates build times for Next.js, Astro, and Vite â€” saving real server resources.
+   Eliminating Tailwind's massive engine from your CI/CD pipelines dramatically accelerates build times for Next.js, Astro, and Vite — saving real server resources.
 
 ---
 
-## ðŸ†š How Does It Compare?
+## 🆚 How Does It Compare?
 
 | Feature | AUM-IC Tailwind Killer | PurgeCSS | UnoCSS | vanilla-extract | Manual Migration |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Removes unused CSS** | âœ… | âœ… | âœ… | âœ… | âœ… |
-| **Obfuscates class names** | âœ… | âŒ | âŒ | Partial | âŒ |
-| **Zero-Bloat (removes Tailwind dep)** | âœ… | âŒ | âŒ | âœ… | âœ… |
-| **Fully automated migration** | âœ… | âŒ | âŒ | âŒ | âŒ |
-| **Rollback / Undo** | âœ… | âŒ | âŒ | âŒ | âŒ |
-| **AST (no regex hacks)** | âœ… | âŒ | N/A | N/A | N/A |
-| **Supports v1 / v2 / v3 / v4 Oxide** | âœ… | Partial | âœ… | N/A | Manual |
-| **AI Semantic Naming** | âœ… | âŒ | âŒ | âŒ | âŒ |
-| **Offline / Air-Gapped** | âœ… | âœ… | âœ… | âœ… | âœ… |
-| **Prevents CSS collisions post-migration** | âœ… | âŒ | âŒ | âœ… | Manual |
+| **Removes unused CSS** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Obfuscates class names** | ✅ | ❌ | ❌ | Partial | ❌ |
+| **Zero-Bloat (removes Tailwind dep)** | ✅ | ❌ | ❌ | ✅ | ✅ |
+| **Fully automated migration** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Rollback / Undo** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **AST (no regex hacks)** | ✅ | ❌ | N/A | N/A | N/A |
+| **Supports v1 / v2 / v3 / v4 Oxide** | ✅ | Partial | ✅ | N/A | Manual |
+| **AI Semantic Naming** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Offline / Air-Gapped** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Prevents CSS collisions post-migration** | ✅ | ❌ | ❌ | ✅ | Manual |
 
 > **Summary:** PurgeCSS only removes dead code. UnoCSS is a framework, not a migrator. vanilla-extract requires a full manual rewrite. AUM-IC Tailwind Killer is the only tool that **automates the complete escape** from Tailwind with safety, reversibility and zero external dependencies.
 
 ---
 
-## ðŸ¦– Architecture v4.1.3: Multi-Level JIT Cache
+## 🦖 Architecture v4.1.3: Multi-Level JIT Cache
 
 AUM-IC operates under a two-level cache architecture powered 100% by Node.js and analytical databases:
 
@@ -90,76 +90,76 @@ AUM-IC operates under a two-level cache architecture powered 100% by Node.js and
 
 ---
 
-## ðŸ§  5-Phase Pipeline (The Transmutation Engine)
+## 🧠 5-Phase Pipeline (The Transmutation Engine)
 
 ```
  Your Project (source code)
-        â”‚
-        â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  PHASE 1 â”€ Reconnaissance & Pre-Flight                    â”‚
-â”‚  Validates Git status, permissions, excludes              â”‚
-â”‚  node_modules / .git / dist                               â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                        â”‚
-                        â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  PHASE 2 â”€ Parallel Extraction (AST + Piscina Threads)    â”‚
-â”‚  Babel/Cheerio parse JSX/Astro/Vue/HTML surgically        â”‚
-â”‚  Extracts classes â†’ Deduplicates â†’ Unique combinations    â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                        â”‚
-                        â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  PHASE 3 â”€ Nomenclature Cryptography                      â”‚
-â”‚  Deterministic hashes aumic-rs-[hash] per combination     â”‚
-â”‚  5,000 repetitions of one class = 1 single hash in RAM    â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-           â”‚                            â”‚
-           â–¼                            â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  L1 Cache (DuckDB)   â”‚   â”‚  L2 Cache (Dynamic JIT)        â”‚
-â”‚  26,000+ classes     â”‚   â”‚  Local tailwindcss compiler    â”‚
-â”‚  O(1) Â· Offline      â”‚   â”‚  For dynamic classes w-[Xpx]   â”‚
-â”‚  Hit Rate: 99.2%     â”‚   â”‚  Respects your installed ver.  â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-           â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                        â”‚
-                        â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  PHASE 4 â”€ Synthesis & Output                             â”‚
-â”‚  Pure unified CSS Â· aumic-lock.json (rollback map)        â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                        â”‚
-                        â–¼
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  PHASE 5 â”€ Total Eradication                              â”‚
-â”‚  Purges Tailwind from package.json Â· Rewrites components  â”‚
-â”‚  Your code is free, clean and sovereign.                  â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+        │
+        ▼
+┌───────────────────────────────────────────────────────────┐
+│  PHASE 1 ─ Reconnaissance & Pre-Flight                    │
+│  Validates Git status, permissions, excludes              │
+│  node_modules / .git / dist                               │
+└───────────────────────┬───────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  PHASE 2 ─ Parallel Extraction (AST + Piscina Threads)    │
+│  Babel/Cheerio parse JSX/Astro/Vue/HTML surgically        │
+│  Extracts classes → Deduplicates → Unique combinations    │
+└───────────────────────┬───────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  PHASE 3 ─ Nomenclature Cryptography                      │
+│  Deterministic hashes aumic-rs-[hash] per combination     │
+│  5,000 repetitions of one class = 1 single hash in RAM    │
+└──────────┬────────────────────────────┬───────────────────┘
+           │                            │
+           ▼                            ▼
+┌──────────────────────┐   ┌────────────────────────────────┐
+│  L1 Cache (DuckDB)   │   │  L2 Cache (Dynamic JIT)        │
+│  26,000+ classes     │   │  Local tailwindcss compiler    │
+│  O(1) · Offline      │   │  For dynamic classes w-[Xpx]   │
+│  Hit Rate: 99.2%     │   │  Respects your installed ver.  │
+└──────────┬───────────┘   └────────────────┬───────────────┘
+           └────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  PHASE 4 ─ Synthesis & Output                             │
+│  Pure unified CSS · aumic-lock.json (rollback map)        │
+└───────────────────────┬───────────────────────────────────┘
+                        │
+                        ▼
+┌───────────────────────────────────────────────────────────┐
+│  PHASE 5 ─ Total Eradication                              │
+│  Purges Tailwind from package.json · Rewrites components  │
+│  Your code is free, clean and sovereign.                  │
+└───────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ðŸ”„ Before & After: What Your Code Looks Like
+## 🔄 Before & After: What Your Code Looks Like
 
-### HTML / JSX â€” Before
+### HTML / JSX — Before
 ```html
 <div class="flex items-center justify-between p-4 bg-white shadow-md rounded-xl border border-gray-200">
   <span class="text-sm font-semibold text-gray-800">Dashboard</span>
 </div>
 ```
 
-### HTML / JSX â€” After
+### HTML / JSX — After
 ```html
 <div class="aumic-rs-1b3a">
   <span class="aumic-rs-2c4f">Dashboard</span>
 </div>
 ```
 
-### Generated CSS â€” After
+### Generated CSS — After
 ```css
-/* aumic-output.css â€” Pure CSS. No framework. No runtime. No dependencies. */
+/* aumic-output.css — Pure CSS. No framework. No runtime. No dependencies. */
 .aumic-rs-1b3a {
   display: flex;
   align-items: center;
@@ -181,7 +181,7 @@ AUM-IC operates under a two-level cache architecture powered 100% by Node.js and
 
 ---
 
-## ðŸ”’ The `aumic-lock.json` Map (Rollback & IA Schema)
+## 🔒 The `aumic-lock.json` Map (Rollback & IA Schema)
 
 Every transmutation generates an `aumic-lock.json` in your project root. This file is your **safety net and the bridge for AI semantic naming**. Its structure:
 
@@ -213,11 +213,11 @@ Every transmutation generates an `aumic-lock.json` in your project root. This fi
 }
 ```
 
-This map is what powers the `-m restore` rollback â€” and what the AI semantic naming engine reads to produce human-readable names **without ever seeing your source code**.
+This map is what powers the `-m restore` rollback — and what the AI semantic naming engine reads to produce human-readable names **without ever seeing your source code**.
 
 ---
 
-## ðŸš€ Installation
+## 🚀 Installation
 
 > **No extra system dependencies required.** DuckDB is bundled inside the package. Works on macOS, Linux, and Windows (Node.js >= 18.0).
 
@@ -232,10 +232,10 @@ aumic-tailwind-killer -m local -t ./my-project
 
 ---
 
-## ðŸ›  Usage Modes
+## 🛠 Usage Modes
 
 ### 1. Simulate Mode (Dry-Run)
-Audit your project â€” see how many Tailwind classes you use and preview the impact **without touching a single file**.
+Audit your project — see how many Tailwind classes you use and preview the impact **without touching a single file**.
 ```bash
 npx @ingcrea/aumic-tailwind-killer -m simulate -t ./
 ```
@@ -273,21 +273,21 @@ npx @ingcrea/aumic-tailwind-killer -m local -t ./ --ai gemini --ai-key AIza...
 
 ---
 
-## âš™ï¸ CLI Options
+## ⚙️ CLI Options
 
 | Short | Long | Description | Required |
 | :--- | :--- | :--- | :--- |
 | `-m` | `--mode` | Operation mode: `simulate`, `local`, `restore`. | **Yes** |
 | `-t` | `--target` | Path to the project directory. | **Yes** |
 | `-s` | `--scope` | Glob pattern to restrict mutation to specific files. | No |
-| â€” | `--ai` | AI provider for semantic naming: `ollama`, `claude`, `gemini`, `deepseek`, `codex`. | No |
-| â€” | `--ai-model` | Specific model name (e.g. `llama3`, `claude-3-5-sonnet`). | No |
-| â€” | `--ai-key` | Remote provider API Key (not required for `ollama`). | No |
-| â€” | `--ai-base-url` | Custom Ollama base URL (default: `http://localhost:11434`). | No |
+| — | `--ai` | AI provider for semantic naming: `ollama`, `claude`, `gemini`, `deepseek`, `codex`. | No |
+| — | `--ai-model` | Specific model name (e.g. `llama3`, `claude-3-5-sonnet`). | No |
+| — | `--ai-key` | Remote provider API Key (not required for `ollama`). | No |
+| — | `--ai-base-url` | Custom Ollama base URL (default: `http://localhost:11434`). | No |
 
 ---
 
-## ðŸ“Š Benchmarks
+## 📊 Benchmarks
 
 Measured on a Next.js monorepo with **1,200 files** and **48,000 unique Tailwind classes** (MacBook Pro M2, 16GB RAM):
 
@@ -301,34 +301,31 @@ Measured on a Next.js monorepo with **1,200 files** and **48,000 unique Tailwind
 
 ---
 
-## ðŸ–¥ï¸ Console Output Preview
+## 🖥️ Console Output Preview
 
 ```
-â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-â•‘  âš”ï¸  AUM-IC Tailwind Killer v4.1.3                    â•‘
-â•‘  Powered by DuckDB  â€¢  IngCrea Â®                      â•‘
-â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+╔════════════════════════════════════════════════════════╗
+║  ⚔️  AUM-IC Tailwind Killer v4.1.3                    ║
+║  Powered by DuckDB  •  IngCrea ®                      ║
+╚════════════════════════════════════════════════════════╝
 
-[âœ”] PRE-FLIGHT  Clean Git branch. Filesystem validated.
-[âš¡] SCAN        Scanning 1,247 files (Piscina Worker Threads: 8)...
-[ðŸ”Ž] EXTRACT    48,312 classes detected. Deduplicating...
-[ðŸš€] L1 CACHE   DuckDB resolved 47,924 classes in O(1)  [Hit Rate: 99.2%]
-[âš™ï¸] L2 CACHE   Local JIT compiled 388 dynamic classes  [w-[320px], text-[#FF0000]...]
-[ðŸ›¡ï¸] HASH       Deterministic hashes: 48,312 -> 5,840 unique
-[ðŸ’¾] OUTPUT     aumic-output.css generated (127KB -> 78KB, -39%)
-[ðŸ”’] LOCK       aumic-lock.json written. Rollback available.
-[ðŸ’¥] PURGE      Tailwind CSS removed from package.json. Freedom!
+[✔] PRE-FLIGHT  Clean Git branch. Filesystem validated.
+[⚡] SCAN        Scanning 1,247 files (Piscina Worker Threads: 8)...
+[🔎] EXTRACT    48,312 classes detected. Deduplicating...
+[🚀] L1 CACHE   DuckDB resolved 47,924 classes in O(1)  [Hit Rate: 99.2%]
+[⚙️] L2 CACHE   Local JIT compiled 388 dynamic classes  [w-[320px], text-[#FF0000]...]
+[🛡️] HASH       Deterministic hashes: 48,312 -> 5,840 unique
+[💾] OUTPUT     aumic-output.css generated (127KB -> 78KB, -39%)
+[🔒] LOCK       aumic-lock.json written. Rollback available.
+[💥] PURGE      Tailwind CSS removed from package.json. Freedom!
 
-âœ” Zero-Bloat transmutation completed in 112ms.
+✔ Zero-Bloat transmutation completed in 112ms.
 ```
 
 ---
 
 
-## ðŸ§  Under the Hood: The Engineering
-
-### ðŸ›¡ï¸ Zero-Trust Execution (Enterprise Security)
-AUM-IC Tailwind Killer is built under a Zero-Trust security model. All system operations, file manipulation, and background processes are executed isolated from the system shell (strict prohibition of `exec`). This eradicates command injection vectors in SaaS and CI/CD environments, guaranteeing that code analysis is 100% secure even on untrusted repositories.
+## 🧠 Under the Hood: The Engineering
 
 AUM-IC Tailwind Killer is not a simple Regex script. It is a **Safe Static Analysis** tool designed for enterprise-grade monorepos:
 
@@ -336,22 +333,22 @@ AUM-IC Tailwind Killer is not a simple Regex script. It is a **Safe Static Analy
 *   **Intermediate Bytecode for Semantic Naming:** The hashes you see injected into your code (e.g., `class="aumic-rs-1b3a"`) **are NOT the final output**. They act as an intermediate *bytecode*. AUM-IC offers an **AI Semantic Naming** engine (via Ollama or Claude) that reads your `aumic-lock.json` and automatically translates these hashes into pure, maintainable semantic CSS (e.g., `.dashboard-card`). It is an automated bridge back to traditional CSS.
 *   **Dynamic Classes Management (clsx, twMerge):** If a class cannot be deterministically resolved at compile time (e.g., `<div class={\`bg-${color}-500\`}>`), the static analyzer safely ignores it and flags it in the simulation report for developer review.
 
-## ðŸ¥Š AUM-IC vs Tailwind v4
+## 🥊 AUM-IC vs Tailwind v4
 
 Tailwind v4 introduced monumental improvements in compilation speed (Oxide engine) and CSS-first configuration. So why use AUM-IC?
 
 Tailwind v4 solves performance, but it **DOES NOT solve Vendor Lock-in or HTML Soup**.
 If you use v4, your HTML code remains strictly coupled to a proprietary Domain-Specific Language (DSL). AUM-IC Tailwind Killer does not compete on compilation speed; its sole objective is **Architectural Independence (Zero Vendor Lock-in)**. It returns full control to you via clean, semantic HTML and standard CSS that will outlive any frontend framework trend.
 
-## âš ï¸ Limitations and Ideal Use Cases
+## ⚠️ Limitations and Ideal Use Cases
 
 *   **Not recommended for:** Projects highly dependent on fully dynamic classes constructed at runtime (string interpolation) without exhaustive manual auditing. If your project has thousands of runtime logic branches for styles, you will need a gradual migration approach.
 *   **Highly recommended for:** Freezing technical debt, standardizing monorepos, protecting UI Intellectual Property for commercial licensing, and preparing architectures for 10+ year maintenance lifecycles.
 
-## â“ FAQ
+## ❓ FAQ
 
 **Does this break Tailwind pseudo-classes like `hover:`, `focus:`, `md:`?**
-> No. The AST interceptor detects and preserves responsive and state modifiers. The final hash encapsulates the full selector: `hover:bg-red-500` â†’ `aumic-rs-a3f1` with its `:hover` rule intact in the output CSS.
+> No. The AST interceptor detects and preserves responsive and state modifiers. The final hash encapsulates the full selector: `hover:bg-red-500` → `aumic-rs-a3f1` with its `:hover` rule intact in the output CSS.
 
 **Can I use it alongside Tailwind or does it remove it completely?**
 > In Simulate mode (`-m simulate`), Tailwind is untouched. In Local mode (`-m local`), it is purged from `package.json`. You can revert everything at any time with `-m restore`.
@@ -366,7 +363,7 @@ If you use v4, your HTML code remains strictly coupled to a proprietary Domain-S
 > Yes. The L1 DuckDB cache contains the compiled dictionary for Tailwind v4 Oxide. The L2 Cache hijacks `@tailwindcss/vite` or the native binary as detected from your `package.json`.
 
 **What if I use CSS-in-JS (`styled-components`, `emotion`) without Tailwind?**
-> AUM-IC Tailwind Killer processes **Tailwind utility classes** in your component markup. If your project uses CSS-in-JS libraries *without* Tailwind classes in HTML/JSX attributes, there is nothing to transmute â€” the tool will simply report zero classes found. For **mixed projects** (Tailwind classes in some components + CSS-in-JS in others), AUM-IC processes only the Tailwind parts and leaves CSS-in-JS components completely untouched.
+> AUM-IC Tailwind Killer processes **Tailwind utility classes** in your component markup. If your project uses CSS-in-JS libraries *without* Tailwind classes in HTML/JSX attributes, there is nothing to transmute — the tool will simply report zero classes found. For **mixed projects** (Tailwind classes in some components + CSS-in-JS in others), AUM-IC processes only the Tailwind parts and leaves CSS-in-JS components completely untouched.
 
 **What if the migration fails mid-process?**
 > Phase 1 (Pre-Flight) runs before touching a single file and aborts immediately if it detects uncommitted Git changes, permission issues, or missing dependencies. If a failure occurs after Phase 1 begins writing, every modified file has a `.aumic-bak` backup copy that `--mode restore` uses to recover the exact original state. Your code is always recoverable.
@@ -376,18 +373,18 @@ If you use v4, your HTML code remains strictly coupled to a proprietary Domain-S
 
 ---
 
-## ðŸ—ºï¸ Roadmap
+## 🗺️ Roadmap
 
 | Version | Feature | Status |
 | :--- | :--- | :---: |
-| v4.1.3 | DuckDB L1 Cache Â· Parallel AST Â· Rollback Â· AI Naming | âœ… Stable |
-| v4.2.0 | Native Vite plugin Â· Turbopack integration | ðŸ”„ In development |
-| v4.3.0 | Svelte stable Â· Angular 17+ support | ðŸ“‹ Planned |
-| v5.0.0 | VS Code extension Â· Web audit dashboard | ðŸ“‹ Planned |
+| v4.1.3 | DuckDB L1 Cache · Parallel AST · Rollback · AI Naming | ✅ Stable |
+| v4.2.0 | Native Vite plugin · Turbopack integration | 🔄 In development |
+| v4.3.0 | Svelte stable · Angular 17+ support | 📋 Planned |
+| v5.0.0 | VS Code extension · Web audit dashboard | 📋 Planned |
 
 ---
 
-## ðŸ¤ Contributing
+## 🤝 Contributing
 
 Found a bug or want to add support for a new framework? Contributions are welcome.
 
@@ -402,31 +399,38 @@ For major changes (new modes, new AI providers, new framework support), open an 
 
 ---
 
-## ðŸ¢ Enterprise Support & Dual-Licensing
+## 🏢 Enterprise Support & Dual-Licensing
 
 **AUM-IC Tailwind Killer** operates under a **Dual-License Model**:
 
 1. **Open Source:** Free under the [AGPL v3 License](./LICENSE) for open source, personal, or non-commercial projects.
 2. **Commercial:** Proprietary licensing for organizations embedding AUM-IC in closed-source products, SaaS platforms, or internal enterprise workflows. See [LICENSE-COMMERCIAL.md](./LICENSE-COMMERCIAL.md) for details.
 
-For organizations with large-scale monorepos, **INGENIERÃA CREATIVA Y DESARROLLOS TECNOLÃ“GICOS S.A.S. (IngCrea)** offers:
+For organizations with large-scale monorepos, **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)** offers:
 
 | Service | Description |
 | :--- | :--- |
-| ðŸ” **Migration Audit** | Technical assessment, risk identification and transmutation plan for enterprise projects. |
-| âš¡ **Managed CI/CD Integration** | AUM-IC configured inside GitHub Actions, GitLab CI or Jenkins pipelines. |
-| ðŸ§  **On-Premise AI Naming** | Ollama deployment with specialized models on client infrastructure. Zero code exposure. |
-| ðŸ›¡ï¸ **SLA & Priority Support** | Dedicated channel, critical incident resolution in under 4 hours. |
+| 🔍 **Migration Audit** | Technical assessment, risk identification and transmutation plan for enterprise projects. |
+| ⚡ **Managed CI/CD Integration** | AUM-IC configured inside GitHub Actions, GitLab CI or Jenkins pipelines. |
+| 🧠 **On-Premise AI Naming** | Ollama deployment with specialized models on client infrastructure. Zero code exposure. |
+| 🛡️ **SLA & Priority Support** | Dedicated channel, critical incident resolution in under 4 hours. |
 
-> ### ðŸ“§ Enterprise Contact
+> ### 📧 Enterprise Contact
 > **contacto@ingcrea.com** &nbsp;|&nbsp; [ingcrea.com](https://ingcrea.com)
 > *Response within 24 business hours.*
 
 ---
 
-> Developed under the technological standard of **INGENIERÃA CREATIVA Y DESARROLLOS TECNOLÃ“GICOS S.A.S.** Excellence, Determinism and Zero-Trust.
+> Developed under the technological standard of **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.** Excellence, Determinism and Zero-Trust.
 
-### ðŸ›¡ï¸ Seguridad Zero-Trust y Arquitectura AUM-IC (v4.1.5)
-A partir de la versiÃ³n 4.1.5, el compilador AUM-IC Tailwind Killer ha sido reescrito desde cero utilizando nuestra propia **Arquitectura CÃ³smica AUM-IC (Ãtomos a Galaxias)**. 
-- **DesintegraciÃ³n del Monolito:** El nÃºcleo ha sido purificado en 6 capas de abstracciÃ³n (Ãtomos, MolÃ©culas, CÃ©lulas, Organismos, Ecosistemas y Galaxias), promoviendo mantenibilidad y separaciÃ³n de responsabilidades a niveles fractales.
-- **Modelo de EjecuciÃ³n Zero-Trust:** Hemos erradicado TODAS las instancias de child_process.exec y execSync. Ahora, toda ejecuciÃ³n nativa opera estrictamente bajo spawn/spawnSync puro, pasando los argumentos como arreglos inmutables y deshabilitando intÃ©rpretes de shell. Esto cierra definitivamente cualquier vector de Command Injection (OWASP A03:2021) en la herramienta. AUM-IC es intrÃ­nsecamente seguro por diseÃ±o.
+
+### 🛡️ Seguridad Zero-Trust y Arquitectura AUM-IC (v4.1.6)
+A partir de la versión 4.1.5, el compilador AUM-IC Tailwind Killer ha sido reescrito desde cero utilizando nuestra propia **Arquitectura Cósmica AUM-IC (Átomos a Galaxias)**. 
+- **Desintegración del Monolito:** El núcleo ha sido purificado en 6 capas de abstracción (Átomos, Moléculas, Células, Organismos, Ecosistemas y Galaxias), promoviendo mantenibilidad y separación de responsabilidades a niveles fractales.
+- **Modelo de Ejecución Zero-Trust:** Hemos erradicado TODAS las instancias de child_process.exec y execSync. Ahora, toda ejecución nativa opera estrictamente bajo spawn/spawnSync puro, pasando los argumentos como arreglos inmutables y deshabilitando intérpretes de shell. Esto cierra definitivamente cualquier vector de Command Injection (OWASP A03:2021) en la herramienta. AUM-IC es intrínsecamente seguro por diseño.
+
+
+### 🛡️ Seguridad Zero-Trust y Arquitectura AUM-IC (v4.1.6)
+A partir de la versión 4.1.5, el compilador AUM-IC Tailwind Killer ha sido reescrito desde cero utilizando nuestra propia **Arquitectura Cósmica AUM-IC (Átomos a Galaxias)**. 
+- **Desintegración del Monolito:** El núcleo ha sido purificado en 6 capas de abstracción (Átomos, Moléculas, Células, Organismos, Ecosistemas y Galaxias), promoviendo mantenibilidad y separación de responsabilidades a niveles fractales.
+- **Modelo de Ejecución Zero-Trust:** Hemos erradicado TODAS las instancias de child_process.exec y execSync. Ahora, toda ejecución nativa opera estrictamente bajo spawn/spawnSync puro, pasando los argumentos como arreglos inmutables y deshabilitando intérpretes de shell. Esto cierra definitivamente cualquier vector de Command Injection (OWASP A03:2021) en la herramienta. AUM-IC es intrínsecamente seguro por diseño.
