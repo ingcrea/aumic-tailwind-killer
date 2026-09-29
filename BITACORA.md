@@ -1,0 +1,4 @@
+# Bitácora y Registro de Decisiones Arquitectónicas (ADR)
+Proyecto: AUM-IC Tailwind Killer
+
+[2026-09-29T06:45:00Z] | Contexto: Necesidad de blindar el compilador contra Command Injections y aplicar dogfooding de nuestro propio estándar. | Decisión: Refactorización masiva de todo el núcleo del compilador hacia la arquitectura fractal AUM-IC (6 capas: Átomos a Galaxias) e implementación estricta del modelo de ejecución Zero-Trust (OWASP A03:2021). | Consecuencia: Se erradicó el monolito destructivo de 1600+ líneas, se remplazaron todas las llamadas `child_process.exec/execSync` por el uso estructurado de `spawn/spawnSync` previniendo shell expansions, y se añadieron JSDocs bilingües. El proyecto ahora es intrínsecamente seguro por diseño, más fácil de mantener, y documenta su postura defensiva públicamente.

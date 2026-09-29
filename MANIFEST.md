@@ -1,15 +1,15 @@
-# 🛡️ AUM-IC OPERATIONAL SECURITY MANIFESTO & PHILOSOPHY
+﻿# ðŸ›¡ï¸ AUM-IC OPERATIONAL SECURITY MANIFESTO & PHILOSOPHY
 
-> 🌐 **Navigation:** 🇲🇽 [Leer en Español](./MANIFEST.es.md) &nbsp;|&nbsp; 📖 [README (EN)](./README.md) &nbsp;|&nbsp; 📖 [README (ES)](./README.es.md)
+> ðŸŒ **Navigation:** ðŸ‡²ðŸ‡½ [Leer en EspaÃ±ol](./MANIFEST.es.md) &nbsp;|&nbsp; ðŸ“– [README (EN)](./README.md) &nbsp;|&nbsp; ðŸ“– [README (ES)](./README.es.md)
 
-> *"Software is not a product — it is a system of consciousness. Build with the precision of a Swiss watchmaker and the vision of a cosmic architect."*
-> — AUM-IC Standard, INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S.
+> *"Software is not a product â€” it is a system of consciousness. Build with the precision of a Swiss watchmaker and the vision of a cosmic architect."*
+> â€” AUM-IC Standard, INGENIERÃA CREATIVA Y DESARROLLOS TECNOLÃ“GICOS S.A.S.
 
 ---
 
 ## 1. AUM-IC Philosophy
 
-[AUM-IC](https://github.com/ingcrea/aum-ic) (Arquitectura de Universos Multidimensionales de Ingeniería Creativa — Architecture of Multidimensional Universes of Creative Engineering) is our internal standard for eradicating technical debt and restoring sanity to web development. Software is a fractal consciousness system; therefore, styles must be scalable, modular and respect a logical expansion hierarchy: **Atoms, Molecules, Organisms, Ecosystems and Universes**.
+[AUM-IC](https://github.com/ingcrea/aum-ic) (Arquitectura de Universos Multidimensionales de IngenierÃ­a Creativa â€” Architecture of Multidimensional Universes of Creative Engineering) is our internal standard for eradicating technical debt and restoring sanity to web development. Software is a fractal consciousness system; therefore, styles must be scalable, modular and respect a logical expansion hierarchy: **Atoms, Molecules, Organisms, Ecosystems and Universes**.
 
 ### 1.1. Pragmatism and Framework Liberation
 
@@ -23,7 +23,7 @@ We don't generate CSS by hand or guess styles. Our engine instantiates the nativ
 
 Delegating massive class naming to an AI file-by-file causes inconsistencies, CSS collision collapses and an absurd token expenditure. We solve this with the **Titanium Cache** (`aumic-lock.json`) and our deduplication algorithm.
 
-The engine forces a strict 1:1 mapping: if a card (`bg-white shadow-lg p-6 rounded-xl`) repeats 5,000 times in your monorepo, the system compresses it to a single mathematical combination. It is thanks to this unification architecture that we can safely integrate **AI Semantic Naming** (*Ollama, Claude, Codex, DeepSeek, Gemini*). By sending only the deduplicated dictionaries — never the full source code — we guarantee **zero style collisions**, save millions of processing tokens, and shield privacy (Zero-Trust): the company's intellectual property and business logic are never exposed to third-party servers.
+The engine forces a strict 1:1 mapping: if a card (`bg-white shadow-lg p-6 rounded-xl`) repeats 5,000 times in your monorepo, the system compresses it to a single mathematical combination. It is thanks to this unification architecture that we can safely integrate **AI Semantic Naming** (*Ollama, Claude, Codex, DeepSeek, Gemini*). By sending only the deduplicated dictionaries â€” never the full source code â€” we guarantee **zero style collisions**, save millions of processing tokens, and shield privacy (Zero-Trust): the company's intellectual property and business logic are never exposed to third-party servers.
 
 ### 1.4. Immutability (Zero-Trust)
 
@@ -38,37 +38,37 @@ Processing thousands of files in corporate monorepos demands deterministic speed
 
 ### 1.6. Operational Paranoia: The Cryptographic Search Bunker
 
-We know that as a senior engineer, you trust code and architecture — not marketing promises. If you assume (rightfully) that any modern CLI tool is extracting telemetry in the background or sending your proprietary code to a remote server for processing, this section is for you. We designed AUM-IC's matching mechanism under a strict **Operational Paranoia** standard.
+We know that as a senior engineer, you trust code and architecture â€” not marketing promises. If you assume (rightfully) that any modern CLI tool is extracting telemetry in the background or sending your proprietary code to a remote server for processing, this section is for you. We designed AUM-IC's matching mechanism under a strict **Operational Paranoia** standard.
 
 **How does AUM-IC find the exact relationship between your class and the CSS without compromising your machine?**
 
 ```
   Your .tsx / .astro / .vue file
-           │
-           │  [Babel/Cheerio AST — STATIC READ]
-           │  Your code is NEVER executed.
-           ▼
+           â”‚
+           â”‚  [Babel/Cheerio AST â€” STATIC READ]
+           â”‚  Your code is NEVER executed.
+           â–¼
   Extracted class list
   [ "bg-white", "p-4", "hover:shadow-lg", "w-[320px]" ]
-           │
-           │  [Mathematical deduplication in RAM]
-           ▼
+           â”‚
+           â”‚  [Mathematical deduplication in RAM]
+           â–¼
   Unique combinations (only these are processed)
-           │
-           ├──────────────────────────────────────────┐
-           │ Static class?                            │ Dynamic class?
-           ▼                                          ▼
-  ┌─────────────────────┐              ┌──────────────────────────┐
-  │  L1: DuckDB         │              │  L2: Local JIT           │
-  │  aumic-lexicon.duckdb│              │  tailwindcss from your   │
-  │  READ-ONLY · Offline│              │  node_modules            │
-  │  O(1) instant       │              │  Isolated · No network   │
-  └──────────┬──────────┘              └─────────────┬────────────┘
-             └─────────────────────────────────────────┘
-                                  │
-                                  │  [Everything happens in RAM]
-                                  │  Your code NEVER leaves your machine.
-                                  ▼
+           â”‚
+           â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+           â”‚ Static class?                            â”‚ Dynamic class?
+           â–¼                                          â–¼
+  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+  â”‚  L1: DuckDB         â”‚              â”‚  L2: Local JIT           â”‚
+  â”‚  aumic-lexicon.duckdbâ”‚              â”‚  tailwindcss from your   â”‚
+  â”‚  READ-ONLY Â· Offlineâ”‚              â”‚  node_modules            â”‚
+  â”‚  O(1) instant       â”‚              â”‚  Isolated Â· No network   â”‚
+  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+             â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                  â”‚
+                                  â”‚  [Everything happens in RAM]
+                                  â”‚  Your code NEVER leaves your machine.
+                                  â–¼
                         Pure CSS + aumic-lock.json
                         Memory destroyed upon completion.
 ```
@@ -98,14 +98,14 @@ Every contribution, modification or extension of AUM-IC Tailwind Killer must res
 
 | Framework / Technology | Supported Extensions | Min. Node.js | Status |
 | :--- | :--- | :---: | :---: |
-| **Astro SSR** | `.astro` | 18.0 | ✅ Stable |
-| **Next.js / React** | `.tsx`, `.jsx`, `.js` | 18.0 | ✅ Stable |
-| **Vue.js** | `.vue` | 18.0 | ✅ Stable |
-| **Python (Jinja2 / Django)** | `.html`, `.j2` | 18.0 | ✅ Stable |
-| **Pure HTML Templates** | `.html` | 18.0 | ✅ Stable |
-| **Monorepos with Turborepo** | Multiple frameworks | 20.0 | ✅ Stable |
-| **Svelte** | `.svelte` | 18.0 | 🔄 Beta |
-| **Angular 17+** | `.html`, `.ts` | 20.0 | 📋 Planned |
+| **Astro SSR** | `.astro` | 18.0 | âœ… Stable |
+| **Next.js / React** | `.tsx`, `.jsx`, `.js` | 18.0 | âœ… Stable |
+| **Vue.js** | `.vue` | 18.0 | âœ… Stable |
+| **Python (Jinja2 / Django)** | `.html`, `.j2` | 18.0 | âœ… Stable |
+| **Pure HTML Templates** | `.html` | 18.0 | âœ… Stable |
+| **Monorepos with Turborepo** | Multiple frameworks | 20.0 | âœ… Stable |
+| **Svelte** | `.svelte` | 18.0 | ðŸ”„ Beta |
+| **Angular 17+** | `.html`, `.ts` | 20.0 | ðŸ“‹ Planned |
 
 ---
 
@@ -116,7 +116,7 @@ This tool was built to operate inside corporate environments where source code i
 - **Zero telemetry:** There is no mechanism for reporting usage, errors or metrics to external servers. The source code is 100% auditable.
 - **Zero network dependencies at runtime:** Once installed, AUM-IC operates completely offline. The only internet connection occurs during the initial npm installation.
 - **Source code never leaves your machine:** AST analysis, deduplication and hash generation happen in local Node.js processes that terminate immediately upon task completion.
-- **Optional and Controlled AI:** Integration with AI APIs (Claude, Gemini, DeepSeek) is 100% optional and only sends *unique combination hashes* — never source code, variable names or business logic.
+- **Optional and Controlled AI:** Integration with AI APIs (Claude, Gemini, DeepSeek) is 100% optional and only sends *unique combination hashes* â€” never source code, variable names or business logic.
 
 **Want to verify it yourself?** You can audit exactly what is included in the package before installing it:
 
@@ -142,4 +142,15 @@ grep -r "fetch\|axios\|http\|https\|request" src/ --include="*.ts"
 
 ---
 
-> Designed under the architectural rigor of **INGENIERÍA CREATIVA Y DESARROLLOS TECNOLÓGICOS S.A.S. (IngCrea)**. Excellence, Determinism and Zero-Trust.
+> Designed under the architectural rigor of **INGENIERÃA CREATIVA Y DESARROLLOS TECNOLÃ“GICOS S.A.S. (IngCrea)**. Excellence, Determinism and Zero-Trust.
+
+
+## 7. SecDevOps and Zero-Trust Execution
+
+The AUM-IC standard dictates that no transmutation or analysis tool shall trust the runtime environment or user input (Zero-Trust).
+*   **Prohibition of Shell Interpreters:** The use of `exec()` or any commands delegating execution to the OS shell (e.g., `/bin/sh` or `cmd.exe`) is strictly prohibited. All child processes must be spawned via direct binary execution (`spawn`), passing arguments as immutable arrays.
+*   This policy definitively closes the door to Command Injection vulnerabilities, allowing AUM-IC tools to operate autonomously and securely in automated CI/CD pipelines (SaaS) over hostile repositories or untrusted code.
+### ðŸ›¡ï¸ Seguridad Zero-Trust y Arquitectura AUM-IC (v4.1.5)
+A partir de la versiÃ³n 4.1.5, el compilador AUM-IC Tailwind Killer ha sido reescrito desde cero utilizando nuestra propia **Arquitectura CÃ³smica AUM-IC (Ãtomos a Galaxias)**. 
+- **DesintegraciÃ³n del Monolito:** El nÃºcleo ha sido purificado en 6 capas de abstracciÃ³n (Ãtomos, MolÃ©culas, CÃ©lulas, Organismos, Ecosistemas y Galaxias), promoviendo mantenibilidad y separaciÃ³n de responsabilidades a niveles fractales.
+- **Modelo de EjecuciÃ³n Zero-Trust:** Hemos erradicado TODAS las instancias de child_process.exec y execSync. Ahora, toda ejecuciÃ³n nativa opera estrictamente bajo spawn/spawnSync puro, pasando los argumentos como arreglos inmutables y deshabilitando intÃ©rpretes de shell. Esto cierra definitivamente cualquier vector de Command Injection (OWASP A03:2021) en la herramienta. AUM-IC es intrÃ­nsecamente seguro por diseÃ±o.
