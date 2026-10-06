@@ -1,7 +1,7 @@
 {
   "name": "@ingcrea/aumic-tailwind-killer",
-  "version": "4.1.5",
-  "description": "Transpilador de Tailwind a CSS3 puro bajo est\u00c3\u00a1ndar AUM-IC",
+  "version": "4.3.1",
+  "description": "Transpilador de Tailwind a CSS3 puro bajo estándar AUM-IC",
   "main": "dist/index.js",
   "bin": {
     "aumic-tailwind-killer": "dist/6_galaxies/index.js"
@@ -35,7 +35,7 @@
     "@types/node": "^20.11.20",
     "typescript": "^5.3.3"
   },
-  "author": "Ingenier\u00c3\u00ada Creativa <soporte@ingcrea.com> (https://ingcrea.com)",
+  "author": "Ingeniería Creativa <contacto@ingcrea.com> (https://ingcrea.com)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ingcrea/aumic-tailwind-killer.git"
